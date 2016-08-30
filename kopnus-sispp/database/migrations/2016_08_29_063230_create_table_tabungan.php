@@ -20,6 +20,7 @@ class CreateTableTabungan extends Migration
             $table->string('alamat');
             $table->string('keluarahan');
             $table->string('kecamatan');
+            $table->string('nik');
             $table->string('tanggal_lahir');
             $table->string('tanggal_pendaftaran');
             $table->string('nama_ibu_kandung');

@@ -15,11 +15,12 @@
                     <div class="media-body">
                         {{-- MENGHITUNG JUMLAH PINJAMAN --}}
                         <center>
-                            @if((Auth::user()->status) =='belum-aktif')
-                                <h2>Akses Ditolak</h2><h4>Harap Aktivasi Terlebih dahulu</h4>
-                            @else
+                            @can('member-access')
+                                <h2>Hanya Admin</h2><h4>Yang dapat menggunakan fitur ini</h4>
+                            @endcan
+                            @can('admin-access')
                                 <h2>{{ App\Pinjaman::count() }}</h2><h4>Jumlah Pinjaman</h4>
-                            @endif
+                            @endcan
                         </center>
                     </div>
                 </div>
@@ -32,11 +33,12 @@
                     <div class="media-body">
                         {{-- MENGHITUNG JUMLAH SIMPANAN --}}
                         <center>
-                            @if((Auth::user()->status) =='belum-aktif')
-                                <h2>Akses Ditolak</h2><h4>Harap Aktivasi Terlebih dahulu</h4>
-                            @else
+                            @can('member-access')
+                                <h2>Hanya Admin</h2><h4>Yang dapat menggunakan fitur ini</h4>
+                            @endcan
+                            @can('admin-access')
                                 <h2>{{ App\Simpanan::count() }}</h2><h4>Jumlah Simpanan</h4>
-                            @endif
+                            @endcan
                         </center>
                     </div>
                 </div>
@@ -49,11 +51,12 @@
                     <div class="media-body">
                         {{-- MENGHITUNG JUMLAH SIMPANAN --}}
                         <center>
-                            @if((Auth::user()->status) =='belum-aktif')
-                                <h2>Akses Ditolak</h2><h4>Harap Aktivasi Terlebih dahulu</h4>
-                            @else
+                            @can('member-access')
+                                <h2>Hanya Admin</h2><h4>Yang dapat menggunakan fitur ini</h4>
+                            @endcan
+                            @can('admin-access')
                                 <h2>{{ App\Tabungan::count() }}</h2><h4>Jumlah Tabungan</h4>
-                            @endif
+                            @endcan
                         </center>
                     </div>
                 </div>
