@@ -17,8 +17,8 @@ class CreateTableDataPekerjaan extends Migration
             $table->integer('user_id');
             $table->string('pekerjaan');
             $table->string('pekerjaan_lain');
-            $table->string('penghasilan');
-            $table->string('pengeluaran');
+            $table->integer('penghasilan');
+            $table->integer('pengeluaran');
             $table->string('tempat_kerja');
             $table->string('jenis_pekerjaan');
             $table->string('alamat');
@@ -38,9 +38,9 @@ class CreateTableDataPekerjaan extends Migration
             $table->string('tujuan_pembukaan_rekening_lain');
             $table->string('transaksi_pengambilan');
             $table->string('transaksi_penyetoran');
-            $table->string('gaji_kotor');
-            $table->string('gaji_bersih');
-            $table->string('potongan_gaji_terakhir');
+            $table->integer('gaji_kotor');
+            $table->integer('gaji_bersih');
+            $table->integer('potongan_gaji_terakhir');
             $table->timestamps();
         });
     }

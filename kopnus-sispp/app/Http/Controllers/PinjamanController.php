@@ -22,7 +22,7 @@ class PinjamanController extends Controller
     /* Riwayat Pinjaman */
     public function riwayat(){
         $id = Auth::user()->id ;
-        $pinjaman = Pinjaman::where('user_id', '=', $id)->orderBy('id','desc')->paginate(5);
+        $pinjaman = Pinjaman::where('user_id', '=', $id)->orderBy('status','desc')->paginate(5);
         return view('pages.pinjaman.riwayat-pinjaman', compact('pinjaman'));
     }
 
@@ -67,7 +67,8 @@ class PinjamanController extends Controller
      */
     public function show($id)
     {
-        //
+        $pinjaman = Pinjaman::findOrFail($id);
+        return view('pages.pinjaman.show-pinjaman', compact('pinjaman'));
     }
 
     /**
@@ -78,7 +79,8 @@ class PinjamanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pinjam = Pinjaman::findOrFail($id);
+        return view('pages.pinjaman.ubah-pinjaman', compact('pinjam'));
     }
 
     /**
@@ -90,7 +92,14 @@ class PinjamanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pinjaman = Pinjaman::findOrFail($id);
+        $this->validate($request, [
+            'user_id' => 'required',
+        ]);
+
+        $pinjaman->update($request->all());
+        \Flash::success('ID Pinjaman: '. $pinjaman->id . ' berhasil diubah.');
+        return redirect('pinjaman/riwayat');
     }
 
     /**
@@ -101,6 +110,9 @@ class PinjamanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pinjaman = Pinjaman::find($id);
+        Pinjaman::find($id)->delete();
+        \Flash::success('ID Pinjaman: '. $pinjaman->id .' berhasil dihapus.');
+        return redirect('pinjaman/riwayat');
     }
 }

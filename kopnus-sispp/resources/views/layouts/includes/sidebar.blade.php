@@ -1,13 +1,13 @@
 <aside id="s-main-menu" class="sidebar">
     <ul class="smm-alerts">
         <li data-user-alert="sua-messages" data-ma-action="sidebar-open" data-ma-target="user-alerts">
-            <i class="zmdi zmdi-email"></i>
+            <i class="zmdi zmdi-collection-text"></i>
         </li>
         <li data-user-alert="sua-notifications" data-ma-action="sidebar-open" data-ma-target="user-alerts">
-            <i class="zmdi zmdi-notifications"></i>
+            <i class="zmdi zmdi-swap-alt"></i>
         </li>
         <li data-user-alert="sua-tasks" data-ma-action="sidebar-open" data-ma-target="user-alerts">
-            <i class="zmdi zmdi-view-list-alt"></i>
+            <i class="zmdi zmdi-case"></i>
         </li>
     </ul>
     {{-- CEK USER SUDAH LOGIN --}}
@@ -49,9 +49,23 @@
         {{-- SIDEBAR MENU ADMIN --}}
         @can('admin-access')
             {{-- kelola pinjaman --}}
-            <li class= {{ Request::is('kelola/pinjaman') ? 'active' : '' }} ><a href="{{ URL::to('kelola/pinjaman') }}" ><i class="zmdi zmdi-collection-text"></i> Kelola Pinjaman <span class="label label-danger">{{ App\Pinjaman::where('status','menunggu')->count() }}</span></a></li>
+            <li class= {{ Request::is('kelola/pinjaman') ? 'active' : '' }} >
+                <a href="{{ URL::to('kelola/pinjaman') }}" ><i class="zmdi zmdi-collection-text"></i>Kelola Pinjaman 
+                    {{-- NOTIFIKASI --}}
+                    @if( (App\Pinjaman::where('status','menunggu')->count())>0 )
+                        <span class="label label-danger">{{ App\Pinjaman::where('status','menunggu')->count() }}</span>
+                    @endif
+                </a>
+            </li>
             {{-- kelola simpanan --}}
-            <li class= {{ Request::is('kelola/simpanan') ? 'active' : '' }} ><a href="{{ URL::to('kelola/simpanan') }}" ><i class="zmdi zmdi-swap-alt"></i>Kelola Simpanan <span class="label label-danger">{{ App\Simpanan::where('status','menunggu')->count() }}</span></a></li>
+            <li class= {{ Request::is('kelola/simpanan') ? 'active' : '' }} >
+                <a href="{{ URL::to('kelola/simpanan') }}" ><i class="zmdi zmdi-swap-alt"></i>Kelola Simpanan 
+                    {{-- NOTIFIKASI --}}
+                    @if((App\Simpanan::where('status','menunggu')->count())>0)
+                        <span class="label label-danger">{{ App\Simpanan::where('status','menunggu')->count() }}</span>
+                    @endif
+                </a>
+            </li>
             {{-- kelola pembayaran --}}
             <li class= {{ Request::is('kelola/pembayaran') ? 'active' : '' }} ><a href="{{ URL::to('kelola/pembayaran') }}" ><i class="zmdi zmdi-collection-item"></i> Kelola Pembayaran</a></li>
             {{-- kelola bunga --}}

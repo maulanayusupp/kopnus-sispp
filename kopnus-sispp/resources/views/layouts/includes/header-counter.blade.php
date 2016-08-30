@@ -12,8 +12,13 @@
                     @if((Auth::user()->status) =='belum-aktif')
                         <center><h2>-</h2></center>
                     @else
-                        <h2>{{ App\User::count() }}</h2>
-                        <small> Jumlah Anggota</small>
+                        @can('member-access')
+                            <center><h2>-</h2></center>
+                        @endcan
+                        @can('admin-access')
+                            <h2>{{ App\User::count() }}</h2>
+                            <small> Jumlah Anggota</small>
+                        @endcan
                     @endif
                 </div>
             </div>
@@ -28,8 +33,14 @@
                     @if((Auth::user()->status) =='belum-aktif')
                         <center><h2>-</h2></center>
                     @else
-                    <h2>Rp {{ number_format(App\Pinjaman::where('status','=','lunas')->sum('jumlah_pinjaman') ) }}</h2>
-                    <small>Jumlah Pinjaman Lunas</small>
+                        @can('member-access')
+                            <center><h2>-</h2></center>
+                        @endcan
+
+                        @can('admin-access')
+                            <h2>Rp {{ number_format(App\Pinjaman::where('status','=','lunas')->sum('jumlah_pinjaman') ) }}</h2>
+                            <small>Jumlah Pinjaman Lunas</small>
+                        @endcan
                     @endif
                 </div>
             </div>
@@ -44,8 +55,14 @@
                     @if((Auth::user()->status) =='belum-aktif')
                         <center><h2>-</h2></center>
                     @else
-                        <h2>Rp {{ number_format(App\Simpanan::where('status','=','aktif')->sum('nilai_penempatan')) }}</h2>
-                        <small>Jumlah Simpanan</small>
+                        @can('member-access')
+                            <center><h2>-</h2></center>
+                        @endcan
+
+                        @can('admin-access')
+                            <h2>Rp {{ number_format(App\Simpanan::where('status','=','aktif')->sum('nilai_penempatan')) }}</h2>
+                            <small>Jumlah Simpanan</small>
+                        @endcan
                     @endif
                 </div>
             </div>
@@ -57,9 +74,14 @@
                     <div class="sparkline-bar-6 cai-chart"></div>
                 </div>
                 <div class="media-body">
-                    <h2>{{ App\Produk::count() }}</h2>
-                    <small>Jumlah Produk</small>
-
+                    @can('member-access')
+                        <center><h2>-</h2></center>
+                    @endcan
+                        
+                    @can('admin-access')
+                        <h2>{{ App\Produk::count() }}</h2>
+                        <small>Jumlah Produk</small>
+                    @endcan
                 </div>
             </div>
         </div>

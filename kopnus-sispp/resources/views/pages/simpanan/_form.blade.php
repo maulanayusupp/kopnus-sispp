@@ -17,7 +17,7 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <div class="form-group{{ $errors->has('no_kartu_atm') ? ' has-error' : '' }}">
+                <div class="form-group{{ $errors->has('nomor_kartu_atm') ? ' has-error' : '' }}">
                     <label class="col-sm-2 control-label">Kartu ATM</label>
                     <div class="col-sm-2">
                         <div class="fg-line">
@@ -30,11 +30,11 @@
                     <label class="col-sm-2 control-label">Nomor Kartu</label>
                     <div class="col-sm-6">
                         <div class="fg-line">
-                            {!! Form::text('no_kartu_atm', null, ['class'=>'form-control input-sm','placeholder'=>'Nomor Kartu ATM']) !!}
+                            {!! Form::text('nomor_kartu_atm', null, ['class'=>'form-control input-sm','placeholder'=>'Nomor Kartu ATM']) !!}
                         </div>
-                        @if($errors->has('no_kartu_atm'))
+                        @if($errors->has('nomor_kartu_atm'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('no_kartu_atm') }}</strong>
+                                <strong>{{ $errors->first('nomor_kartu_atm') }}</strong>
                             </span>
                         @endif
                     </div>
@@ -173,7 +173,7 @@
             <div class="col-sm-12">
                 <div class="form-group">
                     <div class="col-sm-offset-10 col-sm-10">
-                        <button type="submit" class="btn btn-primary">{{ isset($model) ? 'Ubah' : 'Simpan'}}</button>
+                        <button type="submit" class="btn btn-primary">{{ isset($simpanan) ? 'Ubah Data Simpanan' : 'Simpan'}}</button>
                     </div>
                 </div>
             </div>

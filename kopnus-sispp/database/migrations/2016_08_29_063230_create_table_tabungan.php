@@ -24,7 +24,7 @@ class CreateTableTabungan extends Migration
             $table->string('tanggal_pendaftaran');
             $table->string('nama_ibu_kandung');
             $table->string('jenis_kelamin');
-            $table->string('saldo_akhir');
+            $table->integer('saldo_akhir');
             $table->string('status_rekening');
             $table->string('pin');
             $table->timestamps();

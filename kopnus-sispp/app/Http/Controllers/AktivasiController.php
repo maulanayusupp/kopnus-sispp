@@ -77,7 +77,6 @@ class AktivasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
         $this->validate($request, [
             /* VALIDASI DATA ANGGOTA */
             'keperluan' => 'required',
@@ -153,6 +152,7 @@ class AktivasiController extends Controller
 
             /* CATATAN ANGGOTA */
             'user_id' => 'required',
+            /*
             'kepemilikan_rekening' => 'required',
             'nomor_wesel_pos' => 'required',
             'pemilik_nomor_wesel_pos' => 'required',
@@ -160,14 +160,30 @@ class AktivasiController extends Controller
             'pemilik_nomor_rek_gol' => 'required',
             'nomor_rek_tabungan' => 'required',
             'pemilik_nomor_rek_tabungan' => 'required',
+            */
             'nama_bank_penerima' => 'required',
 
             /* DATA TABUNGAN */
             'pin' => 'required|min:6|confirmed',
         ]);
-
+        /* AKSI KE MODEL USER */
+        $user = User::findOrFail($id);
         $user->status = 'aktif';
         $user->save();
+        
+        /* AKSI KE MODEL DATA ANGGOTA */
+        $dataAnggota = new DataAnggota;
+        $dataAnggota->update($request->all());
+        /* AKSI KE MODEL DATA PEKERJAAN */
+        $dataPekerjaan = new DataPekerjaan;
+
+        /* AKSI KE MODEL CATATAN ANGGOTA*/
+        $catatanPekerjaan = new CatatanAnggota;
+
+        /* AKSI KE MODEL TABUNGAN */
+        $tabungan = Tabungan::find();
+        $tabungan->pin = bcrypt($request['pin']);
+        
         //$bunga->update($request->all());
         \Flash::success('Aktivasi telah dilakukan.');
         return redirect('home');

@@ -21,7 +21,7 @@ class SimpananController extends Controller
 
     public function riwayat(){
         $id = Auth::user()->id ;
-        $simpanan = Simpanan::where('user_id', '=', $id)->orderBy('id','desc')->paginate(5);
+        $simpanan = Simpanan::where('user_id', '=', $id)->orderBy('status','desc')->paginate(5);
         return view('pages.simpanan.riwayat-simpanan', compact('simpanan'));
     }
 
@@ -69,7 +69,8 @@ class SimpananController extends Controller
      */
     public function show($id)
     {
-        //
+        $simpanan = Simpanan::findOrFail($id);
+        return view('pages.simpanan.show-simpanan', compact('simpanan'));
     }
 
     /**
@@ -80,7 +81,8 @@ class SimpananController extends Controller
      */
     public function edit($id)
     {
-        //
+        $simpanan = Simpanan::findOrFail($id);
+        return view('pages.simpanan.ubah-simpanan', compact('simpanan'));
     }
 
     /**
@@ -92,7 +94,14 @@ class SimpananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $simpanan = Pinjaman::findOrFail($id);
+        $this->validate($request, [
+            'user_id' => 'required',
+        ]);
+
+        $simpanan->update($request->all());
+        \Flash::success('ID Simpanan: '. $simpanan->id . ' berhasil diubah.');
+        return redirect('simpanan/riwayat');
     }
 
     /**
@@ -103,6 +112,9 @@ class SimpananController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $simpanan = Simpanan::find($id);
+        Simpanan::find($id)->delete();
+        \Flash::success('ID Simpanan: '. $simpanan->id .' berhasil dihapus.');
+        return redirect('simpanan/riwayat');
     }
 }

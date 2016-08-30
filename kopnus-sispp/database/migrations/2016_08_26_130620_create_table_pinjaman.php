@@ -26,9 +26,9 @@ class CreateTablePinjaman extends Migration
             $table->string('jangka_waktu_pinjam');
             $table->string('nama_kreditur');
             $table->string('no_rek_kreditur');
-            $table->string('sisa_angsuran_kreditur');
-            $table->string('sisa_angsuran_bulan_kreditur');
-            $table->string('penghasilan_bulanan_kreditur');
+            $table->integer('sisa_angsuran_kreditur');
+            $table->integer('sisa_angsuran_bulan_kreditur');
+            $table->integer('penghasilan_bulanan_kreditur');
             $table->string('status');
             $table->timestamps();            
         });

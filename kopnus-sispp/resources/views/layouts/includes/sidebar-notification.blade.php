@@ -1,9 +1,9 @@
 @if(Auth::check())
     <aside id="s-user-alerts" class="sidebar">                
         <ul class="tab-nav tn-justified tn-icon m-t-10" data-tab-color="teal">
-            <li><a class="sua-messages" href="#sua-messages" data-toggle="tab"><i class="zmdi zmdi-email"></i><br>Pinjaman</a></li>
-            <li><a class="sua-notifications" href="#sua-notifications" data-toggle="tab"><i class="zmdi zmdi-notifications"></i><br>Simpanan</a></li>
-            <li><a class="sua-tasks" href="#sua-tasks" data-toggle="tab"><i class="zmdi zmdi-view-list-alt"></i><br>Tabungan</a></li>
+            <li><a class="sua-messages" href="#sua-messages" data-toggle="tab"><i class="zmdi zmdi-collection-text"></i><br>Pinjaman</a></li>
+            <li><a class="sua-notifications" href="#sua-notifications" data-toggle="tab"><i class="zmdi zmdi-swap-alt"></i><br>Simpanan</a></li>
+            <li><a class="sua-tasks" href="#sua-tasks" data-toggle="tab"><i class="zmdi zmdi-case"></i><br>Tabungan</a></li>
         </ul>
 
         <div class="tab-content">

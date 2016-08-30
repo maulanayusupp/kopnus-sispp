@@ -6,7 +6,7 @@
             <label class="col-sm-3 control-label">PIN Rekening Tabungan</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('pin', null, ['class'=>'form-control input-sm','placeholder'=>'Buat PIN Rekening Tabungan']) !!}
+                    {!! Form::password('pin', ['class'=>'input-sm form-control fg-input','class'=>'form-control','placeholder'=>'Buat PIN Rekening Tabungan']) !!}
                 </div>
                 @if($errors->has('pin'))
                     <span class="help-block">
@@ -24,7 +24,7 @@
             <label class="col-sm-3 control-label">Konfirmasi PIN Rekening Tabungan</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('pin_confirmation', null, ['class'=>'form-control input-sm','placeholder'=>'Konfirmasi PIN Rekening Tabungan.']) !!}
+                    {!! Form::password('pin_confirmation', ['class'=>'input-sm form-control fg-input','class'=>'form-control','placeholder'=>'Konfirmasi PIN Rekening Tabungan.']) !!}
                 </div>
                 @if($errors->has('pin_confirmation'))
                     <span class="help-block">

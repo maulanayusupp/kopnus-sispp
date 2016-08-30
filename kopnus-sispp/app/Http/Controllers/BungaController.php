@@ -8,8 +8,6 @@ use App\Http\Requests;
 
 class BungaController extends Controller
 {
-    public $jumlah_bulan_bunga;
-
     public function __construct(){        
         $this->middleware('auth');
         $this->middleware('role:admin');
@@ -45,6 +43,7 @@ class BungaController extends Controller
      */
     public function store(Request $request)
     {
+        $jumlah_bulan_bunga = 0; 
         $this->validate($request, [
             'nama' => 'required|max:255',
             'bunga' => 'required',
@@ -54,7 +53,7 @@ class BungaController extends Controller
         $bunga->nama = $request->input('nama');
         $bunga->bunga = $request->input('bunga');
         $bunga->tahun_bunga = $request->input('tahun_bunga');
-        if ($request->input('bunga')==1) {
+        if ($request->input('tahun_bunga')==1) {
             $jumlah_bulan_bunga = 12;
         }elseif ($request->input('tahun_bunga')==2) {
             $jumlah_bulan_bunga = 24;
@@ -85,8 +84,7 @@ class BungaController extends Controller
         }elseif ($request->input('tahun_bunga')==15) {
             $jumlah_bulan_bunga = 180;
         }        
-        //$bunga->bulan_bunga = $jumlah_bulan_bunga;
-        $bunga->bulan_bunga = 'asdfds';
+        $bunga->bulan_bunga = $jumlah_bulan_bunga;
         $bunga->save();
         \Flash::success($request->get('nama') . ' sebesar ' . $request->get('bunga') .  ' ditambahkan.');
         return redirect()->route('kelola.bunga.index');
@@ -124,13 +122,49 @@ class BungaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $bunga = Bunga::findOrFail($id);
+        $jumlah_bulan_bunga = 0; 
         $this->validate($request, [
-            'nama' => 'required',
+            'nama' => 'required|max:255',
             'bunga' => 'required',
+            'tahun_bunga' => 'required',
         ]);
-
-        $bunga->update($request->all());
+        $bunga = new Bunga;
+        $bunga->nama = $request->input('nama');
+        $bunga->bunga = $request->input('bunga');
+        $bunga->tahun_bunga = $request->input('tahun_bunga');
+        if ($request->input('tahun_bunga')==1) {
+            $jumlah_bulan_bunga = 12;
+        }elseif ($request->input('tahun_bunga')==2) {
+            $jumlah_bulan_bunga = 24;
+        }elseif ($request->input('tahun_bunga')==3) {
+            $jumlah_bulan_bunga = 36;
+        }elseif ($request->input('tahun_bunga')==4) {
+            $jumlah_bulan_bunga = 48;
+        }elseif ($request->input('tahun_bunga')==5) {
+            $jumlah_bulan_bunga = 60;
+        }elseif ($request->input('tahun_bunga')==6) {
+            $jumlah_bulan_bunga = 72;
+        }elseif ($request->input('tahun_bunga')==7) {
+            $jumlah_bulan_bunga = 84;
+        }elseif ($request->input('tahun_bunga')==8) {
+            $jumlah_bulan_bunga = 96;
+        }elseif ($request->input('tahun_bunga')==9) {
+            $jumlah_bulan_bunga = 108;
+        }elseif ($request->input('tahun_bunga')==10) {
+            $jumlah_bulan_bunga = 120;
+        }elseif ($request->input('tahun_bunga')==11) {
+            $jumlah_bulan_bunga = 132;
+        }elseif ($request->input('tahun_bunga')==12) {
+            $jumlah_bulan_bunga = 144;
+        }elseif ($request->input('tahun_bunga')==13) {
+            $jumlah_bulan_bunga = 156;
+        }elseif ($request->input('tahun_bunga')==14) {
+            $jumlah_bulan_bunga = 168;
+        }elseif ($request->input('tahun_bunga')==15) {
+            $jumlah_bulan_bunga = 180;
+        }        
+        $bunga->bulan_bunga = $jumlah_bulan_bunga;
+        $bunga->save();
         \Flash::success('Bunga: '. $request->get('nama') . ' berhasil diubah.');
         return redirect()->route('kelola.bunga.index');
     }

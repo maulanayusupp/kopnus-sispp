@@ -199,8 +199,8 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <div class="col-sm-offset-10 col-sm-10">
-                        <button type="submit" class="btn btn-primary">{{ isset($model) ? 'Ubah' : 'Pinjam'}}</button>
+                    <div class="col-sm-offset-9 col-sm-10">
+                        <button type="submit" class="btn btn-primary">{{ isset($pinjam) ? 'Ubah Data Pinjaman' : 'Pinjam'}}</button>
                     </div>
                 </div>
             </div>
