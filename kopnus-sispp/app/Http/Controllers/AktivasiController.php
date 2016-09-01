@@ -82,7 +82,7 @@ class AktivasiController extends Controller
             //'keperluan' => 'required',
             'user_id' => 'required',
             'nama' => 'required',
-            /*'jenis_layanan_jasa' => 'required',
+            'jenis_layanan_jasa' => 'required',
             'nama_suami_istri' => 'required',
             'nik' => 'required',
             'nama_ibu_kandung' => 'required',
@@ -112,7 +112,7 @@ class AktivasiController extends Controller
             'nomor_hp' => 'required',
             'alamat_surat_korespondensi' => 'required',
             'email' => 'required',
-            'nama_lain' => 'required',
+            /*'nama_lain' => 'required',
             'hubungan' => 'required',
             'nomor_telepon_lain' => 'required',
             'alamat_lain' => 'required',
@@ -124,7 +124,7 @@ class AktivasiController extends Controller
 
             /* DATA PEKERJAAN */
             'pekerjaan' => 'required',
-            /*'pekerjaan_lain' => 'required',
+            'pekerjaan_lain' => 'required',
             'penghasilan' => 'required',
             'pengeluaran' => 'required',
             'tempat_kerja' => 'required',
@@ -148,19 +148,17 @@ class AktivasiController extends Controller
             'transaksi_penyetoran' => 'required',
             'gaji_kotor' => 'required',
             'gaji_bersih' => 'required',
-            'potongan_gaji_terakhir' => 'required',*/
+            'potongan_gaji_terakhir' => 'required',
 
             /* CATATAN ANGGOTA */
-            'user_id' => 'required',
-            /*
+            'user_id' => 'required',            
             'kepemilikan_rekening' => 'required',
-            'nomor_wesel_pos' => 'required',
+            /*'nomor_wesel_pos' => 'required',
             'pemilik_nomor_wesel_pos' => 'required',
             'nomor_rek_gol' => 'required',
             'pemilik_nomor_rek_gol' => 'required',
             'nomor_rek_tabungan' => 'required',
-            'pemilik_nomor_rek_tabungan' => 'required',
-            */
+            'pemilik_nomor_rek_tabungan' => 'required',*/            
             'nama_bank_penerima' => 'required',
 
             /* DATA TABUNGAN */
@@ -261,7 +259,7 @@ class AktivasiController extends Controller
         $tabungan->user_id = $request->input('user_id');
         $tabungan->nama = $request->input('nama');
         $tabungan->alamat = $request->input('alamat');
-        $tabungan->keluarahan = $request->input('kelurahan');
+        $tabungan->kelurahan = $request->input('kelurahan');
         $tabungan->kecamatan = $request->input('kecamatan');
         $tabungan->nik = $request->input('nik');
         $tabungan->tanggal_lahir = $request->input('tanggal_lahir');

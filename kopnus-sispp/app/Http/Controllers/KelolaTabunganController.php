@@ -3,19 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Tabungan;
+use Carbon\Carbon;
 use App\Http\Requests;
 
 class KelolaTabunganController extends Controller
 {
+    public function __construct(){        
+        $this->middleware('auth');
+        $this->middleware('role:admin');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $q = $request->get('q');
+        $tabungans = Tabungan::where('id', 'LIKE', '%'.$q.'%')->orderBy('id','desc')->paginate(10);
+        return view('pages.kelola-tabungan.kelola-tabungan', compact('tabungans','q'));
     }
 
     /**
@@ -25,7 +32,7 @@ class KelolaTabunganController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.kelola-tabungan.tambah-tabungan');
     }
 
     /**
@@ -36,7 +43,15 @@ class KelolaTabunganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nama' => 'required|max:255',
+            'user_id' => 'required',
+        ]);
+        /*$tabungan = new Tabungan; 
+        $tabungan->save($request->all());*/
+        Tabungan::create($request->all());        
+        \Flash::success('Rekening Tabungan: ' . $request->input('nama') . ' Ditambahkan.');
+        return redirect()->route('kelola.tabungan.index');
     }
 
     /**
@@ -47,7 +62,8 @@ class KelolaTabunganController extends Controller
      */
     public function show($id)
     {
-        //
+        $tabungan = Tabungan::findOrFail($id);
+        return view('pages.kelola-tabungan.show-tabungan', compact('tabungan'));
     }
 
     /**
@@ -58,7 +74,8 @@ class KelolaTabunganController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tabungan = Tabungan::findOrFail($id);
+        return view('pages.kelola-tabungan.ubah-tabungan', compact('tabungan'));
     }
 
     /**
@@ -70,7 +87,14 @@ class KelolaTabunganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tabungan = Tabungan::findOrFail($id);
+        $this->validate($request, [
+            'nama' => 'required',
+        ]);
+
+        $tabungan->update($request->all());
+        \Flash::success('Nomor Rekening: ' . $tabungan->id . ' berhasil diubah.');
+        return redirect()->route('kelola.tabungan.index');
     }
 
     /**

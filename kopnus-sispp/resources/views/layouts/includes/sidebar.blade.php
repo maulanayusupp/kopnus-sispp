@@ -49,22 +49,53 @@
         {{-- SIDEBAR MENU ADMIN --}}
         @can('admin-access')
             {{-- kelola pinjaman --}}
-            <li class= {{ Request::is('kelola/pinjaman') ? 'active' : '' }} >
-                <a href="{{ URL::to('kelola/pinjaman') }}" ><i class="zmdi zmdi-collection-text"></i>Kelola Pinjaman 
+            <li class="sub-menu class= {{ Request::is('kelola/pinjaman') || Request::is('kelola/pinjaman/verifikasi') ? 'active' : '' }}">
+                <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-collection-text"></i> Kelola Pinjaman 
                     {{-- NOTIFIKASI --}}
                     @if( (App\Pinjaman::where('status','menunggu')->count())>0 )
                         <span class="label label-danger">{{ App\Pinjaman::where('status','menunggu')->count() }}</span>
                     @endif
                 </a>
+                <ul>
+                    {{-- DROPDOWN --}}
+                    <li class= {{ Request::is('kelola/pinjaman') ? 'active' : '' }} >
+                        <a href="{{ URL::to('kelola/pinjaman') }}" ><i class="zmdi zmdi-collection-text"></i> Kelola Pinjaman 
+                        </a>
+                    </li>
+                    {{-- DROPDOWN --}}
+                    <li class= {{ Request::is('kelola/pinjaman/verifikasi') ? 'active' : '' }} >
+                        <a href="{{ URL::to('kelola/pinjaman/verifikasi') }}" ><i class="zmdi zmdi-assignment"></i> Verifikasi Pinjaman 
+                            {{-- NOTIFIKASI --}}
+                            @if( (App\Pinjaman::where('status','menunggu')->count())>0 )
+                                <span class="label label-danger">{{ App\Pinjaman::where('status','menunggu')->count() }}</span>
+                            @endif
+                        </a>
+                    </li>
+                </ul>
             </li>
             {{-- kelola simpanan --}}
-            <li class= {{ Request::is('kelola/simpanan') ? 'active' : '' }} >
-                <a href="{{ URL::to('kelola/simpanan') }}" ><i class="zmdi zmdi-swap-alt"></i>Kelola Simpanan 
+            <li class="sub-menu class= {{ Request::is('kelola/simpanan') || Request::is('kelola/simpanan/verifikasi') ? 'active' : '' }}">
+                <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-swap-alt"></i> Kelola Simpanan 
                     {{-- NOTIFIKASI --}}
                     @if((App\Simpanan::where('status','menunggu')->count())>0)
                         <span class="label label-danger">{{ App\Simpanan::where('status','menunggu')->count() }}</span>
                     @endif
                 </a>
+                <ul>
+                    {{-- DROPDOWN --}}
+                    <li class= {{ Request::is('kelola/simpanan') ? 'active' : '' }} >
+                        <a href="{{ URL::to('kelola/simpanan') }}" ><i class="zmdi zmdi-swap-alt"></i> Kelola Simpanan 
+                        </a>
+                    </li>
+                    <li class= {{ Request::is('kelola/simpanan/verifikasi') ? 'active' : '' }} >
+                        <a href="{{ URL::to('kelola/simpanan/verifikasi') }}" ><i class="zmdi zmdi-assignment-returned"></i> Verifikasi Simpanan 
+                            {{-- NOTIFIKASI --}}
+                            @if((App\Simpanan::where('status','menunggu')->count())>0)
+                                <span class="label label-danger">{{ App\Simpanan::where('status','menunggu')->count() }}</span>
+                            @endif
+                        </a>
+                    </li>
+                </ul>
             </li>
             {{-- kelola pembayaran --}}
             <li class= {{ Request::is('kelola/pembayaran') ? 'active' : '' }} ><a href="{{ URL::to('kelola/pembayaran') }}" ><i class="zmdi zmdi-collection-item"></i> Kelola Pembayaran</a></li>
@@ -75,7 +106,21 @@
             {{-- kelola produk --}}
             <li class= {{ Request::is('kelola/produk') ? 'active' : '' }}><a href="{{ URL::to('kelola/produk') }}" ><i class="zmdi zmdi-pizza"></i> Kelola Produk</a></li>
             {{-- kelola akun --}}
-            <li class= {{ Request::is('kelola/akun') ? 'active' : '' }}><a href="{{ URL::to('kelola/akun') }}" ><i class="zmdi zmdi-account"></i> Kelola Akun</a></li>
+            <li class="sub-menu class= {{ Request::is('kelola/akun') || Request::is('kelola/akun/daftar-member') ? 'active' : '' }}">
+                <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-account"></i> Kelola Akun  
+                </a>
+                <ul>
+                    {{-- DROPDOWN --}}
+                    <li class= {{ Request::is('kelola/akun') ? 'active' : '' }} >
+                        <a href="{{ URL::to('kelola/akun') }}" ><i class="zmdi zmdi-account"></i> Kelola Akun 
+                        </a>
+                    </li>
+                    <li class= {{ Request::is('kelola/akun/daftar-member') ? 'active' : '' }} >
+                        <a href="{{ URL::to('kelola/akun/daftar-member') }}" ><i class="zmdi zmdi-accounts"></i> Daftar Member 
+                        </a>
+                    </li>
+                </ul>
+            </li>
         @endcan
     </ul>
     @endif

@@ -4,6 +4,7 @@
 @stop
 
 @section('content')
+{{-- PENCARIAN BERDASARKAN ID ANGGOTA/MEMBER --}}
 <div class="card">
     <form class="form-horizontal" role="form" method="GET" action="{{ url('kelola/pinjaman') }}">
         <div class="card-body card-padding">
@@ -11,7 +12,7 @@
                 <label class="col-sm-2 control-label">Cari Riwayat</label>
                 <div class="col-sm-5">
                     <div class="fg-line">
-                        <input type="text" class="form-control input-sm" name="q" placeholder="Cari riwayat berdasarkan ID Pinjaman">
+                        <input type="text" class="form-control input-sm" name="q" placeholder="Cari riwayat berdasarkan ID Anggota">
                         @if ($errors->has('q'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('q') }}</strong>

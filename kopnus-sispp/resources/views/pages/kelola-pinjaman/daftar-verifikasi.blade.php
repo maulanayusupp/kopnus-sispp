@@ -1,12 +1,20 @@
 @extends('layouts.app')
 
-@section('title')Riwayat Pinjaman
+@section('title')Verifikasi Pinjaman
 @stop
 
 @section('content')
+
+@if((App\Pinjaman::where('status','menunggu')->count() == 0 ))
 <div class="card">
     <div class="card-header">
-        <h2>Daftar Riwayat Peminjaman <small>berikut daftar riwayat peminjaman yang telah anda lakukan.</small></h2>  
+        <center><h2>Tidak ada Pinjaman</h2></center>
+    </div>
+</div>
+@else
+<div class="card">
+    <div class="card-header">
+        <h2>Daftar Peminjam</h2>  
     </div>
     <div class="table-responsive">
         <table class="table table-hover">
@@ -18,7 +26,7 @@
                     <th>Jumlah Pinjaman</th>
                     <th>Jenis Pinjaman</th>
                     <th>Status</th>
-                    <th><center>Aksi</center></th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,14 +39,9 @@
                         <td><span class="label label-{{$pinjam->jenis_pinjaman=='makro' ? 'info' : 'primary' }}">{{ $pinjam->jenis_pinjaman }}</span></td>
                         <td><span class="label label-{{$pinjam->status=='aktif' ? 'success' : 'danger' }}">{{ $pinjam->status }}</span></td>
                         <td>
-                            @if($pinjam->status=='menunggu')
-                                {!! Form::model($pinjam, ['route' => ['pinjaman.pinjaman.destroy', $pinjam], 'method' => 'delete', 'class' => 'form-inline'] ) !!}
-                                <a href = "{{ route('pinjaman.pinjaman.edit', $pinjam->id)}}" class="btn palette-Orange bg">Ubah Pinjaman</a> |
-                                <button type="submit" class="btn palette-Red bg"> Batal Pinjam</button>
-                                {!! Form::close()!!}
-                            @else
-                                <a href = "{{ route('pinjaman.pinjaman.show', $pinjam->id)}}" class="btn palette-Blue bg">Lihat Data Pinjaman</a>
-                            @endif
+                            <div class="form-inline">
+                                <a href = "{{ route('kelola.pinjaman.show', $pinjam->id)}}" class="btn palette-Teal bg"> Lihat Data</a> | <a href = "{{ route('kelola.pinjaman.showverifikasi', $pinjam->id)}}" class="btn palette-Indigo bg"> Verifikasi Data</a>                                
+                            </div>
                         </td>
                     </tr>
                 @endforeach
@@ -46,4 +49,5 @@
         </table>
     </div>
 </div>
+@endif
 @stop

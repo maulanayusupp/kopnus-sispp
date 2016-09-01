@@ -293,7 +293,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="form-group{{ $errors->has('lama_bekerja') ? ' has-error' : '' }}">
-            <label class="col-sm-3 control-label">Agama</label>
+            <label class="col-sm-3 control-label">Lama Bekerja</label>
             <div class="col-sm-4">
                 <div class="fg-line">
                     {!! Form::select('lama_bekerja', array('< 2 Tahun' => '< 2 Tahun', '2 s/d < 3 Tahun' => '2 s/d < 3 Tahun', '3 s/d < 5 Tahun' => '3 s/d < 5 Tahun', '> 5 Tahun' => '> 5 Tahun'), null, ['class'=>'chosen']) !!}

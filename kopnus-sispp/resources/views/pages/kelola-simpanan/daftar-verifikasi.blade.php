@@ -1,11 +1,20 @@
 @extends('layouts.app')
 
-@section('title')Riwayat Simpanan
+@section('title')Verifikasi Simpanan
 @stop
 
-@section('content')<div class="card">
+@section('content')
+
+@if((App\Simpanan::where('status','menunggu')->count() == 0 ))
+<div class="card">
     <div class="card-header">
-        <h2>Daftar Riwayat Simpanan <small>berikut daftar riwayat simpanan yang telah anda lakukan.</small></h2>  
+        <center><h2>Tidak ada Simpanan</h2></center>
+    </div>
+</div>
+@else
+<div class="card">
+    <div class="card-header">
+        <h2>Daftar Simpanan</h2>  
     </div>
     <div class="table-responsive">
         <table class="table table-hover">
@@ -28,14 +37,8 @@
                         <td>{{ $simpan->jangka_waktu .' Bulan' }}</td>
                         <td><span class="label label-{{ $simpan->status=='aktif' ? 'success' : 'danger' }}">{{ $simpan->status }}</span></td>
                         <td>
-                            @if($simpan->status=='menunggu')
-                                {!! Form::model($simpan, ['route' => ['simpanan.simpanan.destroy', $simpan], 'method' => 'delete', 'class' => 'form-inline'] ) !!}
-                                <a href = "{{ route('simpanan.simpanan.edit', $simpan->id)}}" class="btn palette-Orange bg">Ubah Simpanan</a> |
-                                <button type="submit" class="btn palette-Red bg"> Batal Simpanan</button>
-                                {!! Form::close()!!}
-                            @else
-                                <a href = "{{ route('simpanan.simpanan.show', $simpan->id)}}" class="btn palette-Blue bg">Lihat Data Simpanan</a>
-                            @endif
+                            <a href = "{{ route('kelola.simpanan.show', $simpan->id)}}" class="btn palette-Blue bg"> Lihat Data</a> |
+                            <a href = "{{ route('kelola.simpanan.showverifikasi', $simpan->id)}}" class="btn palette-Orange bg">Verifikasi Data</a>
                         </td>
                     </tr>
                 @endforeach
@@ -43,5 +46,5 @@
         </table>
     </div>
 </div>
+@endif
 @stop
-

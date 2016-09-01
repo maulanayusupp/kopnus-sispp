@@ -18,7 +18,7 @@ class CreateTableTabungan extends Migration
             $table->integer('user_id');
             $table->string('nama');
             $table->string('alamat');
-            $table->string('keluarahan');
+            $table->string('kelurahan');
             $table->string('kecamatan');
             $table->string('nik');
             $table->string('tanggal_lahir');

@@ -178,7 +178,7 @@
             <label class="col-sm-3 control-label">Tanggal Lahir</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::date('tanggal_lahir', \Carbon\Carbon::now(), ['class'=>'form-control input-sm','placeholder'=>'Tanggal Lahir']) !!}
+                    {!! Form::date('tanggal_lahir', null, ['class'=>'form-control input-sm','placeholder'=>'Tanggal Lahir']) !!}
                 </div>
                 @if($errors->has('tanggal_lahir'))
                     <span class="help-block">

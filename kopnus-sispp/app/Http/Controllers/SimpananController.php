@@ -94,7 +94,7 @@ class SimpananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $simpanan = Pinjaman::findOrFail($id);
+        $simpanan = Simpanan::findOrFail($id);
         $this->validate($request, [
             'user_id' => 'required',
         ]);
@@ -114,7 +114,7 @@ class SimpananController extends Controller
     {
         $simpanan = Simpanan::find($id);
         Simpanan::find($id)->delete();
-        \Flash::success('ID Simpanan: '. $simpanan->id .' berhasil dihapus.');
+        \Flash::success('ID Simpanan: '. $simpanan->id .' dibatalkan.');
         return redirect('simpanan/riwayat');
     }
 }

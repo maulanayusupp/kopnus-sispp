@@ -25,7 +25,7 @@
             <label class="col-sm-3 control-label">Kepemilikan Rekening</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::select('kepemilikan_rekening', array('Tunas' => 'Tunas', 'Rekening Milik Sendiri' => 'Rekening Milik Sendiri', 'Rekening Pihak lain' => 'Rekening Pihak lain'), null, ['class'=>'chosen']) !!}
+                    {!! Form::select('kepemilikan_rekening', array('Tunai' => 'Tunai', 'Rekening Milik Sendiri' => 'Rekening Milik Sendiri', 'Rekening Pihak lain' => 'Rekening Pihak lain'), null, ['class'=>'chosen']) !!}
                 </div>
                 @if($errors->has('kepemilikan_rekening'))
                     <span class="help-block">

@@ -4,7 +4,13 @@
 @stop
 
 @section('content')
-
+@if((App\Produk::count()) == 0)
+<div class="card">
+    <div class="card-header">
+        <center><h2>Belum ada Produk</h2></center>
+    </div>
+</div>
+@else
 <div class="card">
     <form class="form-horizontal" role="form" method="GET" action="{{ url('kelola/produk') }}">
         <div class="card-body card-padding">
@@ -65,6 +71,8 @@
         {{ $data->appends(compact('q'))->links() }}
     </div>
 </div>
+@endif
+
 @stop
 
 @section('js')

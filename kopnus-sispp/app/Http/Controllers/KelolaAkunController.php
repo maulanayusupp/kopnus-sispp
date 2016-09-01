@@ -21,10 +21,15 @@ class KelolaAkunController extends Controller
     public function index(Request $request)
     {
         $q = $request->get('q');
-        $users = User::where('id', 'LIKE', '%'.$q.'%')->orderBy('id','desc')->paginate(10);
+        $users = User::where('id', 'LIKE', '%'.$q.'%')->orderBy('role','asc')->paginate(10);
         return view('pages.kelola-akun.kelola-akun', compact('users','q'));
     }
 
+    public function daftarMember()
+    {
+        $users = User::where('role', 'member')->orderBy('id','desc')->paginate(10);
+        return view('pages.kelola-akun.daftar-member', compact('users'));
+    }
     /**
      * Show the form for creating a new resource.
      *

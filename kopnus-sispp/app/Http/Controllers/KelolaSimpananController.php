@@ -8,6 +8,10 @@ use App\Http\Requests;
 
 class KelolaSimpananController extends Controller
 {
+    public function __construct(){        
+        $this->middleware('auth');
+        $this->middleware('role:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +22,12 @@ class KelolaSimpananController extends Controller
         $q = $request->get('q');
         $simpanan = Simpanan::where('id', 'LIKE', '%'.$q.'%')->orderBy('status','desc')->paginate(10);
         return view('pages.kelola-simpanan.kelola-simpanan', compact('simpanan','q'));
+    }
+
+    public function daftarVerifikasi()
+    {
+        $simpanan = Simpanan::where('status', 'menunggu')->orderBy('status','asc')->paginate(15);
+        return view('pages.kelola-simpanan.daftar-verifikasi', compact('simpanan'));
     }
 
     /**

@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title')</title>
+    <title>SISPP - @yield('title')</title>
 
     <!-- Vendor CSS -->
     <link href="{{ asset('assets/components/animate.css/animate.min.css') }}" rel="stylesheet">
@@ -84,7 +84,7 @@
         </div> --}}
         @if(!Request::is('home'))
             <footer id="footer">
-                Copyright &copy; 2016 Sistem Informasi Simpan Pinjam Pensiunan <br> Koperasi Nusantara Indonesia
+                Copyright &copy; 2016 Sistem Informasi Simpanan Pinjaman Pensiun <br> Koperasi Nusantara Indonesia
             </footer>
         @endif
         

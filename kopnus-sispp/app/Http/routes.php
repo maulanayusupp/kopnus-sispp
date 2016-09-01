@@ -42,7 +42,6 @@ Route::group(['middleware' => 'web'], function () {
 	});	
 	/* PEMBAYARAN */
 	Route::group(['prefix' => 'pembayaran'], function(){
-		Route::get('pembayaran','PembayaranController@pembayaran');
 		Route::get('riwayat','PembayaranController@riwayat');
 		Route::resource('pembayaran','PembayaranController');
 	});
@@ -52,10 +51,12 @@ Route::group(['middleware' => 'web'], function () {
 		/* KELOLA PINJAMAN */
 		Route::get('pinjaman/verifikasi/{id}',['as'=>'kelola.pinjaman.showverifikasi','uses'=>'KelolaPinjamanController@showVerifikasi']);
 		Route::patch('pinjaman/verifikasi/{id}',['as'=>'kelola.pinjaman.verifikasi','uses'=>'KelolaPinjamanController@verifikasi']);
+		Route::get('pinjaman/verifikasi','KelolaPinjamanController@daftarVerifikasi');
 		Route::resource('pinjaman','KelolaPinjamanController');
 		/* KELOLA SIMPANAN */
 		Route::get('simpanan/verifikasi/{id}',['as'=>'kelola.simpanan.showverifikasi','uses'=>'KelolaSimpananController@showVerifikasi']);
 		Route::patch('simpanan/verifikasi/{id}',['as'=>'kelola.simpanan.verifikasi','uses'=>'KelolaSimpananController@verifikasi']);
+		Route::get('simpanan/verifikasi','KelolaSimpananController@daftarVerifikasi');
 		Route::resource('simpanan','KelolaSimpananController');
 		/* KELOLA PEMBAYARAN */
 		Route::resource('pembayaran','KelolaPembayaranController');
@@ -66,6 +67,7 @@ Route::group(['middleware' => 'web'], function () {
 		/* KELOLA PRODUK */
 		Route::resource('produk','KelolaProdukController');
 		/* KELOLA AKUN */
+		Route::get('akun/daftar-member','KelolaAkunController@daftarMember');
 		Route::resource('akun','KelolaAkunController');
 	});
 	

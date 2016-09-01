@@ -112,7 +112,7 @@ class PinjamanController extends Controller
     {
         $pinjaman = Pinjaman::find($id);
         Pinjaman::find($id)->delete();
-        \Flash::success('ID Pinjaman: '. $pinjaman->id .' berhasil dihapus.');
+        \Flash::success('ID Pinjaman: '. $pinjaman->id .' dibatalkan.');
         return redirect('pinjaman/riwayat');
     }
 }

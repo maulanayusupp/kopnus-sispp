@@ -13,7 +13,7 @@ class Tabungan extends Model
 		'user_id',
 		'nama',
 		'alamat',
-		'keluarahan',
+		'kelurahan',
 		'kecamatan',
 		'nik',
 		'tanggal_lahir',

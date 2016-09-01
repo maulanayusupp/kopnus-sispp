@@ -8,6 +8,10 @@ use App\Http\Requests;
 
 class KelolaPinjamanController extends Controller
 {
+    public function __construct(){        
+        $this->middleware('auth');
+        $this->middleware('role:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,8 +20,13 @@ class KelolaPinjamanController extends Controller
     public function index(Request $request){
         
         $q = $request->get('q');
-        $pinjaman = Pinjaman::where('id', 'LIKE', '%'.$q.'%')->orderBy('status','desc')->paginate(10);
+        $pinjaman = Pinjaman::where('user_id', 'LIKE', '%'.$q.'%')->orderBy('status','desc')->paginate(10);
         return view('pages.kelola-pinjaman.kelola-pinjaman', compact('pinjaman','q'));
+    }
+
+    public function daftarVerifikasi(){
+        $pinjaman = Pinjaman::where('status', 'menunggu')->orderBy('status','asc')->paginate(15);
+        return view('pages.kelola-pinjaman.daftar-verifikasi', compact('pinjaman'));
     }
 
     /**
