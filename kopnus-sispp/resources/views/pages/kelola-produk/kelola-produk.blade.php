@@ -4,19 +4,12 @@
 @stop
 
 @section('content')
-@if((App\Produk::count()) == 0)
-<div class="card">
-    <div class="card-header">
-        <center><h2>Belum ada Produk</h2></center>
-    </div>
-</div>
-@else
 <div class="card">
     <form class="form-horizontal" role="form" method="GET" action="{{ url('kelola/produk') }}">
         <div class="card-body card-padding">
             <div class="form-group{{ $errors->has('q') ? ' has-error' : '' }}">
                 <label class="col-sm-2 control-label">Cari Produk</label>
-                <div class="col-sm-5">
+                <div class="col-sm-7">
                     <div class="fg-line">
                         <input type="text" class="form-control input-sm" name="q" placeholder="Cari Produk berdasarkan ID">
                         @if ($errors->has('q'))
@@ -25,6 +18,9 @@
                             </span>
                         @endif
                     </div>
+                </div>
+                <div class="col-sm-3">
+                    <a class="btn btn-info pull-right" href="{{ URL::to('kelola/produk/create') }}"> Tambah Produk</a>
                 </div>
             </div>
 
@@ -37,9 +33,18 @@
     </form>
 </div>
 
+@if((App\Produk::count()) == 0)
 <div class="card">
     <div class="card-header">
-        <h2>Daftar produk yang terdapat pada sistem: {{ App\Produk::count() }}</h2><a class="btn btn-primary pull-right" href="{{ URL::to('kelola/produk/create') }}"> Tambah Produk</a>
+        <center><h2>Belum ada Produk</h2></center>
+    </div>
+</div>
+@else
+
+
+<div class="card">
+    <div class="card-header">
+        <h2>Daftar produk yang terdapat pada sistem: {{ App\Produk::count() }}</h2>
     </div>
     <div class="table-responsive">
         <table class="table table-hover">

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Pembayaran;
 use App\Http\Requests;
 
 class KelolaPembayaranController extends Controller
@@ -17,9 +17,42 @@ class KelolaPembayaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.kelola-pembayaran.kelola-pembayaran');
+        $q = $request->get('q');
+        $pembayarans = Pembayaran::where('id', 'LIKE', '%'.$q.'%')->orderBy('status','desc')->paginate(10);
+        return view('pages.kelola-pembayaran.kelola-pembayaran', compact('pembayarans','q'));
+    }
+
+    public function daftarVerifikasi(){
+        $pembayarans = Pembayaran::where('status', 'menunggu')->orderBy('status','desc')->paginate(15);
+        return view('pages.kelola-pembayaran.daftar-verifikasi', compact('pembayarans'));
+    }
+
+    public function showVerifikasi(Request $request, $id)
+    {
+        $pembayaran = Pembayaran::findOrFail($id);
+        return view('pages.kelola-pembayaran.verifikasi-pembayaran', compact('pembayaran'));
+    }
+
+    public function verifikasi(Request $request, $id)
+    {
+        $pembayaran = Pembayaran::findOrFail($id);
+        $pembayaran->update($request->only('status'));        
+        \Flash::success('Pembayaran dengan ID Transaksi: '. $pembayaran->id .' diverifikasi dengan status: '. $request->input('status') );
+        return redirect()->route('kelola.pembayaran.index');
+    }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $pembayaran = Pembayaran::findOrFail($id);
+        return view('pages.kelola-pembayaran.show-pembayaran', compact('pembayaran'));
     }
 
     /**
@@ -43,16 +76,7 @@ class KelolaPembayaranController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.

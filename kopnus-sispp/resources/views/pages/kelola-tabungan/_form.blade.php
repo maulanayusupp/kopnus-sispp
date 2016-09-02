@@ -40,7 +40,7 @@
             <label class="col-sm-3 control-label"><strong>Produk</strong></label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::select('produk_id', array('' => '', '' => ''), null, ['class'=>'chosen']) !!}
+                    {!! Form::select('produk_id', [''=>'']+App\Produk::lists('nama','id')->all(), null, ['class'=>'chosen']) !!}
                 </div>
                 @if($errors->has('produk_id'))
                     <span class="help-block">

@@ -59,6 +59,9 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('simpanan/verifikasi','KelolaSimpananController@daftarVerifikasi');
 		Route::resource('simpanan','KelolaSimpananController');
 		/* KELOLA PEMBAYARAN */
+		Route::get('pembayaran/verifikasi/{id}',['as'=>'kelola.pembayaran.showverifikasi','uses'=>'KelolaPembayaranController@showVerifikasi']);
+		Route::patch('pembayaran/verifikasi/{id}',['as'=>'kelola.pembayaran.verifikasi','uses'=>'KelolaPembayaranController@verifikasi']);
+		Route::get('pembayaran/verifikasi','KelolaPembayaranController@daftarVerifikasi');
 		Route::resource('pembayaran','KelolaPembayaranController');
 		/* KELOLA BUNGA */
 		Route::resource('bunga','BungaController');

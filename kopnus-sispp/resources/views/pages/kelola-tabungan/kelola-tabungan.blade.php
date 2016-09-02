@@ -4,14 +4,6 @@
 @stop
 
 @section('content')
-
-@if(App\Tabungan::count() == 0)
-<div class="card">
-    <div class="card-header">
-        <center><h2>Belum ada Tabungan </h2></center>
-    </div>
-</div>
-@else
 {{-- PENCARIAN --}}
 <div class="card">
     <form class="form-horizontal" role="form" method="GET" action="{{ url('kelola/tabungan') }}">
@@ -41,6 +33,14 @@
         </div>
     </form>
 </div>
+
+@if(App\Tabungan::count() == 0)
+<div class="card">
+    <div class="card-header">
+        <center><h2>Belum ada Tabungan </h2></center>
+    </div>
+</div>
+@else
 {{-- DAFTAR TABUNGAN --}}
 <div class="card">
     <div class="card-header">

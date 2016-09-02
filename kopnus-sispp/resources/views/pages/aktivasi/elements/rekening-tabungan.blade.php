@@ -2,6 +2,24 @@
 <hr>
 <div class="row">
     <div class="col-sm-12">
+        <div class="form-group{{ $errors->has('produk_id') ? ' has-error' : '' }}">
+            <label class="col-sm-3 control-label"><strong>Produk</strong></label>
+            <div class="col-sm-4">
+                <div class="fg-line">
+                    {!! Form::select('produk_id', [''=>'']+App\Produk::lists('nama','id')->all(), null, ['class'=>'chosen']) !!}
+                </div>
+                @if($errors->has('produk_id'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('produk_id') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>                    
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
         <div class="form-group{{ $errors->has('pin') ? ' has-error' : '' }}">
             <label class="col-sm-3 control-label">PIN Rekening Tabungan</label>
             <div class="col-sm-4">

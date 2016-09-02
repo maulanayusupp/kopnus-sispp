@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pinjaman;
 use App\Http\Requests;
+use Mail;
+
+
 
 class KelolaPinjamanController extends Controller
 {
@@ -29,6 +32,29 @@ class KelolaPinjamanController extends Controller
         return view('pages.kelola-pinjaman.daftar-verifikasi', compact('pinjaman'));
     }
 
+    public function showVerifikasi(Request $request, $id)
+    {
+        $pinjaman = Pinjaman::findOrFail($id);
+        return view('pages.kelola-pinjaman.verifikasi-pinjaman', compact('pinjaman'));
+    }
+
+    public function verifikasi(Request $request, $id)
+    {
+        $pinjaman = Pinjaman::findOrFail($id);
+        $pinjaman->update($request->only('status'));
+        /* KIRIM EMAIL */
+        $mail = Pinjaman::find(1)->toArray();
+        Mail::send('auth.emails.mail', $mail, function($message) use ($mail) {
+            $message->to('adeneling@gmail.com');
+            $message->subject('Mailgun Testing');
+        });
+        /* MESSAGE SUCCESS */
+        //dd('Mail Send Successfully');   
+
+        \Flash::success('Pinjaman dengan ID Transaksi: '. $pinjaman->id .' diverifikasi dengan status: '. $request->input('status') );
+        return redirect()->route('kelola.pinjaman.index');
+    }
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -96,17 +122,5 @@ class KelolaPinjamanController extends Controller
         //
     }
 
-    public function showVerifikasi(Request $request, $id)
-    {
-        $pinjaman = Pinjaman::findOrFail($id);
-        return view('pages.kelola-pinjaman.verifikasi-pinjaman', compact('pinjaman'));
-    }
-
-    public function verifikasi(Request $request, $id)
-    {
-        $pinjaman = Pinjaman::findOrFail($id);
-        $pinjaman->update($request->only('status'));        
-        \Flash::success('Pinjaman dengan ID Transaksi: '. $pinjaman->id .' diverifikasi dengan status: '. $request->input('status') );
-        return redirect()->route('kelola.pinjaman.index');
-    }
+    
 }

@@ -184,7 +184,7 @@
             <label class="col-sm-3 control-label"><strong>Cara Pembayaran</strong></label>
             <div class="col-sm-3">
                 <div class="fg-line">
-                    {!! Form::select('cara_pembayaran', array('Transfer Bank' => 'Transfer Bank', 'Tunai' => 'Tunai'), null, ['class'=>'chosen']) !!}
+                    {!! Form::select('cara_pembayaran', array('auto-debit' => 'Auto Debit'), null, ['class'=>'chosen','readonly']) !!}
                 </div>
                 @if($errors->has('cara_pembayaran'))
                     <span class="help-block">
