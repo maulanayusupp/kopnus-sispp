@@ -43,6 +43,7 @@ class CreateTableDataAnggota extends Migration
             $table->string('kota_domisili');
             $table->string('pos_domisili');
             $table->string('status_rumah');
+            $table->string('kode_wilayah');
             $table->string('nomor_telepon');
             $table->string('nomor_hp');
             $table->string('alamat_surat_korespondensi');

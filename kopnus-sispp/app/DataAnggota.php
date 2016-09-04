@@ -38,6 +38,7 @@ class DataAnggota extends Model
 		'kota_domisili',
 		'pos_domisili',
 		'status_rumah',
+		'kode_wilayah',
 		'nomor_telepon',
 		'nomor_hp',
 		'alamat_surat_korespondensi',

@@ -108,6 +108,7 @@ class AktivasiController extends Controller
             'kota_domisili' => 'required',
             'pos_domisili' => 'required',
             'status_rumah' => 'required',
+            'kode_wilayah' => 'required',
             'nomor_telepon' => 'required',
             'nomor_hp' => 'required',
             'alamat_surat_korespondensi' => 'required',
@@ -198,6 +199,7 @@ class AktivasiController extends Controller
         $dataAnggota->kota_domisili = $request->input('kota_domisili');
         $dataAnggota->pos_domisili = $request->input('pos_domisili');
         $dataAnggota->status_rumah = $request->input('status_rumah');
+        $dataAnggota->kode_wilayah = $request->input('kode_wilayah');
         $dataAnggota->nomor_telepon = $request->input('nomor_telepon');
         $dataAnggota->nomor_hp = $request->input('nomor_hp');
         $dataAnggota->alamat_surat_korespondensi = $request->input('alamat_surat_korespondensi');

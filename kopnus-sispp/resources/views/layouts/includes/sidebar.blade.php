@@ -24,7 +24,7 @@
                 <li class="sub-menu class= {{ Request::is('pinjaman/*') ? 'active' : '' }}">
                     <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-compact"></i> Pinjaman</a>
                     <ul>
-                        <li class= {{ Request::is('pinjaman/meminjam') ? 'active' : '' }}><a href="{{ URL::to('pinjaman/meminjam') }}">Meminjam</a></li>
+                        <li class= {{ Request::is('pinjaman/meminjam') ? 'active' : '' }}><a href="{{ URL::to('pinjaman/meminjam') }}">Ajukan Pinjaman</a></li>
                         <li class= {{ Request::is('pinjaman/riwayat') ? 'active' : '' }}><a href="{{ URL::to('pinjaman/riwayat') }}">Riwayat Pinjaman</a></li>
                     </ul>
                 </li>
@@ -32,7 +32,6 @@
                 <li class="sub-menu class= {{ Request::is('simpanan/*') ? 'active' : '' }}">
                     <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-view-list"></i> Simpanan</a>
                     <ul>
-                        <li class= {{ Request::is('simpanan/menyimpan') ? 'active' : '' }}><a href="{{ URL::to('simpanan/menyimpan') }}">Menyimpan</a></li>
                         <li class= {{ Request::is('simpanan/riwayat') ? 'active' : '' }}><a href="{{ URL::to('simpanan/riwayat') }}">Riwayat Simpanan</a></li>
                     </ul>
                 </li>
@@ -40,7 +39,7 @@
                 <li class="sub-menu class= {{ Request::is('pembayaran/*') ? 'active' : '' }}">
                     <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-widgets"></i> Pembayaran</a>
                     <ul>
-                        <li class= {{ Request::is('pembayaran/pembayaran') ? 'active' : '' }}><a href="{{ URL::to('pembayaran/pembayaran') }}">Pembayaran</a></li>
+                        
                         <li class= {{ Request::is('pembayaran/riwayat') ? 'active' : '' }}><a href="{{ URL::to('pembayaran/riwayat') }}">Riwayat Pembayaran</a></li>
                     </ul>
                 </li>
@@ -83,6 +82,9 @@
                 </a>
                 <ul>
                     {{-- DROPDOWN --}}
+                    <li class= {{ Request::is('simpanan/menyimpan') ? 'active' : '' }}>
+                        <a href="{{ URL::to('simpanan/menyimpan') }}">Simpanan</a>
+                    </li>
                     <li class= {{ Request::is('kelola/simpanan') ? 'active' : '' }} >
                         <a href="{{ URL::to('kelola/simpanan') }}" ><i class="zmdi zmdi-swap-alt"></i> Kelola Simpanan 
                         </a>
@@ -106,7 +108,10 @@
                     @endif
                 </a>
                 <ul>
-                    {{-- DROPDOWN --}}
+                    {{-- DROPDOWN --}}                    
+                    <li class= {{ Request::is('pembayaran/pembayaran') ? 'active' : '' }}>
+                        <a href="{{ URL::to('pembayaran/pembayaran') }}">Pembayaran</a>
+                    </li>
                     <li class= {{ Request::is('kelola/pembayaran') ? 'active' : '' }} >
                         <a href="{{ URL::to('kelola/pembayaran') }}" ><i class="zmdi zmdi-local-atm"></i> Kelola Pembayaran</a>
                     </li>

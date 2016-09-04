@@ -45,8 +45,8 @@ class KelolaPinjamanController extends Controller
         /* KIRIM EMAIL */
         $mail = Pinjaman::find(1)->toArray();
         Mail::send('auth.emails.mail', $mail, function($message) use ($mail) {
-            $message->to('adeneling@gmail.com');
-            $message->subject('Mailgun Testing');
+            $message->to('mitamufida@gmail.com');
+            $message->subject('Verifikasi Pinjaman - Koperasi Nusantara');
         });
         /* MESSAGE SUCCESS */
         //dd('Mail Send Successfully');   

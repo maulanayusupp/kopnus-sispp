@@ -196,7 +196,7 @@
             <label class="col-sm-3 control-label">Jumlah Tanggungan</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('jumlah_tanggungan', null, ['class'=>'form-control input-sm','placeholder'=>'Jumlah Tanggungan.']) !!}
+                    {!! Form::text('jumlah_tanggungan', null, ['class'=>'form-control input-sm','placeholder'=>'Jumlah tanggungan (orang)']) !!}
                 </div>
                 @if($errors->has('jumlah_tanggungan'))
                     <span class="help-block">
@@ -204,6 +204,7 @@
                     </span>
                 @endif
             </div>
+            <label class="col-sm-1 control-label">Orang</label>
         </div>
     </div>
 </div>
@@ -337,7 +338,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="form-group{{ $errors->has('pos_identitas') ? ' has-error' : '' }}">
-            <label class="col-sm-3 control-label">Pos</label>
+            <label class="col-sm-3 control-label">Kode Pos</label>
             <div class="col-sm-1">
                 <div class="fg-line">
                     {!! Form::text('pos_identitas', null, ['class'=>'form-control input-sm','placeholder'=>'Pos']) !!}
@@ -539,8 +540,18 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="form-group{{ $errors->has('nomor_telepon') ? ' has-error' : '' }}">
-            <label class="col-sm-3 control-label">Nomor Telepon</label>
+        <div class="form-group{{ $errors->has('kode_wilayah') ? ' has-error' : '' }}">
+            <label class="col-sm-3 control-label">Nomor Telepon Rumah</label>
+            <div class="col-sm-1">
+                <div class="fg-line">
+                    {!! Form::text('kode_wilayah', null, ['class'=>'form-control input-sm','placeholder'=>'022']) !!}
+                </div>
+                @if($errors->has('kode_wilayah'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('kode_wilayah') }}</strong>
+                    </span>
+                @endif
+            </div>
             <div class="col-sm-2">
                 <div class="fg-line">
                     {!! Form::text('nomor_telepon', null, ['class'=>'form-control input-sm','placeholder'=>'Nomor Telepon']) !!}
@@ -760,7 +771,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="form-group{{ $errors->has('pos_lain') ? ' has-error' : '' }}">
-            <label class="col-sm-3 control-label">Pos </label>
+            <label class="col-sm-3 control-label">Kode Pos </label>
             <div class="col-sm-2">
                 <div class="fg-line">
                     {!! Form::text('pos_lain', null, ['class'=>'form-control input-sm','placeholder'=>'Pos']) !!}
