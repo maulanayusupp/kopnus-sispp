@@ -18,11 +18,13 @@ class Pinjaman extends Model
         'kegunaan_pinjaman',
         'jumlah_pinjaman',
         'jumlah_pinjaman_terbilang',
-        'jangka_waktu_pinjam','nama_kreditur',
+        'jangka_waktu_pinjam',
+        'nama_kreditur',
         'no_rek_kreditur',
         'sisa_angsuran_kreditur',
         'sisa_angsuran_bulan_kreditur',
         'penghasilan_bulanan_kreditur',
+        'sisa_pinjaman',
         'status',
     ];
 }

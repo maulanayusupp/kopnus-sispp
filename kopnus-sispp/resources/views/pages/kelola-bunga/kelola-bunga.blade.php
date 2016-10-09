@@ -20,6 +20,11 @@
                         @endif
                     </div>
                 </div>
+                <div class="col-sm-3">
+                </div>    
+                <div class="col-sm-2">
+                    <a class="btn btn-info pull-right" href="{{ URL::to('kelola/bunga/daftar-bunga') }}"> Lihat Tabel bunga</a>
+                </div>
             </div>
 
             <div class="form-group">

@@ -11,9 +11,11 @@ class PembayaranSeeder extends Seeder
      */
     public function run()
     {
-    	
+    	$jumlah_pinjaman = 57600000;
+    	$bayaran = 1200000;
         /* USER ID 2*/
-        for ($i=1; $i <=36 ; $i++) { 
+        for ($i=1; $i <=48 ; $i++) { 
+        	$sisa_pinjaman = $jumlah_pinjaman - $bayaran;
         	App\Pembayaran::create([
 	    		'user_id' => 2,
 				'nama' => 'Bella Syifa',
@@ -27,7 +29,8 @@ class PembayaranSeeder extends Seeder
 				'jumlah_pembayaran_terbilang' => 'Satu juta dua ratus ribu rupiah',
 				'cara_pembayaran' => 'auto-debit',
 				'keterangan' => 'Pembayaran Pinjaman Ke - '. $i,
-				'status' => 'menunggu',
+				'sisa_pinjaman' => $jumlah_pinjaman-=$bayaran,
+				'status' => 'dibayar',
 			]);
         }
     	

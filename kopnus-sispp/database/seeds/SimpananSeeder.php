@@ -54,7 +54,7 @@ class SimpananSeeder extends Seeder
 	        'nota_perpanjangan' => 'Diambil Sendiri',
 	        'nota_perpanjangan_dikirim' => '-',
 	        'nama_referensi' => '-',
-	        'status' => 'menunggu',
+	        'status' => 'aktif',
 		]);
 
 		/* ID USER 3 */
@@ -100,7 +100,7 @@ class SimpananSeeder extends Seeder
 	        'nota_perpanjangan' => 'Diambil Sendiri',
 	        'nota_perpanjangan_dikirim' => '-',
 	        'nama_referensi' => '-',
-	        'status' => 'menunggu',
+	        'status' => 'aktif',
 		]);
     }
 }

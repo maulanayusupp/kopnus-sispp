@@ -23,6 +23,7 @@
                     <th>Nama</th>
                     <th>Pinjaman</th>
                     <th>Jumlah Pembayaran</th>
+                    <th>Sisa Pinjaman</th>
                     <th>Cara Pembayaran</th>
                     <th>Status</th>
                     <th><center>Aksi</center></th>
@@ -35,23 +36,25 @@
                         <td>{{ $pembayaran->nama }}</td>
                         <td>{{ $pembayaran->pinjaman_id }}</td>
                         <td>Rp {{ number_format($pembayaran->jumlah_pembayaran) }}</td>
+                        <td>Rp {{ number_format($pembayaran->sisa_pinjaman) }}</td>
                         <td><span class="label label-{{$pembayaran->jenis_pinjaman=='Tunai' ? 'info' : 'primary' }}">{{ $pembayaran->cara_pembayaran }}</span></td>
                         <td><span class="label label-{{$pembayaran->status=='dibayar' ? 'success' : 'danger' }}">{{ $pembayaran->status }}</span></td>
                         <td>
-                            @if($pembayaran->status=='menunggu')
+{{--                             @if($pembayaran->status=='menunggu')
                                 {!! Form::model($pembayaran, ['route' => ['pembayaran.pembayaran.destroy', $pembayaran], 'method' => 'delete', 'class' => 'form-inline'] ) !!}
                                 <a href = "{{ route('pembayaran.pembayaran.edit', $pembayaran->id)}}" class="btn palette-Orange bg">Ubah</a> | 
                                 <a href = "{{ route('pembayaran.pembayaran.show', $pembayaran->id)}}" class="btn palette-Blue bg">Lihat</a> | 
                                 <button type="submit" class="btn palette-Red bg"> Batalkan</button>
                                 {!! Form::close()!!}
-                            @else
+                            @else --}}
                                 <a href = "{{ route('pembayaran.pembayaran.show', $pembayaran->id)}}" class="btn palette-Blue bg">Lihat Data Pembayaran</a>
-                            @endif
+{{--                             @endif --}}
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+        {{ $pembayarans->appends(compact('q'))->links() }}
     </div>
 </div>
 @endif

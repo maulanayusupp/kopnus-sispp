@@ -11,7 +11,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        // sample admin
+        // sample admin id 1
 		App\User::create([
 			'name' => 'Admin',
 			'email' => 'admin@gmail.com',
@@ -19,7 +19,7 @@ class UsersSeeder extends Seeder
 			'role' => 'admin',
 			'status' => 'aktif',
 		]);
-		// sample member
+		// sample member id 2
 		App\User::create([
 			'name' => 'Bella Syifa',
 			'email' => 'bella@gmail.com',
@@ -27,21 +27,21 @@ class UsersSeeder extends Seeder
 			'role' => 'member',
 			'status' => 'aktif',
 		]);
-		// sample member
+		// sample member id 2
 		App\User::create([
 			'name' => 'Mitamufida',
-			'email' => 'mita@gmail.com',
+			'email' => 'mitamufida@gmail.com',
 			'password' => bcrypt('member'),
 			'role' => 'member',
 			'status' => 'aktif',
 		]);
-		// sample member
-		App\User::create([
-			'name' => 'David Jones',
-			'email' => 'david@gmail.com',
-			'password' => bcrypt('member'),
-			'role' => 'member',
-			'status' => 'belum-aktif',
-		]);
+		// sample member id 4
+		// App\User::create([
+		// 	'name' => '',
+		// 	'email' => 'tahu@gmail.com',
+		// 	'password' => bcrypt('member'),
+		// 	'role' => 'member',
+		// 	'status' => 'belum-aktif',
+		// ]);
     }
 }

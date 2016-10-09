@@ -22,39 +22,13 @@
 
     @yield('css')
 </head>
-<body data-ma-header="teal">
-    {{-- header section --}}
-    <header id="header" class="media">
-        <div class="pull-left h-logo">
-            <a href="{{ URL::to('home') }}" class="hidden-xs">
-                SISPP
-                <small>Simpan Pinjam<br>Pensiunan</small>
-            </a>
-            <div class="menu-collapse" data-ma-action="sidebar-open" data-ma-target="main-menu">
-                <div class="mc-wrap">
-                    <div class="mcw-line top palette-White bg"></div>
-                    <div class="mcw-line center palette-White bg"></div>
-                    <div class="mcw-line bottom palette-White bg"></div>
-                </div>
-            </div>
-        </div>
-        {{-- header menu --}}
-        @include('layouts.includes.header')
-        <div class="hidden-xs">
-            <center><h2><font color="white">Sistem Informasi Simpanan Pinjaman Pensiun<br>Koperasi Nusantara</font></h2>
-            </center>
-        </div>
-    </header>
-    
+<body data-ma-header="white">
     <section id="main">
-        {{-- sidebar notification --}}
-        @include('layouts.includes.sidebar-notification')
+        <br>
         {{-- sidebar menu --}}
-        @include('layouts.includes.sidebar')    
+        @include('layouts.includes.sidebar')
         <section id="content">
             <div class="container">
-                {{-- header counter --}}
-                @include('layouts.includes.header-counter')
                 {{-- navigation --}}
                 @if(!Request::is('home'))
                     <div class="card c-dark palette-Orange bg">
@@ -62,8 +36,7 @@
                             <h2><i class="zmdi zmdi-navigation"></i> @yield('title')</h2>
                         </div>
                     </div>
-                @endif
-                
+                @endif                
                 {{-- FEEDBACK SYSTEM --}}
                 @if(session()->has('flash_notification.message'))
                     <div class="container">

@@ -28,6 +28,7 @@ class PinjamanSeeder extends Seeder
 	        'sisa_angsuran_kreditur' => '1000000',
 	        'sisa_angsuran_bulan_kreditur' => '1',
 	        'penghasilan_bulanan_kreditur' => '7000000',
+	        'sisa_pinjaman' => 0,
 	        'status' => 'aktif',
 		]);
 		for ($i=0; $i <5 ; $i++) { 
@@ -47,6 +48,7 @@ class PinjamanSeeder extends Seeder
 		        'sisa_angsuran_kreditur' => '0',
 		        'sisa_angsuran_bulan_kreditur' => '0',
 		        'penghasilan_bulanan_kreditur' => '7000000',
+		        'sisa_pinjaman' => 0,
 		        'status' => 'lunas',
 			]);
 		}		
@@ -66,7 +68,8 @@ class PinjamanSeeder extends Seeder
 	        'sisa_angsuran_kreditur' => '1000000',
 	        'sisa_angsuran_bulan_kreditur' => '1',
 	        'penghasilan_bulanan_kreditur' => '7000000',
-	        'status' => 'menunggu',
+	        'sisa_pinjaman' => 0,
+	        'status' => 'aktif',
 		]);
 		
 		/* USER ID 3 */
@@ -87,6 +90,7 @@ class PinjamanSeeder extends Seeder
 		        'sisa_angsuran_kreditur' => '0',
 		        'sisa_angsuran_bulan_kreditur' => '0',
 		        'penghasilan_bulanan_kreditur' => '7000000',
+		        'sisa_pinjaman' => 0,
 		        'status' => 'lunas',
 			]);
 		}
@@ -106,6 +110,7 @@ class PinjamanSeeder extends Seeder
 	        'sisa_angsuran_kreditur' => '1000000',
 	        'sisa_angsuran_bulan_kreditur' => '1',
 	        'penghasilan_bulanan_kreditur' => '7000000',
+	        'sisa_pinjaman' => 0,
 	        'status' => 'aktif',
 		]);
 		App\Pinjaman::create([
@@ -124,7 +129,8 @@ class PinjamanSeeder extends Seeder
 	        'sisa_angsuran_kreditur' => '1000000',
 	        'sisa_angsuran_bulan_kreditur' => '1',
 	        'penghasilan_bulanan_kreditur' => '7000000',
-	        'status' => 'menunggu',
+	        'sisa_pinjaman' => 0,
+	        'status' => 'aktif',
 		]);
 		
 		

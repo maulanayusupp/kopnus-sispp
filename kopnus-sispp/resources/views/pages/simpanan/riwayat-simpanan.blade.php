@@ -28,14 +28,14 @@
                         <td>{{ $simpan->jangka_waktu .' Bulan' }}</td>
                         <td><span class="label label-{{ $simpan->status=='aktif' ? 'success' : 'danger' }}">{{ $simpan->status }}</span></td>
                         <td>
-                            @if($simpan->status=='menunggu')
+{{--                             @if($simpan->status=='menunggu')
                                 {!! Form::model($simpan, ['route' => ['simpanan.simpanan.destroy', $simpan], 'method' => 'delete', 'class' => 'form-inline'] ) !!}
                                 <a href = "{{ route('simpanan.simpanan.edit', $simpan->id)}}" class="btn palette-Orange bg">Ubah Simpanan</a> |
                                 <button type="submit" class="btn palette-Red bg"> Batal Simpanan</button>
                                 {!! Form::close()!!}
-                            @else
+                            @else --}}
                                 <a href = "{{ route('simpanan.simpanan.show', $simpan->id)}}" class="btn palette-Blue bg">Lihat Data Simpanan</a>
-                            @endif
+{{--                             @endif --}}
                         </td>
                     </tr>
                 @endforeach

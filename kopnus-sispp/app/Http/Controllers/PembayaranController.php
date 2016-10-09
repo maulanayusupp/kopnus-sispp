@@ -17,7 +17,7 @@ class PembayaranController extends Controller
 
     public function riwayat(){
         $id = Auth::user()->id ;
-        $pembayarans = Pembayaran::where('user_id', '=', $id)->orderBy('status','desc')->paginate(5);
+        $pembayarans = Pembayaran::where('user_id', '=', $id)->orderBy('status','desc')->paginate(20);
         return view('pages.pembayaran.riwayat-pembayaran', compact('pembayarans'));
     }
 

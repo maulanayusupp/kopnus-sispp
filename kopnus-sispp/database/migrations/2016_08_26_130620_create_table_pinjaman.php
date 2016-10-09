@@ -29,6 +29,7 @@ class CreateTablePinjaman extends Migration
             $table->integer('sisa_angsuran_kreditur');
             $table->integer('sisa_angsuran_bulan_kreditur');
             $table->integer('penghasilan_bulanan_kreditur');
+            $table->integer('sisa_pinjaman');
             $table->string('status');
             $table->timestamps();            
         });

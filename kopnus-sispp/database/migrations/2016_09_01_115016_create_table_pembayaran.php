@@ -26,6 +26,7 @@ class CreateTablePembayaran extends Migration
             $table->string('jumlah_pembayaran_terbilang');
             $table->string('cara_pembayaran');
             $table->string('keterangan');
+            $table->integer('sisa_pinjaman');
             $table->string('status');
             $table->timestamps();
         });

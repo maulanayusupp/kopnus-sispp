@@ -64,6 +64,7 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('pembayaran/verifikasi','KelolaPembayaranController@daftarVerifikasi');
 		Route::resource('pembayaran','KelolaPembayaranController');
 		/* KELOLA BUNGA */
+		Route::get('bunga/daftar-bunga','BungaController@daftarBunga');
 		Route::resource('bunga','BungaController');
 		/* KELOLA TABUNGAN */
 		Route::resource('tabungan','KelolaTabunganController');
