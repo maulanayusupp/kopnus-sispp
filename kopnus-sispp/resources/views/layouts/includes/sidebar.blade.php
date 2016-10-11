@@ -142,8 +142,9 @@
             
         @endcan
         {{-- option --}}
+        <hr>
         <li class="sub-menu">
-            <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-account"></i> Option
+            <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-account"></i> {{ Auth::user()->name }}
             </a>
             <ul>
                 <li>
