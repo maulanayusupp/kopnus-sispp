@@ -11,7 +11,7 @@
         <a class="btn btn-primary pull-right" href="{{ URL::to('kelola/bunga/') }}"> Kembali</a>
     </div>
     <div class="table-responsive">
-        <table class="table table-hover">
+        <table class="table" border="1">
             <thead>
                 <tr>
                     <th width="500%">Nama Bunga</th>
