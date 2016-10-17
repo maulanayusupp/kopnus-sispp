@@ -73,10 +73,10 @@
                 <ul>
                     {{-- DROPDOWN --}}
                     <li class= {{ Request::is('simpanan/menyimpan') ? 'active' : '' }}>
-                        <a href="{{ URL::to('simpanan/menyimpan') }}">Menabung</a>
+                        <a href="{{ URL::to('simpanan/menyimpan') }}">Tabungan SiKopnus</a>
                     </li>
                     <li class= {{ Request::is('kelola/simpanan') ? 'active' : '' }} >
-                        <a href="{{ URL::to('kelola/simpanan') }}" > Riwayat Penabung 
+                        <a href="{{ URL::to('kelola/simpanan') }}" > Riwayat Tabungan 
                         </a>
                     </li>
                 </ul>
@@ -91,16 +91,13 @@
                         <a href="{{ URL::to('kelola/produk') }}" > Produk</a>
                     </li>
                     <li class= {{ Request::is('kelola/tabungan') ? 'active' : '' }}>
-                        <a href="{{ URL::to('kelola/tabungan') }}" > Tabungan</a>
+                        <a href="{{ URL::to('kelola/tabungan') }}" > Rekening</a>
                     </li>
                     <li class= {{ Request::is('kelola/bunga') ? 'active' : '' }}>
                         <a href="{{ URL::to('kelola/bunga') }}" > Bunga</a>
-                    </li>
+                    </li>                    
                     <li class= {{ Request::is('kelola/akun') ? 'active' : '' }} >
                         <a href="{{ URL::to('kelola/akun') }}" > Users</a>
-                    </li>
-                    <li class= {{ Request::is('kelola/akun/daftar-member') ? 'active' : '' }} >
-                        <a href="{{ URL::to('kelola/akun/daftar-member') }}" > Daftar Member</a>
                     </li>
                 </ul>
             </li>

@@ -14,8 +14,10 @@ class CreateTableTabungan extends Migration
     {
         Schema::create('tabungan', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('produk_id');
-            $table->integer('user_id');
+            $table->unsignedInteger('produk_id');
+            $table->foreign('produk_id')->references('id')->on('produk');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('nama');
             $table->string('alamat');
             $table->string('kelurahan');

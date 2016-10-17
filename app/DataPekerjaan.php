@@ -38,4 +38,8 @@ class DataPekerjaan extends Model
 		'gaji_bersih',
 		'potongan_gaji_terakhir',
     ];
+
+    public function user() {
+    	return $this->belongsTo('App\User', 'user_id');
+	}
 }

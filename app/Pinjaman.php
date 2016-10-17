@@ -30,6 +30,15 @@ class Pinjaman extends Model
     ];
 
     public function bunga() {
-        return $this->hasOne('App\Bunga', 'bunga_id');
+        return $this->belongsTo('App\Bunga', 'bunga_id');
     }
+
+    public function user() {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+    
+    public function pembayaran() {
+        return $this->hasMany('App\Pembayaran', 'pinjaman_id');
+    }
+    
 }

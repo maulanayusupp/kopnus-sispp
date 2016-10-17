@@ -14,10 +14,12 @@ class CreateTablePembayaran extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedInteger('pinjaman_id');
+            $table->foreign('pinjaman_id')->references('id')->on('pinjaman');
             $table->string('nama');
-            $table->string('tanggal_pembayaran');
-            $table->integer('pinjaman_id');
+            $table->string('tanggal_pembayaran');            
             $table->integer('angsuran_nomor');
             $table->integer('jumlah_tagihan');
             $table->integer('pokok');

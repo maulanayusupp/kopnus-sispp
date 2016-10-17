@@ -14,7 +14,10 @@ class CreateTablePinjaman extends Migration
     {
         Schema::create('pinjaman', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedInteger('bunga_id');
+            $table->foreign('bunga_id')->references('id')->on('bunga');
             $table->string('kantor_juru_bayar');
             $table->string('pengelola_pensiun');
             $table->string('no_surat_keputusan_pensiun');

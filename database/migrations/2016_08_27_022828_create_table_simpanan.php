@@ -14,7 +14,8 @@ class CreateTableSimpanan extends Migration
     {
         Schema::create('simpanan', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('kartu_atm');
             $table->string('nomor_kartu_atm');
             $table->integer('nilai_penempatan');

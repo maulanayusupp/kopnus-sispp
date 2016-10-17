@@ -24,4 +24,12 @@ class Pembayaran extends Model
 		'keterangan',
 		'status',
     ];
+
+    public function user() {
+    	return $this->belongsTo('App\User', 'user_id');
+	}
+
+	public function pinjaman() {
+    	return $this->belongsTo('App\Pinjaman', 'pinjaman_id');
+	}
 }

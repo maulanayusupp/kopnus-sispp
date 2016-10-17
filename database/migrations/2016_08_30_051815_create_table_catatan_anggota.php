@@ -14,7 +14,8 @@ class CreateTableCatatanAnggota extends Migration
     {
         Schema::create('catatan-anggota', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('kepemilikan_rekening');
             $table->string('nomor_wesel_pos');
             $table->string('pemilik_nomor_wesel_pos');

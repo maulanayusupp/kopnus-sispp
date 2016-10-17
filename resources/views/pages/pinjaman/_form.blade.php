@@ -21,7 +21,10 @@
                     <label class="col-sm-3 control-label">Kantor Juru Bayar</label>
                     <div class="col-sm-4">
                         <div class="fg-line">
-                            {!! Form::text('kantor_juru_bayar', null, ['class'=>'form-control input-sm','placeholder'=>'Kantor Juru Bayar']) !!}
+                            <select class="selectpicker" name="kantor_juru_bayar">
+                                <option value="KPC">KPC</option>
+                                <option value="KRKK">KRKK</option>
+                            </select>
                         </div>
                         @if($errors->has('kantor_juru_bayar'))
                             <span class="help-block">
@@ -39,7 +42,9 @@
                     <label class="col-sm-3 control-label">Pengelola Pensiun</label>
                     <div class="col-sm-4">
                         <div class="fg-line">
-                            {!! Form::text('pengelola_pensiun', null, ['class'=>'form-control input-sm','placeholder'=>'Pengelola Pensiun']) !!}
+                            <select class="selectpicker" name="pengelola_pensiun">
+                                <option value="PT. ASABRI">PT. ASABRI</option>
+                            </select>
                         </div>
                         @if($errors->has('pengelola_pensiun'))
                             <span class="help-block">
@@ -111,6 +116,7 @@
                         <div class="fg-line">
                             <select class="selectpicker" name="kegunaan_pinjaman">
                                 <option value="Investasi">INVESTASI</option>
+                                <option value="Modal Kerja">MODAL KERJA</option>
                                 <option value="Modal Kerja">MODAL KERJA</option>
                             </select>
                         </div>

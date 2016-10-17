@@ -14,8 +14,9 @@ class CreateTableDataAnggota extends Migration
     {
         Schema::create('data-anggota', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('keperluan');
-            $table->integer('user_id');
             $table->string('nama');
             $table->string('jenis_layanan_jasa');
             $table->string('nama_suami_istri');

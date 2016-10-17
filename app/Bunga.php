@@ -14,6 +14,6 @@ class Bunga extends Model
     ];
 
     public function pinjaman() {
-    	return $this->belongsTo('App\Pinjaman', 'bunga_id');
+    	return $this->hasMany('App\Pinjaman', 'bunga_id');
 	}
 }

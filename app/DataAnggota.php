@@ -53,4 +53,8 @@ class DataAnggota extends Model
 		'kota_lain',
 		'pos_lain',
     ];
+
+    public function user() {
+    	return $this->belongsTo('App\User', 'user_id');
+	}
 }

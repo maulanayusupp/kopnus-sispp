@@ -14,7 +14,8 @@ class CreateTableDataPekerjaan extends Migration
     {
         Schema::create('data-pekerjaan', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('pekerjaan');
             $table->string('pekerjaan_lain');
             $table->integer('penghasilan');

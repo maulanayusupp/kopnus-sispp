@@ -22,4 +22,8 @@ class Simpanan extends Model
         'nama_referensi',
         'status',
     ];
+
+    public function user() {
+        return $this->belongsTo('App\User', 'user_id');
+    }
 }

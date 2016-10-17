@@ -20,4 +20,8 @@ class CatatanAnggota extends Model
 		'pemilik_nomor_rek_tabungan',
 		'nama_bank_penerima',
     ];
+    
+    public function user() {
+    	return $this->belongsTo('App\User', 'user_id');
+	}
 }
