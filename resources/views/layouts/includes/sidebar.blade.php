@@ -73,23 +73,14 @@
                 <ul>
                     {{-- DROPDOWN --}}
                     <li class= {{ Request::is('simpanan/menyimpan') ? 'active' : '' }}>
-                        <a href="{{ URL::to('simpanan/menyimpan') }}">Simpanan</a>
+                        <a href="{{ URL::to('simpanan/menyimpan') }}">Menabung</a>
                     </li>
                     <li class= {{ Request::is('kelola/simpanan') ? 'active' : '' }} >
-                        <a href="{{ URL::to('kelola/simpanan') }}" > Riwayat Simpanan 
-                        </a>
-                    </li>
-                    <li class= {{ Request::is('kelola/simpanan/verifikasi') ? 'active' : '' }} >
-                        <a href="{{ URL::to('kelola/simpanan/verifikasi') }}" > Verifikasi Simpanan 
-                            {{-- NOTIFIKASI --}}
-                            @if((App\Simpanan::where('status','menunggu')->count())>0)
-                                <span class="label label-danger">{{ App\Simpanan::where('status','menunggu')->count() }}</span>
-                            @endif
+                        <a href="{{ URL::to('kelola/simpanan') }}" > Riwayat Penabung 
                         </a>
                     </li>
                 </ul>
             </li>
-
             {{-- MASTER --}}
             <li class="sub-menu class= {{ Request::is('kelola/akun') || Request::is('kelola/akun/daftar-member') ? 'active' : '' }}">
                 <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-settings"></i> Master  

@@ -1,1 +1,0 @@
-Hello, we are Koperasi Nusantara Here!
