@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body card-padding">        
-        <center><b><h3>SIMPANAN KHUSUS ANGGOTA</h3></b></center>
+        <center><b><h3>TABUNGAN KHUSUS ANGGOTA</h3></b></center>
         <hr>
         <div class="row">
             <div class="col-sm-12">
@@ -8,7 +8,7 @@
                     <label class="col-sm-3 control-label">ID Anggota</label>
                     <div class="col-sm-2">
                         <div class="fg-line">
-                            <input type="text" class="form-control input-sm" name="user_id" value="{{ Auth::user()->id }}" readonly>
+                            {!! Form::select('user_id', [''=>'']+App\User::lists('id','id')->all(), null, ['class'=>'chosen']) !!}
                         </div>
                     </div>
                 </div>                    

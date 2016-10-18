@@ -82,7 +82,7 @@
                 <ul>
                     {{-- DROPDOWN --}}
                     <li class= "{{ Request::is('simpanan/menyimpan') ? 'active' : '' }}">
-                        <a href="{{ URL::to('simpanan/menyimpan') }}">Tabungan SiKopnus</a>
+                        <a href="{{ URL::to('simpanan/menyimpan') }}">Tabungan SiKopNus</a>
                     </li>
                     <li class= "{{ Request::is('kelola/simpanan') ? 'active' : '' }}" >
                         <a href="{{ URL::to('kelola/simpanan') }}" > Riwayat Tabungan 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title')Menyimpan
+@section('title')Tabungan SiKopNus
 @stop
 
 @section('content')
