@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pinjaman;
+use App\User;
 use App\Http\Requests;
 use Auth;
 
@@ -51,11 +52,21 @@ class PinjamanController extends Controller
     {
         $this->validate($request, [
             'user_id' => 'required',
-            'kantor_juru_bayar' => 'required'
         ]);
+
+        $user_id = $request->input('user_id');
+        $simpanan_wajib = $request->input('simpanan_wajib');
+        $simpanan_pokok = $request->input('simpanan_pokok');
+        
         $request['status'] = 'menunggu';
         Pinjaman::create($request->all());
-        \Flash::success('Pinjaman oleh: ' . $request->get('kantor_juru_bayar') .  ' ditambahkan.');
+
+        $user = User::findOrFail($user_id);
+        $user->simpanan_wajib = 1;
+        $user->simpanan_pokok = 1;
+        $user->save();
+
+        \Flash::success('Pinjaman oleh: ' . $user->name .  ' ditambahkan.');
         return redirect('pinjaman/riwayat');
     }
 
@@ -92,12 +103,22 @@ class PinjamanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pinjaman = Pinjaman::findOrFail($id);
         $this->validate($request, [
             'user_id' => 'required',
         ]);
 
+        $user_id = $request->input('user_id');
+        $simpanan_wajib = $request->input('simpanan_wajib');
+        $simpanan_pokok = $request->input('simpanan_pokok');        
+        
+        $pinjaman = Pinjaman::findOrFail($id);
         $pinjaman->update($request->all());
+
+        $user = User::findOrFail($user_id);
+        $user->simpanan_wajib = 1;
+        $user->simpanan_pokok = 1;
+        $user->save();
+
         \Flash::success('ID Pinjaman: '. $pinjaman->id . ' berhasil diubah.');
         return redirect('pinjaman/riwayat');
     }

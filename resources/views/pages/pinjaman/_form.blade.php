@@ -117,7 +117,6 @@
                             <select class="selectpicker" name="kegunaan_pinjaman">
                                 <option value="Investasi">INVESTASI</option>
                                 <option value="Modal Kerja">MODAL KERJA</option>
-                                <option value="Modal Kerja">MODAL KERJA</option>
                             </select>
                         </div>
                     </div>
@@ -163,15 +162,15 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <div class="form-group{{ $errors->has('jangka_waktu_pinjam') ? ' has-error' : '' }}">
+                <div class="form-group{{ $errors->has('bunga_id') ? ' has-error' : '' }}">
                     <label class="col-sm-3 control-label">Jangka Waktu Pinjam</label>
-                    <div class="col-sm-1">
+                    <div class="col-sm-4">
                         <div class="fg-line">
-                            {!! Form::text('jangka_waktu_pinjam', null, ['class'=>'form-control input-sm','placeholder'=>'Bulan']) !!}
+                            {!! Form::select('bunga_id', [''=>'']+App\Bunga::lists('bulan_bunga','id')->all(), null, ['class'=>'chosen']) !!}
                         </div>
-                        @if($errors->has('jangka_waktu_pinjam'))
+                        @if($errors->has('bunga_id'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('jangka_waktu_pinjam') }}</strong>
+                                <strong>{{ $errors->first('bunga_id') }}</strong>
                             </span>
                         @endif
                     </div>
@@ -179,28 +178,16 @@
                 </div>
             </div>
         </div>
-
+    @if(Auth::user()->simpanan_wajib != 1)
         <hr>
-        <center><b><h4>PENDAPATAN DAN PINJAMAN LAINNYA</h4></b></center>
+        <center><b><h4>SIMPANAN WAJIB DAN POKOK</h4></b></center>
         <div class="row">
             <div class="col-sm-12">
-                <div class="form-group{{ $errors->has('nama_kreditur') ? ' has-error' : '' }}">
-                    <label class="col-sm-3 control-label">Nama Kreditur</label>
-                    <div class="col-sm-3">
-                        <div class="fg-line">
-                            {!! Form::text('nama_kreditur', null, ['class'=>'form-control input-sm','placeholder'=>'Nama kreditur']) !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group{{ $errors->has('no_rek_kreditur') ? ' has-error' : '' }}">
-                    <label class="col-sm-3 control-label">No. Rekening</label>
+                <div class="form-group{{ $errors->has('simpanan_wajib') ? ' has-error' : '' }}">
+                    <label class="col-sm-3 control-label">Simpanan Wajib</label>
                     <div class="col-sm-2">
                         <div class="fg-line">
-                            {!! Form::text('no_rek_kreditur', null, ['class'=>'form-control input-sm','placeholder'=>'Nomor rekening kreditur']) !!}
+                            {!! Form::text('simpanan_wajib', number_format(50000), ['class'=>'form-control input-sm','placeholder'=>'Simpanan Wajib', 'readonly']) !!}
                         </div>
                     </div>
                 </div>
@@ -208,35 +195,17 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <div class="form-group{{ $errors->has('sisa_angsuran_kreditur') ? ' has-error' : '' }}">
-                    <label class="col-sm-3 control-label">Sisa Angsuran</label>
+                <div class="form-group{{ $errors->has('simpanan_pokok') ? ' has-error' : '' }}">
+                    <label class="col-sm-3 control-label">Simpanan Pokok</label>
                     <div class="col-sm-2">
                         <div class="fg-line">
-                            {!! Form::text('sisa_angsuran_kreditur', null, ['class'=>'form-control input-sm','placeholder'=>'Sisa angsuran kreditur']) !!}
-                        </div>
-                    </div>
-                    <div class="col-sm-1">
-                        <div class="fg-line">
-                            {!! Form::text('sisa_angsuran_bulan_kreditur', null, ['class'=>'form-control input-sm','placeholder'=>'Bulan']) !!}
-                        </div>
-                    </div>
-                    <label class="col-sm-1 control-label">Bulan</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group{{ $errors->has('penghasilan_bulanan_kreditur') ? ' has-error' : '' }}">
-                    <label class="col-sm-3 control-label">Penghasilan Pasangan/Bulan</label>
-                    <div class="col-sm-6">
-                        <div class="fg-line">
-                            {!! Form::text('penghasilan_bulanan_kreditur', null, ['class'=>'form-control input-sm','placeholder'=>'Penghasilan Bulanan Kreditur']) !!}
+                            {!! Form::text('simpanan_pokok', number_format(5000), ['class'=>'form-control input-sm','placeholder'=>'Simpanan Pokok', 'readonly']) !!}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    @endif
         <hr>
         <div class="row">
             <div class="col-sm-12">

@@ -25,7 +25,7 @@
                 @foreach($pinjaman as $pinjam)
                     <tr>
                         <td>{{ $pinjam->id }}</td>
-                        <td>{{ $pinjam->nama_kreditur }}</td>
+                        <td>{{ $pinjam->user->name }}</td>
                         <td>{{ $pinjam->user_id }}</td>
                         <td>Rp {{ number_format($pinjam->jumlah_pinjaman) }}</td>
                         <td><span class="label label-{{$pinjam->jenis_pinjaman=='makro' ? 'info' : 'primary' }}">{{ $pinjam->jenis_pinjaman }}</span></td>

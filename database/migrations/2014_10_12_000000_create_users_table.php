@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role');
+            $table->integer('simpanan_wajib')->nullable();
+            $table->integer('simpanan_pokok')->nullable();
             $table->string('status');
             $table->rememberToken();
             $table->timestamps();
