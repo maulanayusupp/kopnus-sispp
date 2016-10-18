@@ -57,7 +57,7 @@
         </div> --}}
         @if(!Request::is('home'))
             <footer id="footer">
-                Copyright &copy; 2016 Sistem Informasi Simpanan Pinjaman Pensiun <br> Koperasi Nusantara Indonesia
+                Copyright &copy; 2016 Sistem Informasi Simpan Pinjam Pensiun <br> Koperasi Nusantara Indonesia
             </footer>
         @endif
         

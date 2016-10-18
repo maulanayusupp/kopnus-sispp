@@ -26,7 +26,7 @@
 {{-- SELAMAT DATANG DI SISTEM --}}
 <div class="card palette-White bg">
     <div class="card-header">
-        <h1><center>Selamat Datang di <br>Sistem Informasi Simpanan Pinjaman Pensiun</center></h1>
+        <h1><center>Selamat Datang di <br>Sistem Informasi Simpan Pinjam Pensiun</center></h1>
         <center><img src="{{ asset('assets/img/logo.png') }}" class="img-responsive"></center>
     </div>
 </div>

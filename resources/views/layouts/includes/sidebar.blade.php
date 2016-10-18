@@ -4,7 +4,9 @@
     @if(Auth::check())
     <ul class="main-menu">
         {{-- home --}}
-        <li class= "{{ Request::is('home') ? 'active' : '' }}"><a href="{{ URL::to('home') }}"><i class="zmdi zmdi-home"></i> Home</a></li>
+        <li class= "{{ Request::is('home') ? 'active' : '' }}">
+            <a href="{{ URL::to('home') }}"><i class="zmdi zmdi-home"></i> Home</a>
+        </li>
         {{-- SIDEBAR MENU MEMBER --}}
         @can('member-access')
             {{-- pinjaman --}}
@@ -101,7 +103,9 @@
                 </ul>
             </li>
             {{-- LAPORAN --}}
-            <li class= "{{ Request::is('kelola/laporan') ? 'active' : '' }}"><a href="{{ URL::to('kelola/laporan') }}"><i class="zmdi zmdi-archive"></i> Laporan</a></li>
+            <li class= "{{ Request::is('kelola/laporan') ? 'active' : '' }}">
+                <a href="{{ URL::to('kelola/laporan') }}"><i class="zmdi zmdi-archive"></i> Laporan</a>
+            </li>
         @endcan
         {{-- option --}}
         <hr>
