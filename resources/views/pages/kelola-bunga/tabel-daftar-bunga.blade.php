@@ -8,17 +8,17 @@
 
 <div class="card">
     <div class="card-header">
-        <a class="btn btn-primary pull-right" href="{{ URL::to('kelola/bunga/') }}"> Kembali</a>
+        <a class="btn btn-primary pull-left" href="{{ URL::to('kelola/bunga/') }}"> Kembali</a>
     </div>
+    <hr>
     <div class="table-responsive">
-        <table class="table" border="1">
+        <table border="1">
             <thead>
                 <tr>
-                    <th width="500%">Nama Bunga</th>
+                    <th width="10%">Nama Bunga</th>
                     @for($i = 1; $i <= 15; $i++)
                         <th>{{ $i }}</th>
                     @endfor
-                    <th>Tahun</th>
                 </tr>
             </thead>
             <tbody>                
@@ -32,7 +32,7 @@
 
                     <td>Makro Sendiri dan MPP Jt > 70</td>
                     @foreach($makroSendiriMPPLebih as $bunga2)
-                    <td>{{ $bunga2->bunga }}%</td>
+                    <td width="3%">{{ $bunga2->bunga }}%</td>
                     @endforeach                    
                 </tr>
                 <tr>

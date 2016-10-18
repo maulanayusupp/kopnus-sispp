@@ -22,7 +22,7 @@
             <label class="col-sm-3 control-label"><strong>ID Anggota</strong></label>
             <div class="col-sm-2">
                 <div class="fg-line">
-                    {!! Form::text('user_id', Auth::user()->id, ['class'=>'form-control input-sm','placeholder'=>'Nama Lengkap',isset($pembayaran) ?  'readonly' : '']) !!}
+                    {!! Form::select('user_id', [''=>'']+App\User::lists('id','id')->all(), null, ['class'=>'chosen']) !!}
                 </div>
                 @if($errors->has('user_id'))
                     <span class="help-block">
@@ -40,7 +40,7 @@
             <label class="col-sm-3 control-label"><strong>Nama</strong></label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('nama', Auth::user()->name, ['class'=>'form-control input-sm','placeholder'=>'Nama Lengkap']) !!}
+                    {!! Form::select('user_id', [''=>'']+App\User::lists('name','name')->all(), null, ['class'=>'chosen']) !!}
                 </div>
                 @if($errors->has('nama'))
                     <span class="help-block">
@@ -58,7 +58,7 @@
             <label class="col-sm-3 control-label"><strong>Nomor Pinjaman</strong></label>
             <div class="col-sm-3">
                 <div class="fg-line">
-                    {!! Form::text('pinjaman_id', null, ['class'=>'form-control input-sm','placeholder'=>'Nomor Pinjaman']) !!}
+                    {!! Form::select('pinjaman_id', [''=>'']+App\Pinjaman::lists('id','id')->all(), null, ['class'=>'chosen']) !!}
                 </div>
                 @if($errors->has('pinjaman_id'))
                     <span class="help-block">
