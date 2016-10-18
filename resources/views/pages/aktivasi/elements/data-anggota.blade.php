@@ -396,15 +396,15 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="form-group{{ $errors->has('npwp') ? ' has-error' : '' }}">
-            <label class="col-sm-3 control-label">NPWP</label>
+        <div class="form-group{{ $errors->has('no_npwp') ? ' has-error' : '' }}">
+            <label class="col-sm-3 control-label">Nomor NPWP</label>
             <div class="col-sm-5">
                 <div class="fg-line">
-                    {!! Form::text('npwp', null, ['class'=>'form-control input-sm','placeholder'=>'NPWP']) !!}
+                    {!! Form::text('no_npwp', null, ['class'=>'form-control input-sm','placeholder'=>'Nomor NPWP']) !!}
                 </div>
-                @if($errors->has('npwp'))
+                @if($errors->has('no_npwp'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('npwp') }}</strong>
+                        <strong>{{ $errors->first('no_npwp') }}</strong>
                     </span>
                 @endif
             </div>
@@ -786,3 +786,96 @@
     </div>
 </div>
 
+<center><b><h4>Dokumen Lampiran</h4></b></center>
+
+<hr>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group{{ $errors->has('skp') ? ' has-error' : '' }}">
+            <label class="col-sm-3 control-label">Surat Keterangan Pensiun</label>
+            <div class="col-sm-2">
+                <div class="fg-line">
+                    {!! Form::file('skp') !!}
+                </div>
+                @if($errors->has('skp'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('skp') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group{{ $errors->has('ktp') ? ' has-error' : '' }}">
+            <label class="col-sm-3 control-label">Kartu Tanda Penduduk</label>
+            <div class="col-sm-2">
+                <div class="fg-line">
+                    {!! Form::file('ktp') !!}
+                </div>
+                @if($errors->has('ktp'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('ktp') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group{{ $errors->has('npwp') ? ' has-error' : '' }}">
+            <label class="col-sm-3 control-label">Nomor Pokok Wajib Pajak</label>
+            <div class="col-sm-2">
+                <div class="fg-line">
+                    {!! Form::file('npwp') !!}
+                </div>
+                @if($errors->has('npwp'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('npwp') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group{{ $errors->has('kk') ? ' has-error' : '' }}">
+            <label class="col-sm-3 control-label">Kartu Keluarga</label>
+            <div class="col-sm-2">
+                <div class="fg-line">
+                    {!! Form::file('kk') !!}
+                </div>
+                @if($errors->has('kk'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('kk') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group{{ $errors->has('struk_gaji') ? ' has-error' : '' }}">
+            <label class="col-sm-3 control-label">Struk Gaji</label>
+            <div class="col-sm-2">
+                <div class="fg-line">
+                    {!! Form::file('struk_gaji') !!}
+                </div>
+                @if($errors->has('struk_gaji'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('struk_gaji') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>

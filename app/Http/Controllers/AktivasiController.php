@@ -213,6 +213,93 @@ class AktivasiController extends Controller
         $dataAnggota->kecamatan_lain = $request->input('kecamatan_lain');
         $dataAnggota->kota_lain = $request->input('kota_lain');
         $dataAnggota->pos_lain = $request->input('pos_lain');
+
+        if ($request->hasFile('skp')) {
+            $skpname = null;
+            $upload_file = $request->file('skp');
+            $extension = $upload_file->getClientOriginalExtension();
+            $skpname = str_random(10) . '.' . $extension;
+            $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'dokumen';
+            $upload_file->move($destinationPath, $skpname);
+            if ($dataAnggota->skp) {
+                $old_file = $dataAnggota->skp;
+                $filepath = public_path() . DIRECTORY_SEPARATOR . 'dokumen'. DIRECTORY_SEPARATOR . $dataAnggota->skp;
+                try {
+                } catch (FileNotFoundException $e) {
+                // File sudah dihapus/tidak ada
+                }
+            }
+            $dataAnggota->skp = $skpname;
+        }
+        if ($request->hasFile('ktp')) {
+            $ktpname = null;
+            $upload_file = $request->file('ktp');
+            $extension = $upload_file->getClientOriginalExtension();
+            $ktpname = str_random(10) . '.' . $extension;
+            $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'dokumen';
+            $upload_file->move($destinationPath, $ktpname);
+            if ($dataAnggota->ktp) {
+                $old_file = $dataAnggota->ktp;
+                $filepath = public_path() . DIRECTORY_SEPARATOR . 'dokumen'. DIRECTORY_SEPARATOR . $dataAnggota->ktp;
+                try {
+                } catch (FileNotFoundException $e) {
+                // File sudah dihapus/tidak ada
+                }
+            }
+            $dataAnggota->ktp = $ktpname;
+        }
+        if ($request->hasFile('npwp')) {
+            $npwpname = null;
+            $upload_file = $request->file('npwp');
+            $extension = $upload_file->getClientOriginalExtension();
+            $npwpname = str_random(10) . '.' . $extension;
+            $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'dokumen';
+            $upload_file->move($destinationPath, $npwpname);
+            if ($dataAnggota->npwp) {
+                $old_file = $dataAnggota->npwp;
+                $filepath = public_path() . DIRECTORY_SEPARATOR . 'dokumen'. DIRECTORY_SEPARATOR . $dataAnggota->npwp;
+                try {
+                } catch (FileNotFoundException $e) {
+                // File sudah dihapus/tidak ada
+                }
+            }
+            $dataAnggota->npwp = $npwpname;
+        }
+        if ($request->hasFile('kk')) {
+            $kkname = null;
+            $upload_file = $request->file('kk');
+            $extension = $upload_file->getClientOriginalExtension();
+            $kkname = str_random(10) . '.' . $extension;
+            $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'dokumen';
+            $upload_file->move($destinationPath, $kkname);
+            if ($dataAnggota->kk) {
+                $old_file = $dataAnggota->kk;
+                $filepath = public_path() . DIRECTORY_SEPARATOR . 'dokumen'. DIRECTORY_SEPARATOR . $dataAnggota->kk;
+                try {
+                } catch (FileNotFoundException $e) {
+                // File sudah dihapus/tidak ada
+                }
+            }
+            $dataAnggota->kk = $kkname;
+        }
+        if ($request->hasFile('struk_gaji')) {
+            $struk_gaji_name = null;
+            $upload_file = $request->file('struk_gaji');
+            $extension = $upload_file->getClientOriginalExtension();
+            $struk_gaji_name = str_random(10) . '.' . $extension;
+            $destinationPath = public_path() . DIRECTORY_SEPARATOR . 'dokumen';
+            $upload_file->move($destinationPath, $struk_gaji_name);
+            if ($dataAnggota->struk_gaji) {
+                $old_file = $dataAnggota->struk_gaji;
+                $filepath = public_path() . DIRECTORY_SEPARATOR . 'dokumen'. DIRECTORY_SEPARATOR . $dataAnggota->struk_gaji;
+                try {
+                } catch (FileNotFoundException $e) {
+                // File sudah dihapus/tidak ada
+                }
+            }
+            $dataAnggota->struk_gaji = $struk_gaji_name;
+        }
+
         $dataAnggota->save();
 
         /* AKSI KE MODEL DATA PEKERJAAN */
@@ -257,7 +344,7 @@ class AktivasiController extends Controller
 
         /* AKSI KE MODEL TABUNGAN */
         $tabungan = new Tabungan;
-        $tabungan->produk_id = 'a';
+        $tabungan->produk_id = $request->input('produk_id');
         $tabungan->user_id = $request->input('user_id');
         $tabungan->nama = $request->input('nama');
         $tabungan->alamat = $request->input('alamat');

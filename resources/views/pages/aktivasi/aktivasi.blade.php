@@ -54,9 +54,10 @@
     </div>
 </section>
 
-{{-- FORM AKTIVASI --}}
-@include('pages.aktivasi.elements._form')
+{!! Form::model($user, ['route' => ['aktivasi.update', $user],'method' =>'patch','role'=>'form','class'=>'form-horizontal','files'=>'true']) !!}
+    {!! csrf_field() !!}
+    @include('pages.aktivasi.elements._form')
+{!! Form::close() !!}
 
 @stop
-@section('js')
-@stop
+

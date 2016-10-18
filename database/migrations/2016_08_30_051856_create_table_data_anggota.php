@@ -57,7 +57,8 @@ class CreateTableDataAnggota extends Migration
             $table->string('kecamatan_lain');
             $table->string('kota_lain');
             $table->string('pos_lain');
-            $table->text('sk');
+            $table->string('no_npwp');
+            $table->text('skp');
             $table->text('ktp');
             $table->text('npwp');
             $table->text('kk');

@@ -6,10 +6,13 @@
             <div class="col-sm-12">
                 <div class="form-group{{ $errors->has('user_id') ? ' has-error' : '' }}">
                     <label class="col-sm-3 control-label">ID Anggota</label>
-                    <div class="col-sm-2">
+                    <div class="col-sm-1">
                         <div class="fg-line">
                             <input type="text" class="form-control input-sm" name="user_id" value="{{ Auth::user()->id }}" readonly>
                         </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <label class="col-sm-3 control-label"><strong>{{ Auth::user()->name }}</strong></label>
                     </div>
                 </div>                    
             </div>
