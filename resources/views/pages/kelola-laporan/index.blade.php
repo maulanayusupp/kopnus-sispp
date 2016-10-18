@@ -12,7 +12,7 @@
     </div>
     <div class="card-body card-padding">
         <h2 class="m-t-0 m-b-15 c-white">
-            <i class="zmdi zmdi-caret-up-circle m-r-5"></i>
+            <i class="zmdi zmdi-collection-text"></i>
             {{ App\Pinjaman::count() }}
         </h2>
 
@@ -27,7 +27,7 @@
     </div>
     <div class="card-body card-padding">
         <h2 class="m-t-0 m-b-15 c-white">
-            <i class="zmdi zmdi-caret-up-circle m-r-5"></i>
+            <i class="zmdi zmdi-collection-text"></i>
             {{ App\Pembayaran::count() }}
         </h2>
         <div class="sparkline-2 text-center"></div>
@@ -41,7 +41,7 @@
     </div>
     <div class="card-body card-padding">
         <h2 class="m-t-0 m-b-15 c-white">
-            <i class="zmdi zmdi-caret-down-circle m-r-5"></i>
+            <i class="zmdi zmdi-collection-text"></i>
             {{ App\Simpanan::count() }}
         </h2>
         <div class="sparkline-3 text-center"></div>
