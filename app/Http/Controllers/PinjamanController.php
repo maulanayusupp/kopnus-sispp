@@ -52,6 +52,7 @@ class PinjamanController extends Controller
     {
         $this->validate($request, [
             'user_id' => 'required',
+            'bunga_id' => 'required',
         ]);
 
         $user_id = $request->input('user_id');
@@ -105,6 +106,7 @@ class PinjamanController extends Controller
     {
         $this->validate($request, [
             'user_id' => 'required',
+            'bunga_id' => 'required',
         ]);
 
         $user_id = $request->input('user_id');

@@ -33,11 +33,11 @@
                 @foreach($pinjaman as $pinjam)
                     <tr>
                         <td>{{ $pinjam->id }}</td>
-                        <td>{{ $pinjam->nama_kreditur }}</td>
+                        <td>{{ $pinjam->user->name }}</td>
                         <td>{{ $pinjam->user_id }}</td>
                         <td>Rp {{ number_format($pinjam->jumlah_pinjaman) }}</td>
                         <td><span class="label label-{{$pinjam->jenis_pinjaman=='makro' ? 'info' : 'primary' }}">{{ $pinjam->jenis_pinjaman }}</span></td>
-                        <td><span class="label label-{{$pinjam->status=='aktif' ? 'danger' : 'success' }}">{{ $pinjam->status }}</span></td>
+                        <td><span class="label label-{{$pinjam->status=='aktif' ? 'success' : 'danger' }}">{{ $pinjam->status }}</span></td>
                         <td>
                             <div class="form-inline">
                                 <a href = "{{ route('kelola.pinjaman.show', $pinjam->id)}}" class="btn palette-Teal bg"> Lihat Data</a> | <a href = "{{ route('kelola.pinjaman.showverifikasi', $pinjam->id)}}" class="btn palette-Indigo bg"> Verifikasi Data</a>                                

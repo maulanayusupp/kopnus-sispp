@@ -5,7 +5,7 @@
 @section('content')
 <div class="card">
     <div class="card-body card-padding">        
-    	<center><b><h3>PINJAMAN KHUSUS ANGGOTA <br>({{ $pinjaman->nama_kreditur }})</h3></b></center>
+    	<center><b><h3>PINJAMAN KHUSUS ANGGOTA <br>({{ $pinjaman->user->name }})</h3></b></center>
 
     	<hr>
 

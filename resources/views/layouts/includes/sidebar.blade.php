@@ -39,12 +39,7 @@
                     @endif
                 </a>
                 <ul>
-                    {{-- DROPDOWN --}}
-                    <li class= {{ Request::is('kelola/pinjaman') ? 'active' : '' }} >
-                        <a href="{{ URL::to('kelola/pinjaman') }}" > Riwayat Pinjaman 
-                        </a>
-                    </li>
-                    {{-- DROPDOWN --}}
+                    {{-- DROPDOWN PINJAMAN--}}
                     <li class= {{ Request::is('kelola/pinjaman/verifikasi') ? 'active' : '' }} >
                         <a href="{{ URL::to('kelola/pinjaman/verifikasi') }}" > Verifikasi Pengajuan Pinjaman 
                             {{-- NOTIFIKASI --}}
@@ -53,6 +48,10 @@
                             @endif
                         </a>
                     </li>
+                    <li class= {{ Request::is('kelola/pinjaman') ? 'active' : '' }} >
+                        <a href="{{ URL::to('kelola/pinjaman') }}" > Riwayat Pinjaman 
+                        </a>
+                    </li>                    
                     {{-- DROPDOWN PEMBAYARAN--}}                    
                     <li class= {{ Request::is('pembayaran/pembayaran') ? 'active' : '' }}>
                         <a href="{{ URL::to('pembayaran/pembayaran') }}">Pembayaran</a>
