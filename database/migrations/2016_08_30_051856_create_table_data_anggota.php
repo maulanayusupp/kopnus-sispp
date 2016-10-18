@@ -36,7 +36,6 @@ class CreateTableDataAnggota extends Migration
             $table->string('pos_identitas');
             $table->string('pendidikan_terakhir');
             $table->string('kewarganegaraan');
-            $table->string('npwp');
             $table->string('alamat_domisili');
             $table->string('rt_rw_domisili');
             $table->string('kelurahan_domisili');
@@ -57,7 +56,12 @@ class CreateTableDataAnggota extends Migration
             $table->string('kelurahan_lain');
             $table->string('kecamatan_lain');
             $table->string('kota_lain');
-            $table->string('pos_lain');            
+            $table->string('pos_lain');
+            $table->text('sk');
+            $table->text('ktp');
+            $table->text('npwp');
+            $table->text('kk');
+            $table->text('struk_gaji');
             $table->timestamps();
         });
     }

@@ -52,6 +52,11 @@ class DataAnggota extends Model
 		'kecamatan_lain',
 		'kota_lain',
 		'pos_lain',
+		'sk',
+		'ktp',
+		'npwp',
+		'kk',
+		'struk_gaji',
     ];
 
     public function user() {
