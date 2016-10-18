@@ -56,7 +56,7 @@
                         <td>{{ $pinjam->user_id }}</td>
                         <td>Rp {{ number_format($pinjam->jumlah_pinjaman) }}</td>
                         <td><span class="label label-{{$pinjam->jenis_pinjaman=='makro' ? 'info' : 'primary' }}">{{ $pinjam->jenis_pinjaman }}</span></td>
-                        <td><span class="label label-{{$pinjam->status=='aktif' ? 'success' : 'danger' }}">{{ $pinjam->status }}</span></td>
+                        <td><span class="label label-{{$pinjam->status=='terima' ? 'success' : 'danger' }}">{{ $pinjam->status }}</span></td>
                         <td>
                             <div class="form-inline">
                                 <a href = "{{ route('kelola.pinjaman.show', $pinjam->id)}}" class="btn palette-Teal bg"> Lihat Data</a>

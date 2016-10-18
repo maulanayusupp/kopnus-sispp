@@ -28,7 +28,7 @@
                     <label class="col-sm-3 control-label"><strong>Status Pinjaman</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            <span class="label label-{{$pinjaman->status=='aktif' ? 'success' : 'danger' }}">{{ $pinjaman->status }}</span>
+                            <span class="label label-{{$pinjaman->status=='terima' ? 'success' : 'danger' }}">{{ $pinjaman->status }}</span>
                         </div>
                     </div>
                 </div>                    
@@ -133,62 +133,6 @@
                     <div class="col-sm-3">
                         <div class="fg-line">
                             <label class="control-label">{{ $pinjaman->jangka_waktu_pinjam }} (Bulan)</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <hr>
-
-        <center><b><h4>PENDAPATAN DAN PINJAMAN LAINNYA</h4></b></center>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Nama Kreditur</strong></label>
-                    <div class="col-sm-3">
-                        <div class="fg-line">
-                            <label class="control-label">{{ $pinjaman->nama_kreditur }}</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>No. Rekening</strong></label>
-                    <div class="col-sm-3">
-                        <div class="fg-line">
-                            <label class="control-label">{{ $pinjaman->no_rek_kreditur }}</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Sisa Angsuran</strong></label>
-                    <div class="col-sm-3">
-                        <div class="fg-line">
-                            <label class="control-label">Rp {{ number_format($pinjaman->sisa_angsuran_kreditur) }} ({{ $pinjaman->sisa_angsuran_bulan_kreditur . ' Bulan'}})</label>
-
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Penghasilan Pasangan/Bulan</strong></label>
-                    <div class="col-sm-3">
-                        <div class="fg-line">
-                            <label class="control-label">Rp {{ number_format($pinjaman->penghasilan_bulanan_kreditur) }}</label>
                         </div>
                     </div>
                 </div>                    

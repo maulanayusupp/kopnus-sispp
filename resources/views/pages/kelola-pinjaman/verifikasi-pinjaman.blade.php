@@ -37,10 +37,8 @@
                             <div class="fg-line">
                                 <select name="status" class="chosen">
                                     <option value="menunggu" selected="selected">Menunggu</option>
-                                    <option value="aktif">Aktif</option>
                                     <option VALUE="terima">Terima</option>
-                                    <option VALUE="tidak diterima">Tidak Diterima</option>
-                                    <option VALUE="lunas">Lunas</option>
+                                    <option VALUE="tidak diterima">Tolak</option>
                                 </select>
                             </div>
                         </div>
