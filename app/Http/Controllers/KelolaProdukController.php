@@ -20,7 +20,11 @@ class KelolaProdukController extends Controller
     public function index(Request $request)
     {
         $q = $request->get('q');
-        $data = Produk::where('id', 'LIKE', '%'.$q.'%')->orderBy('id','desc')->paginate(15);
+        if (isset($q)) {
+            $data = Produk::where('id', $q)->orderBy('id','desc')->paginate(15);
+        }else{
+            $data = Produk::where('id', 'LIKE', '%'.$q.'%')->orderBy('id','desc')->paginate(15);
+        }
 
         return view('pages.kelola-produk.kelola-produk', compact('data','q'));
     }

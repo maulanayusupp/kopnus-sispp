@@ -21,7 +21,12 @@ class KelolaAkunController extends Controller
     public function index(Request $request)
     {
         $q = $request->get('q');
-        $users = User::where('id', 'LIKE', '%'.$q.'%')->orderBy('role','asc')->paginate(10);
+        if (isset($q)) {
+            $users = User::where('id', $q)->orderBy('role','asc')->paginate(10);
+        }else{
+            $users = User::where('id', 'LIKE', '%'.$q.'%')->orderBy('role','asc')->paginate(10);    
+        }
+        
         return view('pages.kelola-akun.kelola-akun', compact('users','q'));
     }
 

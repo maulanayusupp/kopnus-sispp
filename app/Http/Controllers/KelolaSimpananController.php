@@ -20,7 +20,12 @@ class KelolaSimpananController extends Controller
     public function index(Request $request)
     {
         $q = $request->get('q');
-        $simpanan = Simpanan::where('id', 'LIKE', '%'.$q.'%')->orderBy('status','desc')->paginate(10);
+        if (isset($q)) {
+            $simpanan = Simpanan::where('id', $q)->orderBy('status','desc')->paginate(10);
+        }else{
+            $simpanan = Simpanan::where('id', 'LIKE', '%'.$q.'%')->orderBy('status','desc')->paginate(10);
+        }
+        
         return view('pages.kelola-simpanan.kelola-simpanan', compact('simpanan','q'));
     }
 

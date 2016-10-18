@@ -112,7 +112,7 @@
             </li>
             {{-- LAPORAN --}}
             <li class= "{{ Request::is('kelola/laporan') ? 'active' : '' }}">
-                <a href="{{ URL::to('kelola/laporan') }}"><i class="zmdi zmdi-archive"></i> Laporan</a>
+                <a href="{{ URL::to('kelola/laporan') }}"><i class="zmdi zmdi-book"></i> Laporan</a>
             </li>
         @endcan
         {{-- option --}}

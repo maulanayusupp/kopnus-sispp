@@ -23,7 +23,11 @@ class KelolaPinjamanController extends Controller
     public function index(Request $request){
         
         $q = $request->get('q');
-        $pinjaman = Pinjaman::where('user_id', 'LIKE', '%'.$q.'%')->orderBy('status','desc')->paginate(10);
+        if (isset($q)) {
+            $pinjaman = Pinjaman::where('user_id', $q)->orderBy('status','desc')->paginate(10);
+        }else{
+            $pinjaman = Pinjaman::where('user_id', 'LIKE', '%'.$q.'%')->orderBy('status','desc')->paginate(10);
+        }        
         return view('pages.kelola-pinjaman.kelola-pinjaman', compact('pinjaman','q'));
     }
 

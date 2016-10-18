@@ -20,7 +20,12 @@ class KelolaPembayaranController extends Controller
     public function index(Request $request)
     {
         $q = $request->get('q');
-        $pembayarans = Pembayaran::where('id', 'LIKE', '%'.$q.'%')->orderBy('status','desc')->paginate(10);
+        if (isset($q)) {
+            $pembayarans = Pembayaran::where('id', $q)->orderBy('status','desc')->paginate(10);
+        }else{
+            $pembayarans = Pembayaran::where('id', 'LIKE', '%'.$q.'%')->orderBy('status','desc')->paginate(10);    
+        }
+        
         return view('pages.kelola-pembayaran.kelola-pembayaran', compact('pembayarans','q'));
     }
 

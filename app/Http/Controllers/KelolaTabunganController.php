@@ -21,7 +21,12 @@ class KelolaTabunganController extends Controller
     public function index(Request $request)
     {
         $q = $request->get('q');
-        $tabungans = Tabungan::where('id', 'LIKE', '%'.$q.'%')->orderBy('id','desc')->paginate(10);
+        if (isset($q)) {
+            $tabungans = Tabungan::where('id', $q)->orderBy('id','desc')->paginate(10);
+        }else{
+            $tabungans = Tabungan::where('id', 'LIKE', '%'.$q.'%')->orderBy('id','desc')->paginate(10);    
+        }
+        
         return view('pages.kelola-tabungan.kelola-tabungan', compact('tabungans','q'));
     }
 
