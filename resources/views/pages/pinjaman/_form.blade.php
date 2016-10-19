@@ -228,7 +228,7 @@
                     <label class="col-sm-3 control-label">Simpanan Wajib</label>
                     <div class="col-sm-2">
                         <div class="fg-line">
-                            {!! Form::text('simpanan_wajib', number_format(50000), ['class'=>'form-control input-sm','placeholder'=>'Simpanan Wajib', 'readonly']) !!}
+                            {!! Form::text('simpanan_wajib', 50000, ['class'=>'form-control input-sm','placeholder'=>'Simpanan Wajib', 'readonly']) !!}
                         </div>
                     </div>
                 </div>
@@ -240,7 +240,7 @@
                     <label class="col-sm-3 control-label">Simpanan Pokok</label>
                     <div class="col-sm-2">
                         <div class="fg-line">
-                            {!! Form::text('simpanan_pokok', number_format(5000), ['class'=>'form-control input-sm','placeholder'=>'Simpanan Pokok', 'readonly']) !!}
+                            {!! Form::text('simpanan_pokok', 5000, ['class'=>'form-control input-sm','placeholder'=>'Simpanan Pokok', 'readonly']) !!}
                         </div>
                     </div>
                 </div>

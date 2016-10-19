@@ -83,6 +83,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $pembayarans->appends(compact('q'))->links() }}
     </div>
 </div>
 @endif

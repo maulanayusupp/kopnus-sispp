@@ -78,7 +78,10 @@
             <label class="col-sm-3 control-label"><strong>Angsuran Ke - </strong></label>
             <div class="col-sm-1">
                 <div class="fg-line">
-                    {!! Form::text('angsuran_nomor', null, ['class'=>'form-control input-sm']) !!}
+                    @if(isset($pinjaman->id))
+                        <?php $angsuran = App\Pembayaran::where('pinjaman_id', $pinjaman->id)->count() + 1; ?>
+                    @endif                    
+                    {!! Form::text('angsuran_nomor', isset($angsuran) ? $angsuran : null, ['class'=>'form-control input-sm','readonly']) !!}
                 </div>
                 @if($errors->has('angsuran_nomor'))
                     <span class="help-block">

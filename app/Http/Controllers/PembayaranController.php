@@ -69,11 +69,13 @@ class PembayaranController extends Controller
         $sisa_pinjaman = $pinjaman->sisa_pinjaman;
 
         $hasil_pembayaran = ($sisa_pinjaman - $jumlah_pembayaran);
-        $pinjaman->sisa_pinjaman = $hasil_pembayaran;    
+        $pinjaman->sisa_pinjaman = $hasil_pembayaran;
         $request['sisa_pinjaman'] = $hasil_pembayaran;
-        if ($hasil_pembayaran == 0) {
+        if ($hasil_pembayaran == 0 || $hasil_pembayaran <= 0 || $hasil_pembayaran < 100) {
             $request['status'] = 'lunas';
             $pinjaman->status = 'lunas';
+            $pinjaman->sisa_pinjaman = 0;
+            $request['sisa_pinjaman'] = 0;
             $pinjaman->save();
         }else{
             $request['status'] = 'dibayar';
