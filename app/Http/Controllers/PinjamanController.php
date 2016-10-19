@@ -54,12 +54,22 @@ class PinjamanController extends Controller
             'user_id' => 'required',
             'bunga_id' => 'required',
         ]);
-
         $user_id = $request->input('user_id');
         $simpanan_wajib = $request->input('simpanan_wajib');
         $simpanan_pokok = $request->input('simpanan_pokok');
-        
+        $jumlah_pinjaman = $request->input('jumlah_pinjaman');
+        /* BUNGA */
+        $bunga = Bunga::findOrFail($bunga_id);
+
+
+        $nilai1 = $jumlah_pinjaman * (($bunga->bunga / 12) / 100);
+        $nilai2 = pow(( 1 + ( $bunga->bunga / 12 ) / 100), $bunga->bulan_bunga);
+        $total_angsuran = $nilai1 / (1-1 / $nilai2);
+        $total_pembayaran = $total_angsuran * $bulan_bunga;
+
         $request['status'] = 'menunggu';
+        $request['jumlah_pinjaman_bunga'] = $total_pembayaran;
+        $request['angsuran'] = $total_angsuran;
         Pinjaman::create($request->all());
 
         $user = User::findOrFail($user_id);
