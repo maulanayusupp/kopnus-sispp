@@ -219,7 +219,7 @@
                 </div>
             </div>
         </div>
-    @if(Auth::user()->simpanan_wajib != 1)
+    @if(Auth::user()->simpanan_wajib != 50000)
         <hr>
         <center><b><h4>SIMPANAN WAJIB DAN POKOK</h4></b></center>
         <div class="row">
