@@ -21,9 +21,9 @@ class KelolaPembayaranController extends Controller
     {
         $q = $request->get('q');
         if (isset($q)) {
-            $pembayarans = Pembayaran::where('user_id', $q)->orderBy('created_at','desc')->paginate(10);
+            $pembayarans = Pembayaran::where('pinjaman_id', $q)->orderBy('created_at','desc')->paginate(10);
         }else{
-            $pembayarans = Pembayaran::where('id', 'LIKE', '%'.$q.'%')->orderBy('created_at','desc')->paginate(10);    
+            $pembayarans = Pembayaran::where('pinjaman_id', 'LIKE', '%'.$q.'%')->orderBy('created_at','desc')->paginate(10);    
         }
         
         return view('pages.kelola-pembayaran.kelola-pembayaran', compact('pembayarans','q'));

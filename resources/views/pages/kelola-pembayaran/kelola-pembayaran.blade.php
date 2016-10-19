@@ -21,7 +21,7 @@
                 <label class="col-sm-2 control-label">Cari Riwayat</label>
                 <div class="col-sm-5">
                     <div class="fg-line">
-                        <input type="text" class="form-control input-sm" name="q" placeholder="Cari riwayat berdasarkan ID Anggota">
+                        <input type="text" class="form-control input-sm" name="q" placeholder="Cari riwayat berdasarkan ID Pinjaman">
                         @if ($errors->has('q'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('q') }}</strong>
