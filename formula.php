@@ -1,9 +1,8 @@
 <?php
-
 	$jumlah_bulan = 120;
 	$jumlah_pinjaman = 49000000 ;
 	$bunga = 1.2;
-	$rate = 21.57;
+	$rate = 24.27;
 
 	echo "BUNGA";
 	echo "<br>";
@@ -18,7 +17,6 @@
 	$angsuran = $tempHasil2/$jumlah_bulan;
 	echo "Angsuran: " . $angsuran;
 	echo "<br>";
-	echo "POKOK";
 	$pokok = $angsuran - $hasilBunga;
 	echo "Pokok: " . $pokok;
 	echo "<br>";
@@ -26,7 +24,17 @@
 	echo "<br>";
 	$sisa_pokok = $jumlah_pinjaman - $pokok;
 	echo "Sisa Pokok: " . $sisa_pokok;
-
-
-
 ?>
+
+<table>
+	<thead>
+		<tr>
+			<th>asdf</th>
+		</tr>		
+	</thead>
+	<tbody>
+		<tr>
+			<td>asdf</td>
+		</tr>		
+	</tbody>
+</table>
