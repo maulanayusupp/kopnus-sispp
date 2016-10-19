@@ -25,22 +25,25 @@
 	$sisa_pokok = $jumlah_pinjaman - $pokok;
 	echo "Sisa Pokok: " . $sisa_pokok;
 	echo "<br>";
-	$nilai1 = $jumlah_pinjaman * ($rate / 12);
-	$nilai2 = 1-1/(1+($rate/12));
-	$hasil_angsurann = $nilai1 / pow(1-1/(1+($rate/12)), $jumlah_bulan);
-	//($jumlah_pinjaman * ($rate / 12 )) / pow((1-1/(1 + $rate / 12)), $jumlah_bulan);
-	echo var_dump($hasil_angsurann);
+
+	$nilai1 = $jumlah_pinjaman * (($rate / 12) / 100);
+	$nilai2 = pow(( 1 + ( $rate / 12 ) / 100), $jumlah_bulan);
+	//$nilai2 = pow( 1 + ( $rate / 12 ), $jumlah_bulan);
+	$hasil_angsurann = $nilai1 / (1-1 / $nilai2);
+	echo $hasil_angsurann;
+	echo "<br>";
+	echo "Jumlah yang harus dibayar sebesar: Rp." . number_format($hasil_angsurann * $jumlah_bulan);
+
 ?>
 
 <table>
 	<thead>
-		<tr>
-			<th>asdf</th>
-		</tr>		
+		<?php $bulan = 1?>
+		<?php for ($i=0; $i <$jumlah_bulan ; $i++) { ?>
+			<tr>
+				<th>Bulan ke - <?php echo $bulan++ ?></th>
+				<td>Rp. <?php echo number_format($hasil_angsurann) ?></td>
+			</tr>
+		<?php } ?>				
 	</thead>
-	<tbody>
-		<tr>
-			<td>asdf</td>
-		</tr>		
-	</tbody>
 </table>
