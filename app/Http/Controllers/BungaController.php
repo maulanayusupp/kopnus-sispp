@@ -18,14 +18,14 @@ class BungaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function daftarBunga(){
-        $makroSendiriMPPKurang = Bunga::where('nama','Makro Sendiri dan MPP Jt < 70')->orderBy('tahun_bunga','asc')->get();
-        $makroSendiriMPPLebih = Bunga::where('nama','Makro Sendiri dan MPP Jt > 70')->orderBy('tahun_bunga','asc')->get();
-        $makroBaruJdDdKurang = Bunga::where('nama','Makro Baru Jd/Dd < 70')->orderBy('tahun_bunga','asc')->get();
-        $makroBaruJdDdLebih = Bunga::where('nama','Makro Baru Jd/Dd > 70')->orderBy('tahun_bunga','asc')->get();
-        $bungaTopUpPensSendiri = Bunga::where('nama','Bunga Top Up Pens Sendiri')->orderBy('tahun_bunga','asc')->get();
-        $bungaTopUpJdDd = Bunga::where('nama','Bunga Top Up Janda / Duda')->orderBy('tahun_bunga','asc')->get();
-        $bungaMikroPensSendiri = Bunga::where('nama','Bunga Mikro Pens Sendiri')->orderBy('tahun_bunga','asc')->get();
-        $bungaMikroJdDd = Bunga::where('nama','Bunga Mikro Pens Sendiri')->orderBy('tahun_bunga','asc')->get();
+        $makroSendiriMPPKurang = Bunga::where('nama', 'LIKE', '%Makro Sendiri dan MPP Jt < 70%')->orderBy('tahun_bunga','asc')->get();
+        $makroSendiriMPPLebih = Bunga::where('nama', 'LIKE', '%Makro Sendiri dan MPP Jt > 70%')->orderBy('tahun_bunga','asc')->get();
+        $makroBaruJdDdKurang = Bunga::where('nama', 'LIKE', '%Makro Baru Jd/Dd < 70%')->orderBy('tahun_bunga','asc')->get();
+        $makroBaruJdDdLebih = Bunga::where('nama', 'LIKE', '%Makro Baru Jd/Dd > 70%')->orderBy('tahun_bunga','asc')->get();
+        $bungaTopUpPensSendiri = Bunga::where('nama', 'LIKE', '%Bunga Top Up Pens Sendiri%')->orderBy('tahun_bunga','asc')->get();
+        $bungaTopUpJdDd = Bunga::where('nama', 'LIKE', '%Bunga Top Up Janda / Duda%')->orderBy('tahun_bunga','asc')->get();
+        $bungaMikroPensSendiri = Bunga::where('nama', 'LIKE', '%Bunga Mikro Pens Sendiri%')->orderBy('tahun_bunga','asc')->get();
+        $bungaMikroJdDd = Bunga::where('nama', 'LIKE', '%Bunga Mikro Pens Sendiri%')->orderBy('tahun_bunga','asc')->get();
 
         return view('pages.kelola-bunga.tabel-daftar-bunga', compact('makroSendiriMPPKurang','makroSendiriMPPLebih','makroBaruJdDdKurang','makroBaruJdDdLebih','bungaTopUpPensSendiri','bungaTopUpJdDd','bungaMikroPensSendiri','bungaMikroJdDd'));
     }

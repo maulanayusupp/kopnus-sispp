@@ -24,16 +24,23 @@ class CreateTablePinjaman extends Migration
             $table->string('no_identitas_pensiun');
             $table->string('jenis_pinjaman');
             $table->string('kegunaan_pinjaman');
+
             $table->integer('jumlah_pinjaman');
             $table->string('jumlah_pinjaman_terbilang');
+            $table->integer('angsuran');
+            $table->integer('jumlah_pinjaman_bunga');
+
+            $table->integer('sisa_pinjaman');
+            $table->string('status');
             $table->string('jangka_waktu_pinjam');
+            $table->string('tanggal_lahir');
+            $table->string('gaji');
+
             $table->string('nama_kreditur');
             $table->string('no_rek_kreditur');
             $table->integer('sisa_angsuran_kreditur');
             $table->integer('sisa_angsuran_bulan_kreditur');
-            $table->integer('penghasilan_bulanan_kreditur');
-            $table->integer('sisa_pinjaman');
-            $table->string('status');
+            $table->integer('penghasilan_bulanan_kreditur');            
             $table->timestamps();            
         });
     }

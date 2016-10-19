@@ -16,6 +16,24 @@
             </div>            
         	<center><b><h3>PINJAMAN KHUSUS ANGGOTA <br>({{ $pinjaman->user->name }})</h3></b></center>
         	<hr>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><strong>Status pinjam</strong></label>
+                        <div class="col-sm-2">
+                            <div class="fg-line">
+                                <select name="status" class="chosen">
+                                    <option value="menunggu" selected="selected">Menunggu</option>
+                                    <option VALUE="terima">Terima</option>
+                                    <option VALUE="tidak diterima">Tolak</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
@@ -32,14 +50,25 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label"><strong>Status pinjam</strong></label>
+                        <label class="col-sm-3 control-label"><strong>Umur</strong></label>
+                        <div class="col-sm-5">
+                            <div class="fg-line">
+                                <label class="control-label">
+                                    <?php $interval = date_diff(date_create(), date_create($pinjaman->tanggal_lahir)) ?>
+                                    {{ $interval->format('%Y Tahun %M Bulan %d Hari') }} - Kelahiran ({{ $pinjaman->tanggal_lahir }})
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><strong>Gaji</strong></label>
                         <div class="col-sm-2">
                             <div class="fg-line">
-                                <select name="status" class="chosen">
-                                    <option value="menunggu" selected="selected">Menunggu</option>
-                                    <option VALUE="terima">Terima</option>
-                                    <option VALUE="tidak diterima">Tolak</option>
-                                </select>
+                                <label class="control-label">Rp. {{ number_format($pinjaman->gaji) }}</label>
                             </div>
                         </div>
                     </div>                    
@@ -150,13 +179,39 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><strong>Total Pinjaman</strong></label>
+                        <div class="col-sm-5">
+                            <div class="fg-line">
+                                <label class="control-label"><strong>Rp {{ number_format($pinjaman->jumlah_pinjaman_bunga) }}</strong></label>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><strong>Angsuran</strong></label>
+                        <div class="col-sm-5">
+                            <div class="fg-line">
+                                <label class="control-label"><strong>Rp {{ number_format($pinjaman->angsuran) }}</strong></label>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+
             <hr>
             
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
                         <center>
-                            <button type="submit" class="btn btn-primary"> Verifikasi</button>
+                            <button type="submit" class="btn btn-primary"> VERIFIKASI</button>
                         </center>
                     </div>
                 </div>

@@ -14,5 +14,8 @@ class ProdukSeeder extends Seeder
         App\Produk::create([
 			'nama' => 'Tabungan SiKopNus',
 		]);
+        App\Produk::create([
+            'nama' => 'Deposito (Simpanan Berjangka 1-3-6-12)',
+        ]);
     }
 }

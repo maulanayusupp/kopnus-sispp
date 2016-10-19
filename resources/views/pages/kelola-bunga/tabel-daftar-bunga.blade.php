@@ -72,7 +72,7 @@
                 </tr>
                 <tr>
 
-                    <td>Makro Sendiri dan MPP Jt > 70</td>
+                    <td>Bunga Mikro Pens Sendiri</td>
                     @foreach($bungaMikroJdDd as $bunga8)
                     <td>{{ $bunga8->bunga }}%</td>
                     @endforeach                    

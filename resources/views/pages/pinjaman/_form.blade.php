@@ -20,13 +20,49 @@
 
         <div class="row">
             <div class="col-sm-12">
+                <div class="form-group{{ $errors->has('tanggal_lahir') ? ' has-error' : '' }}">
+                    <label class="col-sm-3 control-label">Tanggal Lahir</label>
+                    <div class="col-sm-4">
+                        <div class="fg-line">
+                            {!! Form::date('tanggal_lahir', null, ['class'=>'form-control input-sm','placeholder'=>'Tanggal Lahir']) !!}
+                        </div>
+                        @if($errors->has('tanggal_lahir'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('tanggal_lahir') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>                    
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group{{ $errors->has('gaji') ? ' has-error' : '' }}">
+                    <label class="col-sm-3 control-label">Gaji</label>
+                    <div class="col-sm-4">
+                        <div class="fg-line">
+                            {!! Form::number('gaji', null, ['class'=>'form-control input-sm','placeholder'=>'Gaji']) !!}
+                        </div>
+                        @if($errors->has('gaji'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('gaji') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>                    
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
                 <div class="form-group{{ $errors->has('kantor_juru_bayar') ? ' has-error' : '' }}">
                     <label class="col-sm-3 control-label">Kantor Juru Bayar</label>
                     <div class="col-sm-4">
                         <div class="fg-line">
                             <select class="selectpicker" name="kantor_juru_bayar">
                                 <option value="KPC">KPC</option>
-                                <option value="KRKK">KRKK</option>
+                                <option value="KPRK">KPRK</option>
                             </select>
                         </div>
                         @if($errors->has('kantor_juru_bayar'))
@@ -47,6 +83,7 @@
                         <div class="fg-line">
                             <select class="selectpicker" name="pengelola_pensiun">
                                 <option value="PT. ASABRI">PT. ASABRI</option>
+                                <option value="PT. TASPEN">PT. TASPEN</option>
                             </select>
                         </div>
                         @if($errors->has('pengelola_pensiun'))
@@ -120,6 +157,7 @@
                             <select class="selectpicker" name="kegunaan_pinjaman">
                                 <option value="Investasi">INVESTASI</option>
                                 <option value="Modal Kerja">MODAL KERJA</option>
+                                <option value="Konsumtif">KONSUMTIF</option>
                             </select>
                         </div>
                     </div>
@@ -169,7 +207,7 @@
                     <label class="col-sm-3 control-label">Jangka Waktu Pinjam</label>
                     <div class="col-sm-4">
                         <div class="fg-line">
-                            {!! Form::select('bunga_id', [''=>'']+App\Bunga::lists('bulan_bunga','id')->all(), null, ['class'=>'chosen']) !!}
+                            {!! Form::select('bunga_id', [''=>'']+App\Bunga::lists('nama','id')->all(), null, ['class'=>'chosen']) !!}
                         </div>
                         @if($errors->has('bunga_id'))
                             <span class="help-block">
