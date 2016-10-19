@@ -20,9 +20,6 @@ class CreateTableSimpanan extends Migration
             $table->string('nomor_kartu_atm');
             $table->integer('nilai_penempatan');
             $table->string('nilai_penempatan_terbilang');
-            $table->string('jangka_waktu');
-            $table->string('tingkat_imbalan');
-            $table->string('status_perpanjangan');
             $table->string('nota_perpanjangan');
             $table->string('nota_perpanjangan_dikirim');
             $table->string('nama_referensi');
