@@ -53,8 +53,8 @@
                     <th>No.</th>
                     <th>ID Anggota</th>
                     <th>Nama</th>
-                    <th>Produk</th>                    
                     <th>No. Rekening</th>
+                    <th>Saldo Akhir</th>
                     <th>Status Rekening</th>
                     <th>Aksi</th>
                 </tr>
@@ -66,8 +66,8 @@
                         <td>{{ $no++ }}</td>
                         <td>{{ $tabungan->user_id }}</td>
                         <td>{{ $tabungan->user->name }}</td>
-                        <td>{{ $tabungan->produk_id }}</td>                        
                         <td>{{ $tabungan->id }}</td>
+                        <td>Rp. {{ number_format($tabungan->saldo_akhir) }}</td>
                         <td><span class="label label-{{$tabungan->status_rekening=='aktif' ? 'success' : 'danger' }}">
                             {{ $tabungan->status_rekening }}</span>
                         </td>

@@ -51,9 +51,10 @@ class SimpananController extends Controller
     {
         $this->validate($request, [
             'tabungan_id' => 'required',
-            'no_kartu_atm' => 'required',
+            'nomor_kartu_atm' => 'required',
             'nilai_penempatan' => 'required',
             'nilai_penempatan_terbilang' => 'required',
+            
         ]);
         $tabungan_id = $request->input('tabungan_id');
         $nilai_penempatan = $request->input('nilai_penempatan');
@@ -66,7 +67,7 @@ class SimpananController extends Controller
         $request['status'] = 'disimpan';
         Simpanan::create($request->all());
         \Flash::success('Uang ditambahkan ke rekening: ' . $request->get('tabungan_id') .  '.');
-        return redirect('simpanan/riwayat');
+        return redirect('kelola/simpanan');
     }
 
     /**
@@ -104,7 +105,7 @@ class SimpananController extends Controller
     {
         $simpanan = Simpanan::findOrFail($id);
         $this->validate($request, [
-            'user_id' => 'required',
+            
         ]);
 
         $simpanan->update($request->all());

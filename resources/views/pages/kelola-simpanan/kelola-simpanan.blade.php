@@ -39,7 +39,7 @@
             <thead>
                 <tr>
                     <th>ID Simpanan</th>
-                    <th>ID Anggota</th>
+                    <th>ID Tabungan</th>
                     <th>Jumlah Simpanan</th>
                     <th>Status</th>
                     <th>Aksi</th>
@@ -49,9 +49,9 @@
                 @foreach($simpanan as $simpan)
                     <tr>
                         <td>{{ $simpan->id }}</td>
-                        <td>{{ $simpan->user_id }}</td>
+                        <td>{{ $simpan->tabungan_id }}</td>
                         <td>Rp {{ number_format($simpan->nilai_penempatan) }}</td>
-                        <td><span class="label label-{{ $simpan->status=='aktif' ? 'success' : 'danger' }}">{{ $simpan->status }}</span></td>
+                        <td><span class="label label-{{ $simpan->status=='disimpan' ? 'success' : 'danger' }}">{{ $simpan->status }}</span></td>
                         <td>
                             <a href = "{{ route('kelola.simpanan.show', $simpan->id)}}" class="btn palette-Blue bg"> Lihat Data</a>
                         </td>
