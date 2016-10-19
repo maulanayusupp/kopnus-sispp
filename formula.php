@@ -24,6 +24,12 @@
 	echo "<br>";
 	$sisa_pokok = $jumlah_pinjaman - $pokok;
 	echo "Sisa Pokok: " . $sisa_pokok;
+	echo "<br>";
+	$nilai1 = $jumlah_pinjaman * ($rate / 12);
+	$nilai2 = 1-1/(1+($rate/12));
+	$hasil_angsurann = $nilai1 / pow(1-1/(1+($rate/12)), $jumlah_bulan);
+	//($jumlah_pinjaman * ($rate / 12 )) / pow((1-1/(1 + $rate / 12)), $jumlah_bulan);
+	echo var_dump($hasil_angsurann);
 ?>
 
 <table>

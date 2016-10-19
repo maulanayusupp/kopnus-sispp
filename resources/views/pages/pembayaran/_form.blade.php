@@ -40,7 +40,7 @@
             <label class="col-sm-3 control-label"><strong>Nama</strong></label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::select('user_id', [''=>'']+App\User::lists('name','name')->all(), null, ['class'=>'chosen']) !!}
+                    {!! Form::select('nama', [''=>'']+App\User::lists('name','name')->all(), null, ['class'=>'chosen']) !!}
                 </div>
                 @if($errors->has('nama'))
                     <span class="help-block">
