@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Pembayaran;
+use App\Pinjaman;
 use App\Http\Requests;
 
 class PembayaranController extends Controller
@@ -21,9 +22,16 @@ class PembayaranController extends Controller
         return view('pages.pembayaran.riwayat-pembayaran', compact('pembayarans'));
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.pembayaran.pembayaran');
+        $pinjaman_id = $request->get('pinjaman_id');
+        if (isset($pinjaman_id)) {
+            $pinjaman = Pinjaman::where('id', $pinjaman_id)->first();
+            return view('pages.pembayaran.pembayaran', compact('pinjaman'));
+        }else{
+            return view('pages.pembayaran.pembayaran', compact('pinjaman'));
+        }        
+        
     }
 
     /**
@@ -46,19 +54,35 @@ class PembayaranController extends Controller
     {
         $this->validate($request, [
             'user_id' => 'required',
-            'nama' => 'required',
-            'tanggal_pembayaran',
             'pinjaman_id' => 'required',
+            'nama' => 'required',
+            'tanggal_pembayaran',            
             'angsuran_nomor' => 'required',
             'jumlah_tagihan' => 'required',
             'jumlah_pembayaran' => 'required',
             'jumlah_pembayaran_terbilang' => 'required',
-            'cara_pembayaran' => 'required',
         ]);
-        $request['status'] = 'menunggu';
+        $pinjaman_id = $request->input('pinjaman_id');
+        $jumlah_pembayaran = $request->input('jumlah_pembayaran');
+
+        $pinjaman = Pinjaman::findOrFail($pinjaman_id);
+        $sisa_pinjaman = $pinjaman->sisa_pinjaman;
+
+        $hasil_pembayaran = ($sisa_pinjaman - $jumlah_pembayaran);
+        $pinjaman->sisa_pinjaman = $hasil_pembayaran;    
+        $request['sisa_pinjaman'] = $hasil_pembayaran;
+        if ($hasil_pembayaran == 0) {
+            $request['status'] = 'lunas';
+            $pinjaman->status = 'lunas';
+            $pinjaman->save();
+        }else{
+            $request['status'] = 'dibayar';
+            $pinjaman->save();
+        }
+        
         Pembayaran::create($request->all());
         \Flash::success('Pembayaran oleh: ' . $request->input('nama') .  ' ditambahkan.');
-        return redirect('pembayaran/riwayat');
+        return redirect('kelola/pembayaran');
     }
 
     /**
@@ -94,7 +118,7 @@ class PembayaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $pembayaran = Pembayaran::findOrFail($id);
+        /*$pembayaran = Pembayaran::findOrFail($id);
         $this->validate($request, [
             'user_id' => 'required',
             'nama' => 'required',
@@ -104,12 +128,11 @@ class PembayaranController extends Controller
             'jumlah_tagihan' => 'required',
             'jumlah_pembayaran' => 'required',
             'jumlah_pembayaran_terbilang' => 'required',
-            'cara_pembayaran' => 'required',
         ]);
 
         $pembayaran->update($request->all());
         \Flash::success('ID Pembayaran: '. $pembayaran->id . ' berhasil diubah.');
-        return redirect('pembayaran/riwayat');
+        return redirect('pembayaran/riwayat');*/
     }
 
     /**

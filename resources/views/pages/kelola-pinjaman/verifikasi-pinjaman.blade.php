@@ -26,7 +26,7 @@
                                 <select name="status" class="chosen">
                                     <option value="menunggu" selected="selected">Menunggu</option>
                                     <option VALUE="terima">Terima</option>
-                                    <option VALUE="tidak diterima">Tolak</option>
+                                    <option VALUE="ditolak">Ditolak</option>
                                 </select>
                             </div>
                         </div>

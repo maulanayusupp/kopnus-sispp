@@ -1,5 +1,23 @@
 <div class="row">
     <div class="col-sm-12">
+        <div class="form-group{{ $errors->has('pinjaman_id') ? ' has-error' : '' }}">
+            <label class="col-sm-3 control-label"><strong>ID Pinjaman</strong></label>
+            <div class="col-sm-1">
+                <div class="fg-line">
+                    {!! Form::text('pinjaman_id', isset($pinjaman->id) ? $pinjaman->id : null, ['class'=>'form-control input-sm','readonly']) !!}
+                </div>
+                @if($errors->has('pinjaman_id'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('pinjaman_id') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>                    
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
         <div class="form-group{{ $errors->has('tanggal_pembayaran') ? ' has-error' : '' }}">
             <label class="col-sm-3 control-label"><strong>Tanggal Pembayaran</strong></label>
             <div class="col-sm-2">
@@ -22,7 +40,7 @@
             <label class="col-sm-3 control-label"><strong>ID Anggota</strong></label>
             <div class="col-sm-2">
                 <div class="fg-line">
-                    {!! Form::select('user_id', [''=>'']+App\User::lists('id','id')->all(), null, ['class'=>'chosen']) !!}
+                    {!! Form::text('user_id', isset($pinjaman->user_id) ? $pinjaman->user_id : null, ['class'=>'form-control input-sm','readonly']) !!}
                 </div>
                 @if($errors->has('user_id'))
                     <span class="help-block">
@@ -40,7 +58,7 @@
             <label class="col-sm-3 control-label"><strong>Nama</strong></label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::select('nama', [''=>'']+App\User::lists('name','name')->all(), null, ['class'=>'chosen']) !!}
+                    {!! Form::text('nama', isset($pinjaman->user->name) ? $pinjaman->user->name : null, ['class'=>'form-control input-sm','readonly']) !!}
                 </div>
                 @if($errors->has('nama'))
                     <span class="help-block">
@@ -52,23 +70,7 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-12">
-        <div class="form-group{{ $errors->has('pinjaman_id') ? ' has-error' : '' }}">
-            <label class="col-sm-3 control-label"><strong>Nomor Pinjaman</strong></label>
-            <div class="col-sm-3">
-                <div class="fg-line">
-                    {!! Form::select('pinjaman_id', [''=>'']+App\Pinjaman::lists('id','id')->all(), null, ['class'=>'chosen']) !!}
-                </div>
-                @if($errors->has('pinjaman_id'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('pinjaman_id') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div>                    
-    </div>
-</div>
+
 
 <div class="row">
     <div class="col-sm-12">
@@ -94,7 +96,7 @@
             <label class="col-sm-3 control-label"><strong>Jumlah Tagihan</strong></label>
             <div class="col-sm-3">
                 <div class="fg-line">
-                    {!! Form::number('jumlah_tagihan', null, ['class'=>'form-control input-sm','placeholder'=>'Jumlah Tagihan']) !!}
+                    {!! Form::text('jumlah_tagihan', isset($pinjaman->sisa_pinjaman) ? $pinjaman->sisa_pinjaman : null, ['class'=>'form-control input-sm','readonly']) !!}
                 </div>
                 @if($errors->has('jumlah_tagihan'))
                     <span class="help-block">
@@ -108,47 +110,11 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <div class="form-group{{ $errors->has('pokok') ? ' has-error' : '' }}">
-            <label class="col-sm-3 control-label"><strong>Pokok</strong></label>
-            <div class="col-sm-3">
-                <div class="fg-line">
-                    {!! Form::number('pokok', null, ['class'=>'form-control input-sm','placeholder'=>'Pokok']) !!}
-                </div>
-                @if($errors->has('pokok'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('pokok') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div>                    
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
-        <div class="form-group{{ $errors->has('bunga') ? ' has-error' : '' }}">
-            <label class="col-sm-3 control-label"><strong>Bunga</strong></label>
-            <div class="col-sm-3">
-                <div class="fg-line">
-                    {!! Form::number('bunga', null, ['class'=>'form-control input-sm','placeholder'=>'Bunga']) !!}
-                </div>
-                @if($errors->has('bunga'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('bunga') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div>                    
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
         <div class="form-group{{ $errors->has('jumlah_pembayaran') ? ' has-error' : '' }}">
             <label class="col-sm-3 control-label"><strong>Jumlah Pembayaran</strong></label>
             <div class="col-sm-3">
                 <div class="fg-line">
-                    {!! Form::number('jumlah_pembayaran', null, ['class'=>'form-control input-sm','placeholder'=>'Jumlah Pembayaran']) !!}
+                    {!! Form::text('jumlah_pembayaran', isset($pinjaman->angsuran) ? $pinjaman->angsuran : null, ['class'=>'form-control input-sm','readonly']) !!}
                 </div>
                 @if($errors->has('jumlah_pembayaran'))
                     <span class="help-block">
@@ -171,24 +137,6 @@
                 @if($errors->has('jumlah_pembayaran_terbilang'))
                     <span class="help-block">
                         <strong>{{ $errors->first('jumlah_pembayaran_terbilang') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div>                    
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
-        <div class="form-group{{ $errors->has('cara_pembayaran') ? ' has-error' : '' }}">
-            <label class="col-sm-3 control-label"><strong>Cara Pembayaran</strong></label>
-            <div class="col-sm-3">
-                <div class="fg-line">
-                    {!! Form::select('cara_pembayaran', array('auto-debit' => 'Auto Debit'), null, ['class'=>'chosen','readonly']) !!}
-                </div>
-                @if($errors->has('cara_pembayaran'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('cara_pembayaran') }}</strong>
                     </span>
                 @endif
             </div>

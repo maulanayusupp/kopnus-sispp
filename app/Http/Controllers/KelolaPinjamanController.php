@@ -24,7 +24,7 @@ class KelolaPinjamanController extends Controller
         
         $q = $request->get('q');
         if (isset($q)) {
-            $pinjaman = Pinjaman::where('user_id', $q)->orderBy('status','desc')->paginate(10);
+            $pinjaman = Pinjaman::where('id', $q)->orderBy('status','desc')->paginate(20);
         }else{
             $pinjaman = Pinjaman::where('user_id', 'LIKE', '%'.$q.'%')->orderBy('status','desc')->paginate(10);
         }        

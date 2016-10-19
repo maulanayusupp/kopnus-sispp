@@ -52,7 +52,8 @@
                     <th>Nama</th>
                     <th>Pinjaman</th>
                     <th>Jumlah Pembayaran</th>
-                    <th>Cara Pembayaran</th>
+                    <th>Sisa Pembayaran</th>
+                    <th>Angsuran Ke </th>
                     <th>Status</th>
                     <th><center>Aksi</center></th>
                 </tr>
@@ -64,7 +65,8 @@
                         <td>{{ $pembayaran->nama }}</td>
                         <td>{{ $pembayaran->pinjaman_id }}</td>
                         <td>Rp {{ number_format($pembayaran->jumlah_pembayaran) }}</td>
-                        <td><span class="label label-{{$pembayaran->jenis_pinjaman=='Tunai' ? 'info' : 'primary' }}">{{ $pembayaran->cara_pembayaran }}</span></td>
+                        <td>Rp {{ number_format($pembayaran->sisa_pinjaman) }}</td>
+                        <td>{{ $pembayaran->angsuran_nomor }}</td>
                         <td><span class="label label-{{$pembayaran->status=='dibayar' ? 'success' : 'danger' }}">{{ $pembayaran->status }}</span></td>
                         <td>
                             @if($pembayaran->status=='menunggu')

@@ -12,6 +12,19 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
+                    <label class="col-sm-3 control-label"><strong>ID Pinjaman</strong></label>
+                    <div class="col-sm-3">
+                        <div class="fg-line">
+                            <label class="control-label">{{ $pembayaran->pinjaman_id }}</label>
+                        </div>
+                    </div>
+                </div>                    
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
                     <label class="col-sm-3 control-label"><strong>Tanggal Pembayaran</strong></label>
                     <div class="col-sm-2">
                         <div class="fg-line">
@@ -51,19 +64,6 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Nomor Pinjaman</strong></label>
-                    <div class="col-sm-3">
-                        <div class="fg-line">
-                            <label class="control-label">{{ $pembayaran->pinjaman_id }}</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
                     <label class="col-sm-3 control-label"><strong>Angsuran Ke - </strong></label>
                     <div class="col-sm-1">
                         <div class="fg-line">
@@ -90,32 +90,6 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Pokok</strong></label>
-                    <div class="col-sm-3">
-                        <div class="fg-line">
-                            <label class="control-label">Rp {{ number_format($pembayaran->pokok) }}</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Bunga</strong></label>
-                    <div class="col-sm-3">
-                        <div class="fg-line">
-                            <label class="control-label">Rp {{ number_format($pembayaran->bunga) }}</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
                     <label class="col-sm-3 control-label"><strong>Jumlah Pembayaran</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
@@ -133,19 +107,6 @@
                     <div class="col-sm-6">
                         <div class="fg-line">
                             <label class="control-label">{{ $pembayaran->jumlah_pembayaran_terbilang }}</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Cara Pembayaran</strong></label>
-                    <div class="col-sm-3">
-                        <div class="fg-line">
-                            <span class="label label-{{$pembayaran->jenis_pinjaman=='Tunai' ? 'info' : 'primary' }}">{{ $pembayaran->cara_pembayaran }}</span>
                         </div>
                     </div>
                 </div>                    

@@ -70,6 +70,7 @@ class PinjamanController extends Controller
 
         $request['status'] = 'menunggu';
         $request['jumlah_pinjaman_bunga'] = $total_pembayaran;
+        $request['sisa_pinjaman'] = $total_pembayaran;
         $request['angsuran'] = $total_angsuran;
         $request['jangka_waktu_pinjam'] = $bunga->bulan_bunga;
         Pinjaman::create($request->all());
@@ -122,15 +123,29 @@ class PinjamanController extends Controller
         ]);
 
         $user_id = $request->input('user_id');
+        $bunga_id = $request->input('bunga_id');
         $simpanan_wajib = $request->input('simpanan_wajib');
-        $simpanan_pokok = $request->input('simpanan_pokok');        
+        $simpanan_pokok = $request->input('simpanan_pokok');
+        $jumlah_pinjaman = $request->input('jumlah_pinjaman');
+        /* BUNGA */
+        $bunga = Bunga::findOrFail($bunga_id);
+
+        $nilai1 = $jumlah_pinjaman * (($bunga->bunga / 12) / 100);
+        $nilai2 = pow(( 1 + ( $bunga->bunga / 12 ) / 100), $bunga->bulan_bunga);
+        $total_angsuran = $nilai1 / (1-1 / $nilai2);
+        $total_pembayaran = $total_angsuran * $bunga->bulan_bunga;              
         
         $pinjaman = Pinjaman::findOrFail($id);
+        $request['status'] = 'menunggu';
+        $request['jumlah_pinjaman_bunga'] = $total_pembayaran;
+        $request['sisa_pinjaman'] = $total_pembayaran;
+        $request['angsuran'] = $total_angsuran;
+        $request['jangka_waktu_pinjam'] = $bunga->bulan_bunga;
         $pinjaman->update($request->all());
 
         $user = User::findOrFail($user_id);
-        $user->simpanan_wajib = 1;
-        $user->simpanan_pokok = 1;
+        $user->simpanan_wajib = $request->input('simpanan_wajib');
+        $user->simpanan_pokok = $request->input('simpanan_pokok');
         $user->save();
 
         \Flash::success('ID Pinjaman: '. $pinjaman->id . ' berhasil diubah.');

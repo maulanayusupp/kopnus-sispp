@@ -20,7 +20,7 @@ class Pembayaran extends Model
 		'bunga',
 		'jumlah_pembayaran',
 		'jumlah_pembayaran_terbilang',
-		'cara_pembayaran',
+		'sisa_pinjaman',
 		'keterangan',
 		'status',
     ];
