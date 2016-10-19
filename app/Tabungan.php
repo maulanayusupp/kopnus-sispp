@@ -19,6 +19,9 @@ class Tabungan extends Model
     public function produk() {
         return $this->hasOne('App\Produk', 'produk_id');
     }
+    public function simpanan() {
+        return $this->hasOne('App\Simpanan', 'tabungan_id');
+    }
     public function user() {
         return $this->belongsTo('App\User', 'user_id');
     }

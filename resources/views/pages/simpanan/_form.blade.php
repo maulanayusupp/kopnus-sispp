@@ -4,12 +4,17 @@
         <hr>
         <div class="row">
             <div class="col-sm-12">
-                <div class="form-group{{ $errors->has('user_id') ? ' has-error' : '' }}">
-                    <label class="col-sm-3 control-label">ID Anggota</label>
+                <div class="form-group{{ $errors->has('tabungan_id') ? ' has-error' : '' }}">
+                    <label class="col-sm-3 control-label">ID Tabungan</label>
                     <div class="col-sm-2">
                         <div class="fg-line">
-                            {!! Form::select('user_id', [''=>'']+App\User::lists('id','id')->all(), null, ['class'=>'chosen']) !!}
+                            {!! Form::select('tabungan_id', [''=>'']+App\Tabungan::lists('id','id')->all(), null, ['class'=>'chosen']) !!}
                         </div>
+                        @if($errors->has('tabungan_id'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('tabungan_id') }}</strong>
+                            </span>
+                        @endif
                     </div>
                 </div>                    
             </div>

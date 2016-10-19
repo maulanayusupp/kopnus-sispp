@@ -41,7 +41,6 @@
                     <th>ID Simpanan</th>
                     <th>ID Anggota</th>
                     <th>Jumlah Simpanan</th>
-                    <th>Jangka Waktu</th>
                     <th>Status</th>
                     <th>Aksi</th>
                 </tr>
@@ -52,7 +51,6 @@
                         <td>{{ $simpan->id }}</td>
                         <td>{{ $simpan->user_id }}</td>
                         <td>Rp {{ number_format($simpan->nilai_penempatan) }}</td>
-                        <td>{{ $simpan->jangka_waktu .' Bulan' }}</td>
                         <td><span class="label label-{{ $simpan->status=='aktif' ? 'success' : 'danger' }}">{{ $simpan->status }}</span></td>
                         <td>
                             <a href = "{{ route('kelola.simpanan.show', $simpan->id)}}" class="btn palette-Blue bg"> Lihat Data</a>

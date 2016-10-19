@@ -49,7 +49,6 @@ class KelolaTabunganController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama' => 'required|max:255',
             'user_id' => 'required',
         ]);
         /*$tabungan = new Tabungan; 
@@ -94,7 +93,7 @@ class KelolaTabunganController extends Controller
     {
         $tabungan = Tabungan::findOrFail($id);
         $this->validate($request, [
-            'nama' => 'required',
+            'user_id' => 'required',
         ]);
 
         $tabungan->update($request->all());

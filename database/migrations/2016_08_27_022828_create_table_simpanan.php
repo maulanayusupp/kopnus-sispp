@@ -16,7 +16,6 @@ class CreateTableSimpanan extends Migration
             $table->increments('id');
             $table->unsignedInteger('tabungan_id');
             $table->foreign('tabungan_id')->references('id')->on('tabungan');
-            $table->string('kartu_atm');
             $table->string('nomor_kartu_atm');
             $table->integer('nilai_penempatan');
             $table->string('nilai_penempatan_terbilang');

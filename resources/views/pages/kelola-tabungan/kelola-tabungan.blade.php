@@ -65,10 +65,10 @@
                     <tr>
                         <td>{{ $no++ }}</td>
                         <td>{{ $tabungan->user_id }}</td>
-                        <td>{{ $tabungan->nama }}</td>
+                        <td>{{ $tabungan->user->name }}</td>
                         <td>{{ $tabungan->produk_id }}</td>                        
                         <td>{{ $tabungan->id }}</td>
-                        <td><span class="label label-{{$tabungan->status_rekening=='aktif' ? 'success' : 'warning' }}">
+                        <td><span class="label label-{{$tabungan->status_rekening=='aktif' ? 'success' : 'danger' }}">
                             {{ $tabungan->status_rekening }}</span>
                         </td>
                         <td>

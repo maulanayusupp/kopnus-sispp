@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Simpanan;
+use App\Tabungan;
 use App\Http\Requests;
 use Auth;
 
@@ -49,15 +50,22 @@ class SimpananController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'user_id' => 'required',
-            'kartu_atm' => 'required',
+            'tabungan_id' => 'required',
             'no_kartu_atm' => 'required',
             'nilai_penempatan' => 'required',
             'nilai_penempatan_terbilang' => 'required',
         ]);
-        $request['status'] = 'menunggu';
+        $tabungan_id = $request->input('tabungan_id');
+        $nilai_penempatan = $request->input('nilai_penempatan');
+        /* TABUNGAN */
+        $tabungan = Tabungan::findOrFail($tabungan_id);
+        $saldo_akhir = $tabungan->saldo_akhir + $nilai_penempatan;
+        $tabungan->saldo_akhir = $saldo_akhir;
+        $tabungan->save();
+        /* SIMPANAN */
+        $request['status'] = 'disimpan';
         Simpanan::create($request->all());
-        \Flash::success('Simpanan oleh ID User: ' . $request->get('user_id') .  ' ditambahkan.');
+        \Flash::success('Uang ditambahkan ke rekening: ' . $request->get('tabungan_id') .  '.');
         return redirect('simpanan/riwayat');
     }
 
