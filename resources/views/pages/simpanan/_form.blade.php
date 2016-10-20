@@ -1,3 +1,20 @@
+<script>
+function formatCurrency(num) {
+num = num.toString().replace(/\$|\,/g,'');
+if(isNaN(num))
+num = "0";
+sign = (num == (num = Math.abs(num)));
+num = Math.floor(num*100+0.50000000001);
+cents = num%100;
+num = Math.floor(num/100).toString();
+if(cents<10)
+cents = "0" + cents;
+for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
+num = num.substring(0,num.length-(4*i+3))+'.'+
+num.substring(num.length-(4*i+3));
+return (((sign)?'':'-') + 'Rp' + num + ',' + cents);
+}
+</script>
 <div class="card">
     <div class="card-body card-padding">        
         <center><b><h3>TABUNGAN KHUSUS ANGGOTA</h3></b></center>
@@ -45,8 +62,9 @@
                     <label class="col-sm-3 control-label">Nilai Penempatan</label>
                     <div class="col-sm-2">
                         <div class="fg-line">
-                            {!! Form::text('nilai_penempatan', null, ['class'=>'form-control input-mask', 'data-mask'=>'000.000.000.000.000,00','placeholder'=>'Nilai Penempatan', 'number']) !!}
+                            {!! Form::number('nilai_penempatan', null, ['id'=>'num','onkeyup'=>"document.getElementById('format').innerHTML = formatCurrency(this.value);",'class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan Terbilang']) !!}
                         </div>
+                        <span id="format"></span>
                         @if($errors->has('nilai_penempatan'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('kantor_juru_bayar') }}</strong>
@@ -63,7 +81,6 @@
                     <label class="col-sm-3 control-label">Terbilang</label>
                     <div class="col-sm-6">
                         <div class="fg-line">
-                            <input type="text" name="num" id="num" onkeyup="document.getElementById('format').innerHTML = formatCurrency(this.value);"/><span  id="format"></span>
                             {!! Form::text('nilai_penempatan_terbilang', null, ['class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan Terbilang']) !!}
                         </div>
                         @if($errors->has('nilai_penempatan_terbilang'))
