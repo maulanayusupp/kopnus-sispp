@@ -44,7 +44,7 @@
             <label class="col-sm-3 control-label">Penghasilan/Bulan</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('penghasilan', null, ['class'=>'form-control input-sm','placeholder'=>'Penghasilan/Bulan']) !!}
+                    {!! Form::text('penghasilan', null, ['class'=>'form-control input-mask', 'data-mask'=>'000.000.000.000.000,00','placeholder'=>'Penghasilan/Bulan']) !!}
                 </div>
                 @if($errors->has('penghasilan'))
                     <span class="help-block">
@@ -62,7 +62,7 @@
             <label class="col-sm-3 control-label">Pengeluaran/Bulan</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('pengeluaran', null, ['class'=>'form-control input-sm','placeholder'=>'Pengeluaran/Bulan']) !!}
+                    {!! Form::text('pengeluaran', null, ['class'=>'form-control input-mask', 'data-mask'=>'000.000.000.000.000,00','placeholder'=>'Pengeluaran/Bulan']) !!}
                 </div>
                 @if($errors->has('pengeluaran'))
                     <span class="help-block">
@@ -423,7 +423,7 @@
             <label class="col-sm-3 control-label">Gaji Kotor Bulan Terakhir</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('gaji_kotor', null, ['class'=>'form-control input-sm','placeholder'=>'Gaji Kotor Bulan Terakhir']) !!}
+                    {!! Form::text('gaji_kotor', null, ['class'=>'form-control input-mask', 'data-mask'=>'000.000.000.000.000,00','placeholder'=>'Gaji Kotor Bulan Terakhir']) !!}
                 </div>
                 @if($errors->has('gaji_kotor'))
                     <span class="help-block">
@@ -441,7 +441,7 @@
             <label class="col-sm-3 control-label">Gaji Bersih Bulan Terakhir</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('gaji_bersih', null, ['class'=>'form-control input-sm','placeholder'=>'Gaji Bersih Bulan Terakhir']) !!}
+                    {!! Form::text('gaji_bersih', null, ['class'=>'form-control input-mask', 'data-mask'=>'000.000.000.000.000,00','placeholder'=>'Gaji Bersih Bulan Terakhir']) !!}
                 </div>
                 @if($errors->has('gaji_bersih'))
                     <span class="help-block">
@@ -459,7 +459,7 @@
             <label class="col-sm-3 control-label">Potongan Gaji Terakhir</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('potongan_gaji_terakhir', null, ['class'=>'form-control input-sm','placeholder'=>'Potongan Gaji Terakhir']) !!}
+                    {!! Form::text('potongan_gaji_terakhir', null, ['class'=>'form-control input-mask', 'data-mask'=>'000.000.000.000.000,00','placeholder'=>'Potongan Gaji Terakhir']) !!}
                 </div>
                 @if($errors->has('potongan_gaji_terakhir'))
                     <span class="help-block">

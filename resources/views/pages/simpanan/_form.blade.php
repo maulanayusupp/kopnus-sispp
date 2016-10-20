@@ -45,7 +45,7 @@
                     <label class="col-sm-3 control-label">Nilai Penempatan</label>
                     <div class="col-sm-2">
                         <div class="fg-line">
-                            {!! Form::number('nilai_penempatan', null, ['class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan', 'number']) !!}
+                            {!! Form::text('nilai_penempatan', null, ['class'=>'form-control input-mask', 'data-mask'=>'000.000.000.000.000,00','placeholder'=>'Nilai Penempatan', 'number']) !!}
                         </div>
                         @if($errors->has('nilai_penempatan'))
                             <span class="help-block">
@@ -63,6 +63,7 @@
                     <label class="col-sm-3 control-label">Terbilang</label>
                     <div class="col-sm-6">
                         <div class="fg-line">
+                            <input type="text" name="num" id="num" onkeyup="document.getElementById('format').innerHTML = formatCurrency(this.value);"/><span  id="format"></span>
                             {!! Form::text('nilai_penempatan_terbilang', null, ['class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan Terbilang']) !!}
                         </div>
                         @if($errors->has('nilai_penempatan_terbilang'))

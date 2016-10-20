@@ -341,7 +341,7 @@
             <label class="col-sm-3 control-label">Kode Pos</label>
             <div class="col-sm-1">
                 <div class="fg-line">
-                    {!! Form::text('pos_identitas', null, ['class'=>'form-control input-sm','placeholder'=>'Pos']) !!}
+                    {!! Form::number('pos_identitas', null, ['class'=>'form-control input-sm','placeholder'=>'Pos']) !!}
                 </div>
                 @if($errors->has('pos_identitas'))
                     <span class="help-block">
@@ -508,7 +508,7 @@
             <label class="col-sm-3 control-label">Pos (Domisili)</label>
             <div class="col-sm-2">
                 <div class="fg-line">
-                    {!! Form::text('pos_domisili', null, ['class'=>'form-control input-sm','placeholder'=>'Pos (Domisili)']) !!}
+                    {!! Form::number('pos_domisili', null, ['class'=>'form-control input-sm','placeholder'=>'Pos (Domisili)']) !!}
                 </div>
                 @if($errors->has('pos_domisili'))
                     <span class="help-block">
