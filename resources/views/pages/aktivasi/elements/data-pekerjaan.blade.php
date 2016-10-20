@@ -44,8 +44,9 @@
             <label class="col-sm-3 control-label">Penghasilan/Bulan</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('penghasilan', null, ['class'=>'form-control input-mask', 'data-mask'=>'000.000.000.000.000,00','placeholder'=>'Penghasilan/Bulan']) !!}
+                    {!! Form::number('penghasilan', null, ['id'=>'num','onkeyup'=>"document.getElementById('penghasilan').innerHTML = formatCurrency(this.value);",'class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan Terbilang']) !!}
                 </div>
+                <span id="penghasilan"></span>
                 @if($errors->has('penghasilan'))
                     <span class="help-block">
                         <strong>{{ $errors->first('penghasilan') }}</strong>
@@ -62,8 +63,9 @@
             <label class="col-sm-3 control-label">Pengeluaran/Bulan</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('pengeluaran', null, ['class'=>'form-control input-mask', 'data-mask'=>'000.000.000.000.000,00','placeholder'=>'Pengeluaran/Bulan']) !!}
+                    {!! Form::number('pengeluaran', null, ['id'=>'num','onkeyup'=>"document.getElementById('pengeluaran').innerHTML = formatCurrency(this.value);",'class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan Terbilang']) !!}
                 </div>
+                <span id="pengeluaran"></span>
                 @if($errors->has('pengeluaran'))
                     <span class="help-block">
                         <strong>{{ $errors->first('pengeluaran') }}</strong>
@@ -423,8 +425,9 @@
             <label class="col-sm-3 control-label">Gaji Kotor Bulan Terakhir</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('gaji_kotor', null, ['class'=>'form-control input-mask', 'data-mask'=>'000.000.000.000.000,00','placeholder'=>'Gaji Kotor Bulan Terakhir']) !!}
+                    {!! Form::number('gaji_kotor', null, ['id'=>'num','onkeyup'=>"document.getElementById('gaji_kotor').innerHTML = formatCurrency(this.value);",'class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan Terbilang']) !!}
                 </div>
+                <span id="gaji_kotor"></span>
                 @if($errors->has('gaji_kotor'))
                     <span class="help-block">
                         <strong>{{ $errors->first('gaji_kotor') }}</strong>
@@ -441,8 +444,9 @@
             <label class="col-sm-3 control-label">Gaji Bersih Bulan Terakhir</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('gaji_bersih', null, ['class'=>'form-control input-mask', 'data-mask'=>'000.000.000.000.000,00','placeholder'=>'Gaji Bersih Bulan Terakhir']) !!}
+                    {!! Form::number('gaji_bersih', null, ['id'=>'num','onkeyup'=>"document.getElementById('gaji_bersih').innerHTML = formatCurrency(this.value);",'class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan Terbilang']) !!}
                 </div>
+                <span id="gaji_bersih"></span>
                 @if($errors->has('gaji_bersih'))
                     <span class="help-block">
                         <strong>{{ $errors->first('gaji_bersih') }}</strong>
@@ -459,8 +463,9 @@
             <label class="col-sm-3 control-label">Potongan Gaji Terakhir</label>
             <div class="col-sm-4">
                 <div class="fg-line">
-                    {!! Form::text('potongan_gaji_terakhir', null, ['class'=>'form-control input-mask', 'data-mask'=>'000.000.000.000.000,00','placeholder'=>'Potongan Gaji Terakhir']) !!}
+                    {!! Form::number('potongan_gaji_terakhir', null, ['id'=>'num','onkeyup'=>"document.getElementById('potongan_gaji_terakhir').innerHTML = formatCurrency(this.value);",'class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan Terbilang']) !!}
                 </div>
+                <span id="potongan_gaji_terakhir"></span>
                 @if($errors->has('potongan_gaji_terakhir'))
                     <span class="help-block">
                         <strong>{{ $errors->first('potongan_gaji_terakhir') }}</strong>

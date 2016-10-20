@@ -62,12 +62,12 @@ return (((sign)?'':'-') + 'Rp' + num + ',' + cents);
                     <label class="col-sm-3 control-label">Nilai Penempatan</label>
                     <div class="col-sm-2">
                         <div class="fg-line">
-                            {!! Form::number('nilai_penempatan', null, ['id'=>'num','onkeyup'=>"document.getElementById('format').innerHTML = formatCurrency(this.value);",'class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan Terbilang']) !!}
+                            {!! Form::number('nilai_penempatan', null, ['id'=>'num','onkeyup'=>"document.getElementById('nilai_penempatan').innerHTML = formatCurrency(this.value);",'class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan Terbilang']) !!}
                         </div>
-                        <span id="format"></span>
+                        <span id="nilai_penempatan"></span>
                         @if($errors->has('nilai_penempatan'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('kantor_juru_bayar') }}</strong>
+                                <strong>{{ $errors->first('nilai_penempatan') }}</strong>
                             </span>
                         @endif
                     </div>

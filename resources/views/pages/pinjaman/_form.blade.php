@@ -42,8 +42,9 @@
                     <label class="col-sm-3 control-label">Gaji</label>
                     <div class="col-sm-4">
                         <div class="fg-line">
-                            {!! Form::number('gaji', null, ['class'=>'form-control input-sm','placeholder'=>'Gaji']) !!}
+                            {!! Form::number('gaji', null, ['id'=>'num','onkeyup'=>"document.getElementById('gaji').innerHTML = formatCurrency(this.value);",'class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan Terbilang']) !!}
                         </div>
+                        <span id="gaji"></span>
                         @if($errors->has('gaji'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('gaji') }}</strong>
@@ -171,8 +172,9 @@
                     <label class="col-sm-3 control-label">Jumlah Pinjaman yang diajukan</label>
                     <div class="col-sm-2">
                         <div class="fg-line">
-                            {!! Form::number('jumlah_pinjaman', null, ['class'=>'form-control input-sm','placeholder'=>'Jumlah pinjaman']) !!}
+                            {!! Form::number('jumlah_pinjaman', null, ['id'=>'num','onkeyup'=>"document.getElementById('jumlah_pinjaman').innerHTML = formatCurrency(this.value);",'class'=>'form-control input-sm','placeholder'=>'Nilai Penempatan Terbilang']) !!}
                         </div>
+                        <span id="jumlah_pinjaman"></span>
                         @if($errors->has('jumlah_pinjaman'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('jumlah_pinjaman') }}</strong>
