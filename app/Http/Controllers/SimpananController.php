@@ -22,8 +22,8 @@ class SimpananController extends Controller
 
     public function riwayat(){
         $id = Auth::user()->id ;
-        $simpanan = Simpanan::where('user_id', '=', $id)->orderBy('status','desc')->paginate(5);
-        return view('pages.simpanan.riwayat-simpanan', compact('simpanan'));
+        $tabungan = Tabungan::where('user_id', '=', $id)->first();
+        return view('pages.simpanan.riwayat-simpanan', compact('tabungan'));
     }
 
     public function index()

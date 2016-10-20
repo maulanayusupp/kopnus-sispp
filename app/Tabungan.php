@@ -20,7 +20,7 @@ class Tabungan extends Model
         return $this->hasOne('App\Produk', 'produk_id');
     }
     public function simpanan() {
-        return $this->hasOne('App\Simpanan', 'tabungan_id');
+        return $this->hasMany('App\Simpanan', 'tabungan_id');
     }
     public function user() {
         return $this->belongsTo('App\User', 'user_id');

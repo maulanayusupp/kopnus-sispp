@@ -14,7 +14,7 @@
                     <label class="col-sm-3 control-label"><strong>ID Anggota</strong></label>
                     <div class="col-sm-2">
                         <div class="fg-line">
-                            <label class="control-label">{{ $simpanan->user_id }}</label>
+                            <label class="control-label">{{ $simpanan->tabungan->user_id }}</label> (<label class="control-label">{{ $simpanan->tabungan->user->name }}</label>)
                         </div>
                     </div>
                 </div>                    
@@ -24,23 +24,10 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Status</strong></label>
+                    <label class="col-sm-3 control-label"><strong>Status Simpanan</strong></label>
                     <div class="col-sm-2">
                         <div class="fg-line">
-                            <span class="label label-{{ $simpanan->status=='aktif' ? 'success' : 'danger' }}">{{ $simpanan->status }}</span>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Kartu ATM</strong></label>
-                    <div class="col-sm-2">
-                        <div class="fg-line">
-                            <label class="control-label">{{ $simpanan->kartu_atm }}</label>
+                            <span class="label label-{{ $simpanan->status=='disimpan' ? 'success' : 'danger' }}">{{ $simpanan->status }}</span>
                         </div>
                     </div>
                 </div>                    
@@ -67,71 +54,6 @@
                     <div class="col-sm-5">
                         <div class="fg-line">
                             <label class="control-label">Rp {{ number_format($simpanan->nilai_penempatan) }} ({{ $simpanan->nilai_penempatan_terbilang }})</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Jangka Waktu</strong></label>
-                    <div class="col-sm-2">
-                        <div class="fg-line">
-                            <label class="control-label">{{ $simpanan->jangka_waktu }} (Bulan)</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Tingkat Imbalan</strong></label>
-                    <div class="col-sm-2">
-                        <div class="fg-line">
-                            <label class="control-label">{{ $simpanan->tingkat_imbalan }} % Pertahun</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Status Perpanjangan</strong></label>
-                    <div class="col-sm-2">
-                        <div class="fg-line">
-                            <label class="control-label">{{ $simpanan->status_perpanjangan }}</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Nota Perpanjangan</strong></label>
-                    <div class="col-sm-2">
-                        <div class="fg-line">
-                            <label class="control-label">{{ $simpanan->nota_perpanjangan }}</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Nota Perpanjangan Dikirim</strong></label>
-                    <div class="col-sm-2">
-                        <div class="fg-line">
-                            <label class="control-label">{{ $simpanan->nota_perpanjangan_dikirim }}</label>
                         </div>
                     </div>
                 </div>                    

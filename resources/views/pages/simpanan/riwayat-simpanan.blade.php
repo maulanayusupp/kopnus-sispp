@@ -12,21 +12,19 @@
             <thead>
                 <tr>
                     <th>ID Simpanan</th>
-                    <th>ID Anggota</th>
+                    <th>ID Tabungan</th>
                     <th>Jumlah Simpanan</th>
-                    <th>Jangka Waktu</th>
                     <th>Status</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($simpanan as $simpan)
+                @foreach($tabungan->simpanan as $simpan)
                     <tr>
                         <td>{{ $simpan->id }}</td>
-                        <td>{{ $simpan->user_id }}</td>
-                        <td>Rp {{ number_format($simpan->nilai_penempatan) }}</td>
-                        <td>{{ $simpan->jangka_waktu .' Bulan' }}</td>
-                        <td><span class="label label-{{ $simpan->status=='aktif' ? 'success' : 'danger' }}">{{ $simpan->status }}</span></td>
+                        <td>{{ $simpan->tabungan_id }}</td>
+                        <td>Rp. {{ number_format($simpan->nilai_penempatan) }}</td>
+                        <td><span class="label label-{{ $simpan->status=='disimpan' ? 'success' : 'danger' }}">{{ $simpan->status }}</span></td>
                         <td>
 {{--                             @if($simpan->status=='menunggu')
                                 {!! Form::model($simpan, ['route' => ['simpanan.simpanan.destroy', $simpan], 'method' => 'delete', 'class' => 'form-inline'] ) !!}

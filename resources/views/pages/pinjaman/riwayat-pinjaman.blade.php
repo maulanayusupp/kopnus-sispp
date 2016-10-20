@@ -18,7 +18,7 @@
                     <th>Jumlah Pinjaman</th>
                     <th>Jenis Pinjaman</th>
                     <th>Status</th>
-                    <th><center>Aksi</center></th>
+                    <th width="45%"><center>Aksi</center></th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +33,7 @@
                         <td>
                             @if($pinjam->status=='menunggu')
                                 {!! Form::model($pinjam, ['route' => ['pinjaman.pinjaman.destroy', $pinjam], 'method' => 'delete', 'class' => 'form-inline'] ) !!}
-                                <a href = "{{ route('pinjaman.pinjaman.edit', $pinjam->id)}}" class="btn palette-Orange bg">Ubah Pinjaman</a> |
+                                <a href = "{{ route('pinjaman.pinjaman.edit', $pinjam->id)}}" class="btn palette-Orange bg">Ubah Pinjaman</a> | <a href = "{{ route('pinjaman.pinjaman.show', $pinjam->id)}}" class="btn palette-Blue bg">Lihat Data Pinjaman</a> |
                                 <button type="submit" class="btn palette-Red bg"> Batal Pinjam</button>
                                 {!! Form::close()!!}
                             @else

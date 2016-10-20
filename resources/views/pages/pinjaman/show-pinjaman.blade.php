@@ -5,9 +5,22 @@
 @section('content')
 <div class="card">
     <div class="card-body card-padding">        
-    	<center><b><h3>PINJAMAN KHUSUS ANGGOTA <br>({{ $pinjaman->nama_kreditur }})</h3></b></center>
+    	<center><b><h3>PINJAMAN KHUSUS ANGGOTA <br>({{ $pinjaman->user->name }})</h3></b></center>
 
     	<hr>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><strong>Status Pinjaman</strong></label>
+                    <div class="col-sm-3">
+                        <div class="fg-line">
+                            <span class="label label-{{$pinjaman->status=='diterima' ? 'success' : 'danger' }}">{{ $pinjaman->status }}</span>
+                        </div>
+                    </div>
+                </div>                    
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-sm-12">
@@ -22,18 +35,35 @@
             </div>
         </div>
 
-        <div class="row">
+         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Status Pinjaman</strong></label>
-                    <div class="col-sm-3">
+                    <label class="col-sm-3 control-label"><strong>Umur</strong></label>
+                    <div class="col-sm-5">
                         <div class="fg-line">
-                            <span class="label label-{{$pinjaman->status=='aktif' ? 'success' : 'danger' }}">{{ $pinjaman->status }}</span>
+                            <label class="control-label">
+                                <?php $interval = date_diff(date_create(), date_create($pinjaman->tanggal_lahir)) ?>
+                                {{ $interval->format('%Y Tahun %M Bulan %d Hari') }} - Kelahiran ({{ $pinjaman->tanggal_lahir }})
                         </div>
                     </div>
                 </div>                    
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><strong>Gaji</strong></label>
+                    <div class="col-sm-2">
+                        <div class="fg-line">
+                            <label class="control-label">Rp. {{ number_format($pinjaman->gaji) }}</label>
+                        </div>
+                    </div>
+                </div>                    
+            </div>
+        </div>
+
+        
 
         <div class="row">
             <div class="col-sm-12">
@@ -139,16 +169,13 @@
             </div>
         </div>
 
-        <hr>
-
-        <center><b><h4>PENDAPATAN DAN PINJAMAN LAINNYA</h4></b></center>
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Nama Kreditur</strong></label>
-                    <div class="col-sm-3">
+                    <label class="col-sm-3 control-label"><strong>Total Pinjaman</strong></label>
+                    <div class="col-sm-5">
                         <div class="fg-line">
-                            <label class="control-label">{{ $pinjaman->nama_kreditur }}</label>
+                            <label class="control-label"><strong>Rp {{ number_format($pinjaman->jumlah_pinjaman_bunga) }}</strong></label>
                         </div>
                     </div>
                 </div>                    
@@ -158,37 +185,10 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>No. Rekening</strong></label>
-                    <div class="col-sm-3">
+                    <label class="col-sm-3 control-label"><strong>Angsuran</strong></label>
+                    <div class="col-sm-5">
                         <div class="fg-line">
-                            <label class="control-label">{{ $pinjaman->no_rek_kreditur }}</label>
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Sisa Angsuran</strong></label>
-                    <div class="col-sm-3">
-                        <div class="fg-line">
-                            <label class="control-label">Rp {{ number_format($pinjaman->sisa_angsuran_kreditur) }} ({{ $pinjaman->sisa_angsuran_bulan_kreditur . ' Bulan'}})</label>
-
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-3 control-label"><strong>Penghasilan Pasangan/Bulan</strong></label>
-                    <div class="col-sm-3">
-                        <div class="fg-line">
-                            <label class="control-label">Rp {{ number_format($pinjaman->penghasilan_bulanan_kreditur) }}</label>
+                            <label class="control-label"><strong>Rp {{ number_format($pinjaman->angsuran) }}</strong></label>
                         </div>
                     </div>
                 </div>                    

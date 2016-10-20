@@ -21,9 +21,9 @@ class KelolaSimpananController extends Controller
     {
         $q = $request->get('q');
         if (isset($q)) {
-            $simpanan = Simpanan::where('id', $q)->orderBy('status','desc')->paginate(10);
+            $simpanan = Simpanan::where('tabungan_id', $q)->orderBy('created_at','desc')->paginate(10);
         }else{
-            $simpanan = Simpanan::where('id', 'LIKE', '%'.$q.'%')->orderBy('status','desc')->paginate(10);
+            $simpanan = Simpanan::where('tabungan_id', 'LIKE', '%'.$q.'%')->orderBy('created_at','desc')->paginate(10);
         }
         
         return view('pages.kelola-simpanan.kelola-simpanan', compact('simpanan','q'));
