@@ -5,7 +5,7 @@
 @section('content')
 <div class="card">
     <div class="card-body card-padding">        
-    	<center><b><h3>REKENING TABUNGAN <br>({{ $tabungan->nama }})</h3></b></center>
+    	<center><b><h3>REKENING TABUNGAN <br>({{ $tabungan->user->name }})</h3></b></center>
 
     	<hr>
 
