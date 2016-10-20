@@ -13,6 +13,7 @@
                 <tr>
                     <th>ID Simpanan</th>
                     <th>ID Tabungan</th>
+                    <th>Nama Pemilik</th>
                     <th>Jumlah Simpanan</th>
                     <th>Status</th>
                     <th>Aksi</th>
@@ -23,6 +24,7 @@
                     <tr>
                         <td>{{ $simpan->id }}</td>
                         <td>{{ $simpan->tabungan_id }}</td>
+                        <td>{{ $simpan->tabungan->user->name }}</td>
                         <td>Rp. {{ number_format($simpan->nilai_penempatan) }}</td>
                         <td><span class="label label-{{ $simpan->status=='disimpan' ? 'success' : 'danger' }}">{{ $simpan->status }}</span></td>
                         <td>
