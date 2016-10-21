@@ -90,6 +90,10 @@
                     </li>
                 </ul>
             </li>
+            {{-- LAPORAN --}}
+            <li class= "{{ Request::is('kelola/laporan') ? 'active' : '' }}">
+                <a href="{{ URL::to('kelola/laporan') }}"><i class="zmdi zmdi-book"></i> Laporan</a>
+            </li>
             {{-- MASTER --}}
             <li class="sub-menu {{ Request::is('kelola/akun') || Request::is('kelola/akun/daftar-member') ? 'active' : '' }}">
                 <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-settings"></i> Master  
@@ -109,11 +113,7 @@
                         <a href="{{ URL::to('kelola/akun') }}" > Users</a>
                     </li>
                 </ul>
-            </li>
-            {{-- LAPORAN --}}
-            <li class= "{{ Request::is('kelola/laporan') ? 'active' : '' }}">
-                <a href="{{ URL::to('kelola/laporan') }}"><i class="zmdi zmdi-book"></i> Laporan</a>
-            </li>
+            </li>            
         @endcan
         {{-- option --}}
         <hr>
@@ -121,6 +121,11 @@
             <a href="#" data-ma-action="submenu-toggle"><i class="zmdi zmdi-account"></i><font color="brown"> {{ Auth::user()->name }}</font>
             </a>
             <ul>
+                @can('member-access')
+                    <li>
+                        <a href="{{ route('profile.show', Auth::user()->id)}}" > Data Saya </a>
+                    </li>
+                @endcan
                 <li>
                     <a href="{{ url('/logout') }}" > Logout </a>
                 </li>

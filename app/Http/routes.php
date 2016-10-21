@@ -9,7 +9,7 @@ Route::group(['middleware' => 'web'], function () {
 	/* AUTHENTICATION AND AUTHORIZATION */
 	Route::auth();
 	/* PROFIL */
-	Route::resource('profil','ProfilController');
+	Route::resource('profile','ProfilController');
 	/* USER */	
 	Route::get('/home', 'HomeController@index');
 	
