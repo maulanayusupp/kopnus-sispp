@@ -61,12 +61,11 @@
                         <td><span class="label label-{{$user->status=='aktif' ? 'success' : 'warning' }}">{{ $user->status }}</span></td>
                         <td>
                             {!! Form::model($user, ['route' => ['kelola.akun.destroy', $user], 'method' => 'delete', 'class' => 'form-inline'] ) !!}
-                            @if( (App\User::where('role','admin')->count() == 1) && (App\User::where('role','member')->count() == 0))
-                                <a href = "{{ route('kelola.akun.edit', $user->id)}}" class="btn palette-Orange bg">Ubah</a>
-                            @else
                                 <a href = "{{ route('kelola.akun.edit', $user->id)}}" class="btn palette-Orange bg">Ubah</a> |
+                                @if($user->role == 'member')
+                                    <a href = "{{ route('kelola.akun.show', $user->id)}}" class="btn palette-Blue bg">Data Anggota</a> |
+                                @endif
                                 <button type="submit" class="btn palette-Red bg"> Hapus</button>
-                            @endif
                             {!! Form::close()!!}
                         </td>
                     </tr>

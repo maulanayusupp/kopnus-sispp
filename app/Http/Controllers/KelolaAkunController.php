@@ -79,7 +79,8 @@ class KelolaAkunController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('pages.kelola-akun.show', compact('user'));
     }
 
     /**
