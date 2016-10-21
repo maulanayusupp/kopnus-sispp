@@ -351,15 +351,6 @@ class AktivasiController extends Controller
         $tabungan = new Tabungan;
         $tabungan->produk_id = $request->input('produk_id');
         $tabungan->user_id = $request->input('user_id');
-        $tabungan->nama = $request->input('nama');
-        $tabungan->alamat = $request->input('alamat');
-        $tabungan->kelurahan = $request->input('kelurahan');
-        $tabungan->kecamatan = $request->input('kecamatan');
-        $tabungan->nik = $request->input('nik');
-        $tabungan->tanggal_lahir = $request->input('tanggal_lahir');
-        $tabungan->tanggal_pendaftaran = $tempUser->created_at;
-        $tabungan->nama_ibu_kandung = $request->input('nama_ibu_kandung');
-        $tabungan->jenis_kelamin = $request->input('jenis_kelamin');
         $tabungan->saldo_akhir = '0';
         $tabungan->status_rekening = 'aktif';
         $tabungan->pin = bcrypt($request['pin']);
