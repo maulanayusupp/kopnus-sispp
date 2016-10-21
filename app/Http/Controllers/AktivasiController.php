@@ -79,7 +79,7 @@ class AktivasiController extends Controller
     {
         $this->validate($request, [
             /* VALIDASI DATA ANGGOTA */
-            //'keperluan' => 'required',
+            'keperluan' => 'required',
             'user_id' => 'required',
             'nama' => 'required',
             'jenis_layanan_jasa' => 'required',
@@ -172,10 +172,10 @@ class AktivasiController extends Controller
         ]);
         /* MODEL USER */
         $tempUser = User::find($id);
-
+        $keperluan = implode(",", $request->get('keperluan'));
         /* AKSI KE MODEL DATA ANGGOTA */
         $dataAnggota = new DataAnggota;
-        //$dataAnggota->keperluan = $request->input('keperluan');
+        $dataAnggota->keperluan = $keperluan;
         $dataAnggota->user_id = $request->input('user_id');
         $dataAnggota->nama = $request->input('nama');
         $dataAnggota->jenis_layanan_jasa = $request->input('jenis_layanan_jasa');
@@ -196,7 +196,7 @@ class AktivasiController extends Controller
         $dataAnggota->pos_identitas = $request->input('pos_identitas');
         $dataAnggota->pendidikan_terakhir = $request->input('pendidikan_terakhir');
         $dataAnggota->kewarganegaraan = $request->input('kewarganegaraan');
-        $dataAnggota->npwp = $request->input('npwp');
+        $dataAnggota->no_npwp = $request->input('no_npwp');
         $dataAnggota->alamat_domisili = $request->input('alamat_domisili');
         $dataAnggota->rt_rw_domisili = $request->input('rt_rw_domisili');
         $dataAnggota->kelurahan_domisili = $request->input('kelurahan_domisili');
