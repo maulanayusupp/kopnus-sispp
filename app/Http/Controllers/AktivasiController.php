@@ -172,9 +172,9 @@ class AktivasiController extends Controller
         ]);
         /* MODEL USER */
         $tempUser = User::find($id);
-        $keperluan = implode(",", $request->get('keperluan'));
         /* AKSI KE MODEL DATA ANGGOTA */
         $dataAnggota = new DataAnggota;
+        $keperluan = implode(",", $request->get('keperluan'));
         $dataAnggota->keperluan = $keperluan;
         $dataAnggota->user_id = $request->input('user_id');
         $dataAnggota->nama = $request->input('nama');

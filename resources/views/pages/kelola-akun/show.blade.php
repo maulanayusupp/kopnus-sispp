@@ -6,11 +6,9 @@
 <div class="card">
     <div class="card-body card-padding">        
     	<center><b><h3>DATA ANGGOTA <br>({{ $user->name }})</h3></b></center>
-
     	<hr>
-
+        <a href = "{{ route('kelola.akun.dataAnggota', $user->id)}}" class="btn palette-Blue bg pull-right">UBAH DATA ANGGOTA</a>
         <h2> Data Anggota</h2>
-
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
@@ -360,8 +358,11 @@
                     </div>
                 </div>                    
             </div>
-        </div>     
+        </div>
+
+        <a href = "{{ route('kelola.akun.dataPekerjaan', $user->id)}}" class="btn palette-Blue bg pull-right">UBAH DATA PEKERJAAN</a>
         <h2> Data Pekerjaan</h2>
+
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">

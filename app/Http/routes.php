@@ -62,6 +62,10 @@ Route::group(['middleware' => 'web'], function () {
 		/* KELOLA AKUN */
 		Route::get('akun/daftar-member','KelolaAkunController@daftarMember');
 		Route::resource('akun','KelolaAkunController');
+		Route::get('akun/data-anggota/{id}',['as'=>'kelola.akun.dataAnggota','uses'=>'KelolaAkunController@dataAnggota']);
+		Route::put('akun/data-anggota/{id}',['as'=>'kelola.akun.ubahDataAnggota','uses'=>'KelolaAkunController@ubahDataAnggota']);
+		Route::get('akun/data-pekerjaan/{id}',['as'=>'kelola.akun.dataPekerjaan','uses'=>'KelolaAkunController@dataPekerjaan']);
+		Route::put('akun/data-pekerjaan/{id}',['as'=>'kelola.akun.ubahDataPekerjaan','uses'=>'KelolaAkunController@ubahDataPekerjaan']);
 		/* LAPORAN */
 		Route::resource('laporan','KelolaLaporanController');
 		Route::get('laporan-pinjaman/{type}','LaporanController@laporanPinjaman');

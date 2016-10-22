@@ -123,7 +123,7 @@
             <ul>
                 @can('member-access')
                     <li>
-                        <a href="{{ route('profile.show', Auth::user()->id)}}" > Data Saya </a>
+                        <a href="{{ route('profile.show', encrypt(Auth::user()->id))}}" > <font color="black">Data Saya</font></a>
                     </li>
                 @endcan
                 <li>

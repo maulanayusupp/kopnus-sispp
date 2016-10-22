@@ -49,7 +49,7 @@ class ProfilController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::findOrFail(decrypt($id));
         return view('pages.profile.show', compact('user'));
     }
 
@@ -61,7 +61,8 @@ class ProfilController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail(decrypt($id));
+        return view('pages.profile.show', compact('user'));
     }
 
     /**
