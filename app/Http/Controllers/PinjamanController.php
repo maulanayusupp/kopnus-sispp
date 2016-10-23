@@ -62,12 +62,12 @@ class PinjamanController extends Controller
         $jumlah_pinjaman = $request->input('jumlah_pinjaman');
         /* BUNGA */
         $bunga = Bunga::findOrFail($bunga_id);
-
+        /* formula */
         $nilai1 = $jumlah_pinjaman * (($bunga->bunga / 12) / 100);
         $nilai2 = pow(( 1 + ( $bunga->bunga / 12 ) / 100), $bunga->bulan_bunga);
         $total_angsuran = $nilai1 / (1-1 / $nilai2);
         $total_pembayaran = $total_angsuran * $bunga->bulan_bunga;
-
+        /* formula */
         $request['status'] = 'menunggu';
         $request['jumlah_pinjaman_bunga'] = $total_pembayaran;
         $request['sisa_pinjaman'] = $total_pembayaran;
