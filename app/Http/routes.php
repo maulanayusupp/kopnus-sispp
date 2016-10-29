@@ -71,6 +71,14 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('laporan-pinjaman/{type}','LaporanController@laporanPinjaman');
 		Route::get('laporan-pembayaran/{type}','LaporanController@laporanPembayaran');
 		Route::get('laporan-simpanan/{type}','LaporanController@laporanSimpanan');
+
+
+
+
+		/* KELOLA BARANG */
+		Route::resource('barang','KelolaBarangController');
+		/* KELOLA OBAT */
+		Route::resource('obat','KelolaObatController');
 	});
 	
 });

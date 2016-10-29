@@ -63,8 +63,14 @@ class PinjamanController extends Controller
         /* BUNGA */
         $bunga = Bunga::findOrFail($bunga_id);
 
-        $nilai1 = $jumlah_pinjaman * (($bunga->bunga / 12) / 100);
+        /* hitung bunga */
+        /*$nilai1 = $jumlah_pinjaman * (($bunga->bunga / 12) / 100);
         $nilai2 = pow(( 1 + ( $bunga->bunga / 12 ) / 100), $bunga->bulan_bunga);
+        $total_angsuran = $nilai1 / (1-1 / $nilai2);
+        $total_pembayaran = $total_angsuran * $bunga->bulan_bunga;*/
+
+        $nilai1 = $jumlah_pinjaman * ((($bunga->bunga * 12) / 12) / 100);
+        $nilai2 = pow(( 1 + ( ($bunga->bunga * 12) / 12 ) / 100), $bunga->bulan_bunga);
         $total_angsuran = $nilai1 / (1-1 / $nilai2);
         $total_pembayaran = $total_angsuran * $bunga->bulan_bunga;
 

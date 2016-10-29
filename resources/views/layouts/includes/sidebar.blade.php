@@ -113,7 +113,10 @@
                         <a href="{{ URL::to('kelola/akun') }}" > Users</a>
                     </li>
                 </ul>
-            </li>            
+            </li>
+
+            
+                    
         @endcan
         {{-- option --}}
         <hr>

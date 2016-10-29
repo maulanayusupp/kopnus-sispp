@@ -51,7 +51,7 @@ class KelolaPinjamanController extends Controller
         Mail::send('auth.emails.mail', $mail, function($message) use ($mail) {
             $message->to('mitamufida@gmail.com');
             $message->subject('Verifikasi Pinjaman - Koperasi Nusantara');
-        });*/
+        });
         /* MESSAGE SUCCESS */
         //dd('Mail Send Successfully');   
 
