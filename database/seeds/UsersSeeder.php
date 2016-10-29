@@ -20,21 +20,21 @@ class UsersSeeder extends Seeder
 			'status' => 'aktif',
 		]);
 		// sample member id 2
-		App\User::create([
+		/*App\User::create([
 			'name' => 'Bella Syifa',
 			'email' => 'bella@gmail.com',
 			'password' => bcrypt('member'),
 			'role' => 'member',
 			'status' => 'aktif',
-		]);
+		]);*/
 		// sample member id 2
-		App\User::create([
+		/*App\User::create([
 			'name' => 'Mitamufida',
 			'email' => 'mitamufida@gmail.com',
 			'password' => bcrypt('member'),
 			'role' => 'member',
 			'status' => 'aktif',
-		]);
+		]);*/
 		// sample member id 4
 		// App\User::create([
 		// 	'name' => '',
