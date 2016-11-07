@@ -7,11 +7,19 @@
 </div>
 <div class="row">
 	<div class="form-group">
-		<div class="col-sm-6">
-			<button type="submit" class="btn btn-primary btn-block"><i class="zmdi zmdi-check"></i> Submit</button>
+		<div class="col-sm-1">
 		</div>
-		<div class="col-sm-6">
-			<button type="reset" class="btn btn-danger btn-block"><i class="zmdi zmdi-close"></i> Cancel</button></a>
+		<div class="col-sm-5">
+			<center>
+				<button type="submit" class="btn btn-primary btn-block"><i class="zmdi zmdi-check"></i> Submit</button>
+			</center>			
+		</div>
+		<div class="col-sm-5">
+			<center>
+				<button type="reset" class="btn btn-danger btn-block"><i class="zmdi zmdi-close"></i> Cancel</button></a>
+			</center>			
+		</div>
+		<div class="col-sm-1">
 		</div>
 	</div>
 </div>

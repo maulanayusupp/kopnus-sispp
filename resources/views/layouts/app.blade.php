@@ -31,20 +31,20 @@
             <div class="container">
                 {{-- navigation --}}
                 @if(!Request::is('home'))
-                    <div class="card c-dark palette-Orange bg">
-                        <div class="card-header">
-                            <h2><i class="zmdi zmdi-navigation"></i> @yield('title')</h2>
-                        </div>
+                <div class="card c-dark palette-Orange bg">
+                    <div class="card-header">
+                        <h2><i class="zmdi zmdi-navigation"></i> @yield('title')</h2>
                     </div>
+                </div>
                 @endif                
                 {{-- FEEDBACK SYSTEM --}}
                 @if(session()->has('flash_notification.message'))
-                    <div class="container">
-                        <div class="alert alert-{{ session()->get('flash_notification.level') }}">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            {{ session()->get('flash_notification.message') }}
-                        </div>
+                <div class="container">
+                    <div class="alert alert-{{ session()->get('flash_notification.level') }}">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ session()->get('flash_notification.message') }}
                     </div>
+                </div>
                 @endif
                 {{-- content --}}
                 @yield('content')                
@@ -56,9 +56,9 @@
             Copyright &copy; 2016 Sistem Informasi Simpan Pinjam Pensiunan <br> Koperasi Nusantara Indonesia
         </div> --}}
         @if(!Request::is('home'))
-            <footer id="footer">
-                Copyright &copy; 2016 Sistem Informasi Simpan Pinjam Pensiun <br> Koperasi Nusantara Indonesia
-            </footer>
+        <footer id="footer">
+            Copyright &copy; 2016 Sistem Informasi Simpan Pinjam Pensiun <br> Koperasi Nusantara Indonesia
+        </footer>
         @endif
         
     </section>
@@ -101,6 +101,15 @@
         num.substring(num.length-(4*i+3));
         return (((sign)?'':'-') + 'Rp. ' + num + ',' + cents);
     }
+    </script>
+    <script>
+    $('.btnNext').click(function(){
+      $('.nav-tabs > .active').next('li').find('a').trigger('click');
+  });
+
+    $('.btnPrevious').click(function(){
+      $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+  });
     </script>
     @yield('js')
 </body>
