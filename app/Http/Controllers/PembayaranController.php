@@ -25,8 +25,9 @@ class PembayaranController extends Controller
     public function index(Request $request)
     {
         $pinjaman_id = $request->get('pinjaman_id');
+        $pinjaman = Pinjaman::where('id', $pinjaman_id)->first();
+        
         if (isset($pinjaman_id)) {
-            $pinjaman = Pinjaman::where('id', $pinjaman_id)->first();
             return view('pages.pembayaran.pembayaran', compact('pinjaman'));
         }else{
             return view('pages.pembayaran.pembayaran', compact('pinjaman'));
