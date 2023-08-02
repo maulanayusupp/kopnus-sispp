@@ -30,7 +30,7 @@
                     <label class="col-sm-3 control-label"><strong>Keperluan</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->keperluan }}
+                            {{ $user->dataAnggota ? $user->dataAnggota->keperluan : '' }}
                         </div>
                     </div>
                 </div>                    
@@ -95,7 +95,7 @@
                     <label class="col-sm-3 control-label"><strong>Simpanan Wajib</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            <span class="label label-{{$user->simpanan_wajib==50000 ? 'success' : 'danger' }}">{{ $user->simpanan_wajib==50000 ? 'Dibayar' : 'Belum Dibayar'}}</span>
+                            <span class="label label-{{$user->simpanan_wajib == 50000 ? 'success' : 'danger' }}">{{ $user->simpanan_wajib == 50000 ? 'Dibayar' : 'Belum Dibayar'}}</span>
                         </div>
                     </div>
                 </div>                    
@@ -108,7 +108,7 @@
                     <label class="col-sm-3 control-label"><strong>Simpanan Pokok</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            <span class="label label-{{$user->simpanan_pokok==5000 ? 'success' : 'danger' }}">{{ $user->simpanan_pokok==5000 ? 'Dibayar' : 'Belum Dibayar'}}</span>
+                            <span class="label label-{{$user->simpanan_pokok == 5000 ? 'success' : 'danger' }}">{{ $user->simpanan_pokok == 5000 ? 'Dibayar' : 'Belum Dibayar'}}</span>
                         </div>
                     </div>
                 </div>                    
@@ -121,7 +121,7 @@
                     <label class="col-sm-3 control-label"><strong>Jenis Layanan Jasa</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->jenis_layanan_jasa }}
+                            {{ $user->dataAnggota->jenis_layanan_jasa ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -134,7 +134,7 @@
                     <label class="col-sm-3 control-label"><strong>Nama Suami/Istri</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->nama_suami_istri }}
+                            {{ $user->dataAnggota->nama_suami_istri ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -147,7 +147,7 @@
                     <label class="col-sm-3 control-label"><strong>NIK</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->nik }}
+                            {{ $user->dataAnggota->nik ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -160,7 +160,7 @@
                     <label class="col-sm-3 control-label"><strong>Nama Ibu Kandung</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->nama_ibu_kandung }}
+                            {{ $user->dataAnggota->nama_ibu_kandung ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -173,7 +173,7 @@
                     <label class="col-sm-3 control-label"><strong>Agama</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->agama }}
+                            {{ $user->dataAnggota->agama ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -186,7 +186,7 @@
                     <label class="col-sm-3 control-label"><strong>Jenis Kelamin</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->jenis_kelamin }}
+                            {{ $user->dataAnggota->jenis_kelamin ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -199,7 +199,7 @@
                     <label class="col-sm-3 control-label"><strong>Tanggal Lahir</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->tanggal_lahir }}
+                            {{ $user->dataAnggota->tanggal_lahir ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -212,7 +212,7 @@
                     <label class="col-sm-3 control-label"><strong>Jumlah Tanggungan</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->jumlah_tanggungan }}
+                            {{ $user->dataAnggota->jumlah_tanggungan ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -225,7 +225,7 @@
                     <label class="col-sm-3 control-label"><strong>Identitas</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->identitas_dimiliki }}
+                            {{ $user->dataAnggota->identitas_dimiliki ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -238,7 +238,7 @@
                     <label class="col-sm-3 control-label"><strong>Nomor Identitas</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->nomor_identitas }}
+                            {{ $user->dataAnggota->nomor_identitas ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -251,7 +251,7 @@
                     <label class="col-sm-3 control-label"><strong>Alamat</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->alamat_identitas }}
+                            {{ $user->dataAnggota->alamat_identitas ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -264,7 +264,7 @@
                     <label class="col-sm-3 control-label"><strong>RT/RW</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->rt_rw_identitas }}
+                            {{ $user->dataAnggota->rt_rw_identitas ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -277,7 +277,7 @@
                     <label class="col-sm-3 control-label"><strong>Kelurahan</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->kelurahan_identitas }}
+                            {{ $user->dataAnggota->kelurahan_identitas ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -290,7 +290,7 @@
                     <label class="col-sm-3 control-label"><strong>Kecamatan</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->kecamatan_identitas }}
+                            {{ $user->dataAnggota->kecamatan_identitas ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -303,7 +303,7 @@
                     <label class="col-sm-3 control-label"><strong>Kota</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->kota_identitas }}
+                            {{ $user->dataAnggota->kota_identitas ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -316,7 +316,7 @@
                     <label class="col-sm-3 control-label"><strong>Pos</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->pos_identitas }}
+                            {{ $user->dataAnggota->pos_identitas ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -329,7 +329,7 @@
                     <label class="col-sm-3 control-label"><strong>Pendidikan Terakhir</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->pendidikan_terakhir }}
+                            {{ $user->dataAnggota->pendidikan_terakhir ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -342,7 +342,7 @@
                     <label class="col-sm-3 control-label"><strong>Kewarganegaraan</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->kewarganegaraan }}
+                            {{ $user->dataAnggota->kewarganegaraan ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -355,7 +355,7 @@
                     <label class="col-sm-3 control-label"><strong>Nomor NPWP</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataAnggota->no_npwp }}
+                            {{ $user->dataAnggota->no_npwp ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -368,7 +368,7 @@
                     <label class="col-sm-3 control-label"><strong>Pekerjaan</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->pekerjaan }}
+                            {{ $user->dataPekerjaan->pekerjaan ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -381,7 +381,7 @@
                     <label class="col-sm-3 control-label"><strong>Pekerjaan Lain</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->pekerjaan_lain }}
+                            {{ $user->dataPekerjaan->pekerjaan_lain ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -394,7 +394,7 @@
                     <label class="col-sm-3 control-label"><strong>Penghasilan</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            Rp. {{ number_format($user->dataPekerjaan->penghasilan) }}
+                            Rp. {{ number_format($user->dataPekerjaan->penghasilan ?? 0) }}
                         </div>
                     </div>
                 </div>                    
@@ -407,7 +407,7 @@
                     <label class="col-sm-3 control-label"><strong>Pengeluaran</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            Rp. {{ number_format($user->dataPekerjaan->pengeluaran) }}
+                            Rp. {{ number_format($user->dataPekerjaan->pengeluaran ?? 0) }}
                         </div>
                     </div>
                 </div>                    
@@ -420,7 +420,7 @@
                     <label class="col-sm-3 control-label"><strong>Tempat Kerja</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->tempat_kerja }}
+                            {{ $user->dataPekerjaan->tempat_kerja ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -433,7 +433,7 @@
                     <label class="col-sm-3 control-label"><strong>Jenis Pekerjaan</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->jenis_pekerjaan }}
+                            {{ $user->dataPekerjaan->jenis_pekerjaan ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -446,7 +446,7 @@
                     <label class="col-sm-3 control-label"><strong>Alamat</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->alamat }}
+                            {{ $user->dataPekerjaan->alamat ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -459,7 +459,7 @@
                     <label class="col-sm-3 control-label"><strong>RT/RW</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->rt_rw }}
+                            {{ $user->dataPekerjaan->rt_rw ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -472,7 +472,7 @@
                     <label class="col-sm-3 control-label"><strong>Kelurahan</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->kelurahan }}
+                            {{ $user->dataPekerjaan->kelurahan ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -485,7 +485,7 @@
                     <label class="col-sm-3 control-label"><strong>Kecamatan</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->kecamatan }}
+                            {{ $user->dataPekerjaan->kecamatan ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -498,7 +498,7 @@
                     <label class="col-sm-3 control-label"><strong>Kota</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->kota }}
+                            {{ $user->dataPekerjaan->kota ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -511,7 +511,7 @@
                     <label class="col-sm-3 control-label"><strong>Pos</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->pos }}
+                            {{ $user->dataPekerjaan->pos ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -524,7 +524,7 @@
                     <label class="col-sm-3 control-label"><strong>Nomor Telepon Kantor</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->nomor_telepon_kantor }}
+                            {{ $user->dataPekerjaan->nomor_telepon_kantor ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -537,7 +537,7 @@
                     <label class="col-sm-3 control-label"><strong>Jabatan</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->jabatan }}
+                            {{ $user->dataPekerjaan->jabatan ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -550,7 +550,7 @@
                     <label class="col-sm-3 control-label"><strong>Lama Bekerja</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->lama_bekerja }}
+                            {{ $user->dataPekerjaan->lama_bekerja ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -563,7 +563,7 @@
                     <label class="col-sm-3 control-label"><strong>Sumber Dana Lain</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->sumber_dana }}
+                            {{ $user->dataPekerjaan->sumber_dana ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -576,7 +576,7 @@
                     <label class="col-sm-3 control-label"><strong>Sumber Data Lain</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            {{ $user->dataPekerjaan->sumber_dana_lain }}
+                            {{ $user->dataPekerjaan->sumber_dana_lain ?? '' }}
                         </div>
                     </div>
                 </div>                    
@@ -589,7 +589,7 @@
                     <label class="col-sm-3 control-label"><strong>Gaji Kotor</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            Rp. {{ number_format($user->dataPekerjaan->gaji_kotor) }}
+                            Rp. {{ number_format($user->dataPekerjaan->gaji_kotor ?? 0) }}
                         </div>
                     </div>
                 </div>                    
@@ -602,7 +602,7 @@
                     <label class="col-sm-3 control-label"><strong>Gaji Bersih</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            Rp. {{ number_format($user->dataPekerjaan->gaji_bersih) }}
+                            Rp. {{ number_format($user->dataPekerjaan->gaji_bersih ?? 0) }}
                         </div>
                     </div>
                 </div>                    
@@ -615,7 +615,7 @@
                     <label class="col-sm-3 control-label"><strong>Potongan Gaji Terakhir</strong></label>
                     <div class="col-sm-3">
                         <div class="fg-line">
-                            RP. {{ number_format($user->dataPekerjaan->potongan_gaji_terakhir) }}
+                            RP. {{ number_format($user->dataPekerjaan->potongan_gaji_terakhir ?? 0) }}
                         </div>
                     </div>
                 </div>                    

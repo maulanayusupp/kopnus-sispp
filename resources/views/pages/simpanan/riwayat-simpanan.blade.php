@@ -20,6 +20,7 @@
                 </tr>
             </thead>
             <tbody>
+                @if($tabungan && $tabungan->simpanan)
                 @foreach($tabungan->simpanan as $simpan)
                     <tr>
                         <td>{{ $simpan->id }}</td>
@@ -39,6 +40,7 @@
                         </td>
                     </tr>
                 @endforeach
+                @endif
             </tbody>
         </table>
     </div>
