@@ -19,29 +19,14 @@ class UsersSeeder extends Seeder
 			'role' => 'admin',
 			'status' => 'aktif',
 		]);
-		// sample member id 2
-		/*App\User::create([
-			'name' => 'Bella Syifa',
-			'email' => 'bella@gmail.com',
+
+		// sample member
+		App\User::create([
+			'name' => '',
+			'email' => 'member@gmail.com',
 			'password' => bcrypt('member'),
 			'role' => 'member',
 			'status' => 'aktif',
-		]);*/
-		// sample member id 2
-		/*App\User::create([
-			'name' => 'Mitamufida',
-			'email' => 'mitamufida@gmail.com',
-			'password' => bcrypt('member'),
-			'role' => 'member',
-			'status' => 'aktif',
-		]);*/
-		// sample member id 4
-		// App\User::create([
-		// 	'name' => '',
-		// 	'email' => 'tahu@gmail.com',
-		// 	'password' => bcrypt('member'),
-		// 	'role' => 'member',
-		// 	'status' => 'belum-aktif',
-		// ]);
+		]);
     }
 }
